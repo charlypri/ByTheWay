@@ -32,8 +32,3 @@
         {/if}
     </div>
 {/if}
-
-<!-- Un lector de pantalla también anuncia la tarjeta del Anuncio. -->
-<div class="sr-only" aria-live="polite">
-    {#if app.card && !app.narration}{app.t('nearYou')}: {app.text(app.card.poi).title}{/if}
-</div>

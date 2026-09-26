@@ -229,7 +229,7 @@ Contenido de la pantalla:
 
 | Métrica | Objetivo |
 |---|---|
-| JS inicial (gzip) | ≤ 350 KB, incluido MapLibre. Los mocks y la prueba de voz no se cargan en la app |
+| JS inicial (gzip) | ≤ 350 KB, incluido MapLibre, que con el SDK ya ocupa 315 KB. Lo comprueba la CI (`npm run size`). La burbuja, la ficha, los paneles, los avisos, los ajustes y el Modo bolsillo se cargan a demanda. Los mocks y la prueba de voz no se cargan en la app |
 | Primera pintura del mapa en 4G | < 2,5 s |
 | Coste de una posición GPS | < 4 ms de trabajo en el hilo principal (distancias a 120 POIs y una actualización de fuente) |
 | Pintado de los POIs | la fuente del mapa solo se actualiza cuando cambia un estado, no en cada posición |
@@ -238,7 +238,7 @@ Contenido de la pantalla:
 ## 13. PWA y offline
 
 - **Instalación:** manifest con nombre "Bytheway", iconos y color de tema. Se puede usar desde el navegador o instalada.
-- **Service worker:** precarga la app. Los KML usan *stale-while-revalidate*. Las teselas y estilos de TomTom no se precargan; solo quedan en la caché del navegador las ya vistas.
+- **Service worker:** precarga la app (la lista exacta de ficheros la genera el build). Una versión nueva de la app se instala en segundo plano y se usa al volver a abrirla. Los KML van primero a la red y, sin ella, a la última copia, para que una versión nueva llegue en menos de 30 min. Las tipografías se guardan al verlas. Las teselas y estilos de TomTom no se precargan; solo quedan en la caché del navegador las ya vistas.
 - **Wake Lock:** se pide al empezar y se re-adquiere en `visibilitychange`.
 
 ## 14. Limitaciones conocidas

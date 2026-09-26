@@ -30,6 +30,7 @@ jobs:
             - run: npm run build
               env:
                   TOMTOM_API_KEY: ${{ secrets.TOMTOM_API_KEY }}
+            - run: npm run size
             - if: github.event_name != 'pull_request'
               uses: actions/upload-pages-artifact@v4
               with:

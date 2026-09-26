@@ -1,4 +1,5 @@
-import { cpSync, readdirSync, writeFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { cpSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import type { Plugin } from 'vite';
 import { defineConfig } from 'vitest/config';
@@ -28,15 +29,51 @@ const publishData = (): Plugin => ({
     },
 });
 
+interface ManifestChunk {
+    file: string;
+    css?: string[];
+    assets?: string[];
+    imports?: string[];
+    dynamicImports?: string[];
+}
+
+/**
+ * Genera dist/sw.js con la lista exacta de ficheros de la app: todo lo que cuelga de index.html en el
+ * manifiesto del build (chunks, CSS, el worker de MapLibre), más el manifest y los iconos de public/.
+ */
+const serviceWorker = (): Plugin => ({
+    name: 'service-worker',
+    apply: 'build',
+    closeBundle() {
+        const dist = resolve(import.meta.dirname, 'dist');
+        const manifest = JSON.parse(readFileSync(resolve(dist, '.vite/manifest.json'), 'utf8')) as Record<string, ManifestChunk>;
+        const files = new Set<string>(['', 'manifest.webmanifest', ...readdirSync(resolve(dist, 'icons')).map((f) => `icons/${f}`)]);
+        const visit = (key: string) => {
+            const chunk = manifest[key];
+            if (!chunk || files.has(chunk.file)) return;
+            files.add(chunk.file);
+            [...(chunk.css ?? []), ...(chunk.assets ?? [])].forEach((f) => files.add(f));
+            [...(chunk.imports ?? []), ...(chunk.dynamicImports ?? [])].forEach(visit);
+        };
+        visit('index.html');
+        const list = [...files].sort();
+        const template = readFileSync(resolve(import.meta.dirname, 'sw/sw.js'), 'utf8');
+        // Los nombres llevan el hash de su contenido: si cambia un fichero, cambia la versión.
+        const version = createHash('sha256').update(template).update(list.join(' ')).digest('hex').slice(0, 12);
+        writeFileSync(resolve(dist, 'sw.js'), template.replace('__VERSION__', version).replace('__PRECACHE__', JSON.stringify(list, null, 4)));
+    },
+});
+
 const page = (path: string) => resolve(import.meta.dirname, path);
 
 export default defineConfig({
     base: BASE,
     envPrefix: ['VITE_', 'TOMTOM_'],
-    plugins: [svelte(), publishData()],
+    plugins: [svelte(), publishData(), serviceWorker()],
     // MapLibre usa campos de clase nativos; sin esnext sus workers fallan en silencio.
     build: {
         target: 'esnext',
+        manifest: true,
         rollupOptions: {
             input: {
                 app: page('index.html'),
