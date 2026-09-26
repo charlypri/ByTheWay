@@ -36,5 +36,12 @@ const app = new GuideApp({
 
 mount(App, { target: document.getElementById('app')!, props: { app } });
 
+// Service worker: la app funciona sin red (sección 13). Solo en el build, para no cachear el desarrollo.
+if (import.meta.env.PROD && 'serviceWorker' in navigator) {
+    void navigator.serviceWorker.register(`${import.meta.env.BASE_URL}sw.js`, { updateViaCache: 'none' }).catch(() => {
+        // sin service worker, la app funciona igual con red
+    });
+}
+
 // Para depurar desde la consola; no llega al build de producción.
 if (import.meta.env.DEV) (window as unknown as { app: GuideApp }).app = app;

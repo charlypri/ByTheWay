@@ -1,11 +1,8 @@
 <script lang="ts">
     import { onMount, tick } from 'svelte';
-    import type { App } from './app/app.svelte';
-    import Bubble from './ui/Bubble.svelte';
+    import { FAR_AWAY_M, type App } from './app/app.svelte';
     import Dock from './ui/Dock.svelte';
-    import GuidePanel from './ui/GuidePanel.svelte';
     import MapControls from './ui/MapControls.svelte';
-    import Notice from './ui/Notice.svelte';
     import StartScreen from './ui/StartScreen.svelte';
     import Toast from './ui/Toast.svelte';
 
@@ -19,7 +16,12 @@
     let settingsReturn: HTMLElement | null = null;
     const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
 
-    // Los ajustes no hacen falta para la primera pintura: se cargan al abrirlos.
+    // Lo que no hace falta para la primera pintura se carga cuando se necesita (presupuesto de la
+    // sección 12). El service worker lo tiene en caché, así que llega al momento.
+    const panel = () => import('./ui/GuidePanel.svelte');
+    const notice = () => import('./ui/Notice.svelte');
+    const bubble = () => import('./ui/Bubble.svelte');
+    const needsNotice = $derived(!!app.positionError || (app.nearest?.distance ?? 0) > FAR_AWAY_M);
     const loadSettings = () => import('./ui/Settings.svelte');
     let Settings = $state<Awaited<ReturnType<typeof loadSettings>>['default'] | null>(null);
 
@@ -83,11 +85,17 @@
 {#if app.mapReady}
     <div inert={modal || pre}>
         <MapControls {app} onSettings={openSettings} />
-        <Bubble {app} hidden={pre} />
+        {#if app.selected}
+            {#await bubble() then { default: Bubble }}<Bubble {app} hidden={pre} />{/await}
+        {/if}
     </div>
     <Dock {app} inert={modal || pre || !!app.sheet}>
-        <Notice {app} />
-        <GuidePanel {app} paused={app.pocket} />
+        {#if needsNotice}
+            {#await notice() then { default: Notice }}<Notice {app} />{/await}
+        {/if}
+        {#if app.panel !== 'none'}
+            {#await panel() then { default: GuidePanel }}<GuidePanel {app} paused={app.pocket} />{/await}
+        {/if}
     </Dock>
     <!-- La ficha y el Modo bolsillo tampoco hacen falta para la primera pintura. -->
     {#if app.sheet}
@@ -114,3 +122,8 @@
 {/if}
 
 <Toast {app} />
+
+<!-- Un lector de pantalla también anuncia la tarjeta del Anuncio. -->
+<div class="sr-only" aria-live="polite">
+    {#if app.card && !app.narration}{app.t('nearYou')}: {app.text(app.card.poi).title}{/if}
+</div>
