@@ -15,9 +15,11 @@ En desarrollo hacia la **v0.1.0**. El trabajo se sigue en el milestone [v0.1.0](
 
 1. En Google Earth Pro, guarda cada lugar como marca de posición, con su nombre y su descripción. **La distancia de la vista guardada es el radio de acción**: aleja la cámara hasta la distancia a la que quieras que salte el aviso y guarda la vista.
 2. Exporta la carpeta como `.kml` (no `.kmz`).
-3. Sube el fichero a [`data/`](data/) con el nombre `<conjunto>.es.kml`. Para la versión en inglés, duplica la carpeta en Google Earth, traduce los textos **sin mover los puntos** y súbela como `<conjunto>.en.kml`.
+3. Sube el fichero a [`data/`](data/) desde la web de GitHub (*Add file → Upload files*, en la rama `main`) con el nombre `<conjunto>.es.kml`. Para la versión en inglés, duplica la carpeta en Google Earth, traduce los textos **sin mover los puntos** y súbela como `<conjunto>.en.kml`.
 
-La app descarga los KML al arrancar: no hace falta desplegar nada para que los cambios lleguen a los móviles.
+Puedes tener varios conjuntos (`retiro.es.kml`, `rioja.es.kml`…): la app los suma. Un fichero sin `.es` o `.en` antes de `.kml` no se carga. Si un mismo punto aparece en dos ficheros, vale el del fichero que va antes por orden alfabético.
+
+Al subir un fichero se publica solo en un par de minutos (pestaña *Actions*), y los móviles que tengan la app abierta lo reciben en menos de 30 minutos. No hace falta tocar nada más.
 
 ## Desarrollo
 

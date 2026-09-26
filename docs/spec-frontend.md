@@ -179,10 +179,12 @@ Contenido de la pantalla:
 
 ## 8. Datos
 
-- **Carga:** los ficheros `data/<conjunto>.<es|en>.kml` del repo se descargan al arrancar y cada 30 min (ADR 0004). Varios ficheros del mismo idioma se suman.
+- **Carga:** los ficheros `data/<conjunto>.<es|en>.kml` del repo se descargan al arrancar, cada 30 min y al volver a la app si pasaron más de 30 min (ADR 0004). La lista de ficheros es `data/index.json`, que genera el despliegue. Un fichero sin `.es` o `.en` delante de `.kml` no se carga.
+- **Varios ficheros** del mismo idioma se suman. Si un POI aparece en dos, gana el del fichero que va antes por orden alfabético.
+- **Sin red o con un fichero roto:** se usa la última versión buena de cada fichero, guardada en el dispositivo. Si un fichero falla, los demás se cargan igual.
 - **Emparejamiento:** por coordenadas, con tolerancia ≤ 1 m (ADR 0003). El castellano define qué POIs existen; el inglés solo aporta los textos.
 - **Identidad del POI:** sus coordenadas redondeadas a 5 decimales. La Sesión y los Escuchados se guardan con esa clave.
-- **Datos imperfectos:** se aceptan descripciones vacías, POIs de un solo párrafo y puntos de test. No hay informe para el Editor.
+- **Datos imperfectos:** se aceptan descripciones vacías, POIs de un solo párrafo y puntos de test. Una descripción con formato HTML se muestra como texto. Un POI sin vista guardada tiene un radio de 30 m. No hay informe para el Editor.
 - **Versión nueva:** se aplica en cuanto no hay una Narración en curso, sin interrumpir nada.
 
 ## 9. Idiomas y textos
