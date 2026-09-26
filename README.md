@@ -31,3 +31,8 @@ npm install
 npm run dev            # http://localhost:5173/ByTheWay/
 npm test
 ```
+
+GitHub Pages publica solo la app. Lo demás se abre en local con `npm run dev`:
+
+- Mock final, la referencia visual de la spec: http://localhost:5173/ByTheWay/mocks/final/
+- Prueba de voz (#2): http://localhost:5173/ByTheWay/probe/voz/. Para abrirla desde el móvil, `npm run dev -- --host` y la IP del ordenador en la misma Wi-Fi.

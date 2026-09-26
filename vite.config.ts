@@ -65,8 +65,6 @@ const serviceWorker = (): Plugin => ({
     },
 });
 
-const page = (path: string) => resolve(import.meta.dirname, path);
-
 /** Versión y commit, visibles en Ajustes para saber qué build se está probando. */
 function buildName() {
     const { version } = JSON.parse(readFileSync(resolve(import.meta.dirname, 'package.json'), 'utf8')) as { version: string };
@@ -85,20 +83,10 @@ export default defineConfig({
     define: { __BUILD__: JSON.stringify(buildName()) },
     plugins: [svelte(), publishData(), serviceWorker()],
     // MapLibre usa campos de clase nativos; sin esnext sus workers fallan en silencio.
+    // Solo se publica la app (index.html). El mock final y la prueba de voz se ven con `npm run dev`.
     build: {
         target: 'esnext',
         manifest: true,
-        rollupOptions: {
-            input: {
-                app: page('index.html'),
-                mocks: page('mocks/index.html'),
-                editorial: page('mocks/editorial/index.html'),
-                navegador: page('mocks/navegador/index.html'),
-                minima: page('mocks/minima/index.html'),
-                final: page('mocks/final/index.html'),
-                voz: page('probe/voz/index.html'),
-            },
-        },
     },
     worker: { format: 'es' },
     optimizeDeps: { esbuildOptions: { target: 'esnext' } },

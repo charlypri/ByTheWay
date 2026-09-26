@@ -229,7 +229,7 @@ Contenido de la pantalla:
 
 | Métrica | Objetivo |
 |---|---|
-| JS inicial (gzip) | ≤ 350 KB, incluido MapLibre, que con el SDK ya ocupa 315 KB. Lo comprueba la CI (`npm run size`). La burbuja, la ficha, los paneles, los avisos, los ajustes y el Modo bolsillo se cargan a demanda. Los mocks y la prueba de voz no se cargan en la app |
+| JS inicial (gzip) | ≤ 350 KB, incluido MapLibre, que con el SDK ya ocupa 315 KB. Lo comprueba la CI (`npm run size`). La burbuja, la ficha, los paneles, los avisos, los ajustes y el Modo bolsillo se cargan a demanda. Solo se publica la app: el mock final y la prueba de voz se abren en local con `npm run dev` |
 | Primera pintura del mapa en 4G | < 2,5 s |
 | Coste de una posición GPS | < 4 ms de trabajo en el hilo principal (distancias a 120 POIs y una actualización de fuente) |
 | Pintado de los POIs | la fuente del mapa solo se actualiza cuando cambia un estado, no en cada posición |

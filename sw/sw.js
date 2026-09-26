@@ -33,11 +33,8 @@ self.addEventListener('fetch', (event) => {
         const path = url.pathname.slice(SCOPE.pathname.length);
         // Los KML, primero de la red: una versión nueva tiene que llegar en menos de 30 minutos.
         if (path.startsWith('data/')) return event.respondWith(networkFirst(request, DATA_CACHE));
-        // La app arranca sin red; los mocks y la prueba de voz no se sirven desde la caché.
-        if (request.mode === 'navigate') {
-            if (path === '' || path === 'index.html') return event.respondWith(cacheFirst(new Request(SCOPE), APP_CACHE));
-            return;
-        }
+        // La app arranca sin red: cualquier navegación dentro del scope abre la app.
+        if (request.mode === 'navigate') return event.respondWith(cacheFirst(new Request(SCOPE), APP_CACHE));
         return event.respondWith(cacheFirst(request, APP_CACHE));
     }
 

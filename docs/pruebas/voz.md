@@ -2,7 +2,7 @@
 
 Comprueba si la voz que trae el móvil vale para Bytheway, o si hacen falta audios MP3 pregenerados. La página de prueba hace lo mismo que la app: dice el Anuncio (solo el título) y lee la Narración frase a frase.
 
-**Página:** https://charlypri.github.io/ByTheWay/probe/voz/
+**Página:** en local, con `npm run dev -- --host`, en `http://<IP del ordenador>:5173/ByTheWay/probe/voz/` (GitHub Pages solo publica la app).
 
 ## Con qué se prueba
 
