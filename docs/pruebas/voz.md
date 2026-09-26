@@ -56,3 +56,7 @@ Se decidió antes de ver los resultados:
 - **Si la calidad es regular** («Regular» o «Con esfuerzo»), se queda Web Speech y se abre una issue para estudiar los MP3 después.
 
 La decisión queda en un ADR en `docs/adr/`.
+
+## Resultado
+
+Probado el 26 de septiembre de 2026 en Android (Chrome) e iPhone (Safari e instalada): todo bien. Se queda Web Speech ([ADR 0005](../adr/0005-voz-con-web-speech.md)).
