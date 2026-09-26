@@ -1,0 +1,48 @@
+name: CI y despliegue
+
+on:
+    push:
+        branches: [main, fase-0]
+    pull_request:
+    workflow_dispatch:
+
+permissions:
+    contents: read
+    pages: write
+    id-token: write
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v5
+            - uses: actions/setup-node@v5
+              with:
+                  node-version: 24
+                  cache: npm
+            - run: npm ci
+            - run: npm run check
+            - run: npm test
+            - run: npm run build
+              env:
+                  TOMTOM_API_KEY: ${{ secrets.TOMTOM_API_KEY }}
+            - if: github.event_name != 'pull_request'
+              uses: actions/upload-pages-artifact@v4
+              with:
+                  path: dist
+
+    # Publica en Pages desde main y, mientras dure la Fase 0, desde la rama de la PR para revisar los mocks en el móvil.
+    deploy:
+        if: github.event_name != 'pull_request'
+        needs: build
+        runs-on: ubuntu-latest
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+        steps:
+            - id: deployment
+              uses: actions/deploy-pages@v4

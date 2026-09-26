@@ -1,0 +1,3784 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>spain.kmz</name>
+	<open>1</open>
+	<atom:link rel="app" href="https://www.google.com/earth/about/versions/#earth-pro" title="Google Earth Pro 7.3.7.1327"></atom:link>
+	<StyleMap id="m_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="m_ylw-pushpin0000">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin000</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl000</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="m_ylw-pushpin01">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin0000</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl100</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="m_ylw-pushpin10">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin100</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl01</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="m_ylw-pushpin11">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin10</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl02</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_A">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_A</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_A10</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_A0">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_A11</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_A</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_A00">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_A2</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_A9</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_A000">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_A10</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_A01</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_A01">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_A00</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_A3</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_A02">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_A7</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_A5</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_A1">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_A4</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_A000</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_A10">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_A0</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_A21</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_A2">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_A5</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_A2</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_A20">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_A1</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_A00</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_A21">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_A010</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_A500</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_A3">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_A70</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_A50</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_A30">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_A22</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_A7</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_A4">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_A000</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_A1</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_A40">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_A9</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_A40</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_A400">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_A90</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_A400</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_A5">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_A50</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_A8</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_A6">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_A3</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_A20</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_A7">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_A6</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_A0</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_A70">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_A21</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_A6</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_A8">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_A8</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_A4</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_B">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_B</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_B</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_parks">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_parks1</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_parks1</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_parks0">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_parks</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_parks3</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_parks00">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_parks01</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_parks2</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_parks01">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_parks0</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_parks</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_parks1">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_parks00</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_parks0</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin1</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin0</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_ylw-pushpin0">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_ylw-pushpin01">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin2</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin00</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_ylw-pushpin1">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin0</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin01</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_ylw-pushpin200">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin1100</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin20</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="s_ylw-pushpin">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Style id="s_ylw-pushpin000">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="s_ylw-pushpin0000">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="s_ylw-pushpin10">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="s_ylw-pushpin100">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="s_ylw-pushpin_hl">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Style id="s_ylw-pushpin_hl000">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="s_ylw-pushpin_hl01">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="s_ylw-pushpin_hl02">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="s_ylw-pushpin_hl100">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_A">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_A0">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_A00">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_A000">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_A01">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_A1">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_A10">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_A2">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_A20">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_A21">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_A3">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_A4">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_A40">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_A400">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_A5">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_A50">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_A500">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_A6">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_A7">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_A8">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_A9">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_B">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/B.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/B-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sh_parks">
+		<IconStyle>
+			<scale>1.4</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/parks.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+	</Style>
+	<Style id="sh_parks0">
+		<IconStyle>
+			<scale>1.4</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/parks.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+	</Style>
+	<Style id="sh_parks1">
+		<IconStyle>
+			<scale>1.4</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/parks.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+	</Style>
+	<Style id="sh_parks2">
+		<IconStyle>
+			<scale>1.4</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/parks.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+	</Style>
+	<Style id="sh_parks3">
+		<IconStyle>
+			<scale>1.4</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/parks.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+	</Style>
+	<Style id="sh_ylw-pushpin">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Style id="sh_ylw-pushpin0">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Style id="sh_ylw-pushpin00">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Style id="sh_ylw-pushpin01">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Style id="sh_ylw-pushpin20">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Style id="sn_A">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_A0">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_A00">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_A000">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_A010">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_A1">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_A10">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_A11">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_A2">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_A21">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_A22">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_A3">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_A4">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_A5">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_A50">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_A6">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_A7">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_A70">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_A8">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_A9">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_A90">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/A-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_B">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/B.png</href>
+			</Icon>
+			<hotSpot x="32" y="1" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<ListStyle>
+			<ItemIcon>
+				<href>http://maps.google.com/mapfiles/kml/paddle/B-lv.png</href>
+			</ItemIcon>
+		</ListStyle>
+	</Style>
+	<Style id="sn_parks">
+		<IconStyle>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/parks.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+	</Style>
+	<Style id="sn_parks0">
+		<IconStyle>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/parks.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+	</Style>
+	<Style id="sn_parks00">
+		<IconStyle>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/parks.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+	</Style>
+	<Style id="sn_parks01">
+		<IconStyle>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/parks.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+	</Style>
+	<Style id="sn_parks1">
+		<IconStyle>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/parks.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+	</Style>
+	<Style id="sn_ylw-pushpin">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Style id="sn_ylw-pushpin0">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Style id="sn_ylw-pushpin1">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Style id="sn_ylw-pushpin1100">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Style id="sn_ylw-pushpin2">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Placemark>
+		<name>Monumento a la Reina María Cristina de Borbón.</name>
+		<description>Monumento dedicado a la cuarta esposa de Fernando séptimo, María Cristina de Borbón Dos Sicilias, y reina regente a la muerte de su marido, en 1833, de su hija Isabel segunda.
+
+El monumento fue una iniciativa, medio siglo después, amparada por por otra reina regente, María Cristina de Habsburgo, viuda de Alfonso doce. 
+
+En la estatua, la reina lleva en su mano derecha el Estatuto Real de 1834, que significó el comienzo del fin del estado absolutista y el lento nacimiento del estado liberal. 
+
+La estatua fue obra de Mariano Benlliure, que disponía de un presupuesto de 150000 pesetas, y fue inaugurada en 1893.
+
+Por cierto, el enrejado dispone de una cerradura, cuya llave, fue entregada el día de la inauguración al alcalde de Madrid.</description>
+		<LookAt>
+			<longitude>-3.690524524862318</longitude>
+			<latitude>40.4152077082386</latitude>
+			<altitude>0</altitude>
+			<heading>-1.32031446125708</heading>
+			<tilt>27.05261712217233</tilt>
+			<range>190.5928008611273</range>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</LookAt>
+		<styleUrl>#m_ylw-pushpin11</styleUrl>
+		<gx:balloonVisibility>1</gx:balloonVisibility>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-3.690468892481016,40.4152477925516,0</coordinates>
+		</Point>
+	</Placemark>
+	<Folder>
+		<name>MADRID RETIRO</name>
+		<LookAt>
+			<longitude>-3.686089879872841</longitude>
+			<latitude>40.41512178376659</latitude>
+			<altitude>0</altitude>
+			<heading>-4.820483994982812</heading>
+			<tilt>13.00159860770009</tilt>
+			<range>527.3808179063988</range>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</LookAt>
+		<Placemark>
+			<name>Casa Árabe y Antiguas Escuelas Aguirre</name>
+			<open>1</open>
+			<description>Las Escuelas Aguirre son una construcción de estilo neomudejar que data de 1881.
+
+Fue una iniciativa del filántropo Lucas Aguirre y Juárez, que a su muerte, donó parte de su fortuna para el desarrollo de centros educativos. Fruto de lo cual, se construyó este centro.
+
+Actualmente, es la sede de la Casa Árabe, dentro de la red de Casas del Ministerior de Asuntos Exteriores del gobierno de España.
+
+Por cierto, fue un centro adelantado a su tiempo, la torre central albergaba un centro de observación meteorológica para los alumnos del centro.</description>
+			<LookAt>
+				<longitude>-3.681722770683957</longitude>
+				<latitude>40.42169369098181</latitude>
+				<altitude>0</altitude>
+				<heading>-6.58829460533508</heading>
+				<tilt>19.81346552203281</tilt>
+				<range>50</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A2</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.681722222222222,40.42169444444444,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Ruinas de la Ermita de San Pelayo y San Isidoro</name>
+			<description>Restos de la antigua Iglesia románica del siglo 11 procedente de la ciudad de Avila, y traídos al parque del Retiro.
+
+Esta iglesia, o ermita, pertenecía en su ubicación original a la asociacion de labradores, y fue en ese periodo, cuando ya llegó al estado ruinoso, siendo requerido por el ayuntamiento de Avila su derribo. Dicho derribo no se realizó hasta 1876, con la desamortización, y los restos fueron adquiridos por un empresario abulense, Emiliano Rotondo Nicolau, que las vendió posteriormente a la Real Academia de la Historia que proyectó ubicarlas en los jardines del museo arquelógico. Aunque finalmente fueron cedidas al ayuntamiento de Madrid que las instaló en su situación actual en 1897.
+
+Inicialmente, esta ermita se consagró en honor de San Pelayo, el niño mártir, pero en el año 1232, cambió su advocación por por la de San Isidoro. Esto fue debido al auge que adquirió, pues aquí descansaron los restos del santo en su traslado definitivo a la actual Real Basílica y Panteón de San Isidoro, en Leon.
+
+Aunque ya debió existir una construcción prerrománica en el siglo 11, es en 1162 cuando la construcción es reformada a un estilo románico, concretamente al románico jaqués, dejando ya olviado el estilo Mozárabe previo. Esta corriente artística, de origen europeo, hace su entrada en España a través de la ciudad de Jaca, de ahí su nombre.
+
+Construcciones similares de la zona de Avila son: la ermita de San Andrés y la Basílica de San Vicente.
+
+Por cierto, en su nueva ubicación la cabecera de la ermita está orientada hacia el Sur cuando en todas las iglesias románicas era habitual la orientación hacia el Este.</description>
+			<LookAt>
+				<longitude>-3.680359525162959</longitude>
+				<latitude>40.42056255394555</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>30</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A02</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.680359525162959,40.42056255394555,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Benito Pérez Galdós</name>
+			<description>Estatua en homenaje al escritor Benito Pérez Galdós, considerado el mejor novelista de todos los tiempos, detrás de Cervantes.
+
+El monumento se inauguró en 1919 con presencia del propio escritor, que murió un año después.</description>
+			<LookAt>
+				<longitude>-3.680163281315436</longitude>
+				<latitude>40.41209087374877</latitude>
+				<altitude>0</altitude>
+				<heading>-0.000199451398919599</heading>
+				<tilt>28.06403625232374</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A400</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.680166672545923,40.41208743989358,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Biblioteca Popular</name>
+			<description>La iniciativa de las bibliotecas circulantes es, en Madrid, de 1919, imitando iniciativas similares de otras ciudades.
+En el año 1936 llegó a haber hasta 6 pero actualmente sólo quedan dos en el parque.
+Inicialmente no tenían ningún tipo de vigilancia pero pronto hubo que añadir un cierre metálico y un funcionario que administraba el préstamo.
+Por cierto, actualmente no dispone de libros.</description>
+			<LookAt>
+				<longitude>-3.680081253049287</longitude>
+				<latitude>40.41214859427924</latitude>
+				<altitude>0</altitude>
+				<heading>-4.583077089739379e-05</heading>
+				<tilt>28.06399145350203</tilt>
+				<range>19.93120545110233</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin01</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.680079174593089,40.4121487366796,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Puerta de Hernani</name>
+			<description>La puerta actual data de 1943. 
+
+Fue proyectada por el jardinero Cecilio Rodriguez, para dar mayor monumentalidad a la anteriormente ubicada en este lugar, desde 1888.</description>
+			<LookAt>
+				<longitude>-3.686189354578385</longitude>
+				<latitude>40.42037725928915</latitude>
+				<altitude>0</altitude>
+				<heading>-18.49481493131669</heading>
+				<tilt>26.71171035334935</tilt>
+				<range>30</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A02</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.6861431305987,40.42035278976188,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Puerta de la Independencia</name>
+			<description>Es la puerta principal de acceso al parque del Retiro.
+Data del año 1885 como parte del proyecto de cerramiento del parque.</description>
+			<LookAt>
+				<longitude>-3.687968314233969</longitude>
+				<latitude>40.41967439947467</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>60</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A02</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.687968314233969,40.41967439947467,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Puerta de España</name>
+			<description>Esta puerta fue diseñada en 1893 por el arquitecto José Urioste y Velada.
+Sobre el arco principal presenta el escudo republicano que curiosamente ha perduraro hasta nuestros días.</description>
+			<LookAt>
+				<longitude>-3.688643223313362</longitude>
+				<latitude>40.41670801004765</latitude>
+				<altitude>0</altitude>
+				<heading>-0.001955307538056034</heading>
+				<tilt>24.15084223685188</tilt>
+				<range>50</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A0</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.688676297300572,40.41668156199064,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Puerta de Murillo</name>
+			<description>Puerta que da acceso al parque del Retiro y que data del año 1895.
+
+Recibe este nombre debido a que puede verse la estatua del pintor Murillo, que se encuentra a 300metros,
+junto a la entrada Sur del museo del Prado.</description>
+			<LookAt>
+				<longitude>-3.688656604721144</longitude>
+				<latitude>40.41280849959517</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>30</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin0000</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.688656604721144,40.41280849959517,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Puerta de Felipe Cuarto</name>
+			<description>Debe su nombre a su proximidad a la calle con el mismo nombre pero nada tiene que ver con este rey, más bien, con su nuera. 
+
+Fue construida en 1680, reinando Carlos Segundo, para celebrar la llegada a Madrid de su primera esposa Maria Luisa de Orleans, de origen francés, pero visto que falleció nueve años después bastaron unos pequeños retoques y nuevas inscripciones para celebrar también la entrada de su segunda mujer: Mariana de Neoburgo, en 1690, procedente de Alemania.
+
+La piedra labrada corresponde a la afamada piedra de Tamajón, en Guadalajara, una caliza de gran calidad y cierto tono anaranjado que estuvo de moda en los siglos dieciséis y diecisiete.
+
+La ubicación original de esta puerta coincidia con los límites del parque del retiro en aquella época, exactamente en la actual plaza de Canalejas. No fue hasta 1922 cuando ocupó su emplazamiento actual.</description>
+			<LookAt>
+				<longitude>-3.688238940535318</longitude>
+				<latitude>40.41525011357082</latitude>
+				<altitude>0</altitude>
+				<heading>-0.002461955926606625</heading>
+				<tilt>19.81075261819593</tilt>
+				<range>50</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A0</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.688656797164456,40.41531370316049,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Puerta de Madrid</name>
+			<description>Data del último tercio del siglo 19. Y da acceso al paso de coches, o, como era conocido anteriormente, al paseo de carruajes.</description>
+			<LookAt>
+				<longitude>-3.681827119933239</longitude>
+				<latitude>40.42111968188455</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>30</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin01</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.681827119933239,40.42111968188455,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Puerta de Dante</name>
+			<description>Puerta de Dante.
+Puerta en homenaje al escritor florentino Dante Alighieri.
+El mural que preside esta entrada fue inciativa de la comunidad de editores italianos en Madrid en 1968.</description>
+			<LookAt>
+				<longitude>-3.677732966792479</longitude>
+				<latitude>40.40948975404471</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>30</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A02</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.677732966792479,40.40948975404471,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Escultura del Ángel Caído</name>
+			<description>Realizada por Ricardo Bellver en 1877. 
+
+Es una obra centrada en la figura de Lucifer según el poema de John Milton &quot;El Paraíso Perdido&quot;.
+
+Tras viajar a la exposición Universal de Paris de 1878, se decide su ubicación definitiva en el parque del retiro. 
+
+En 1885, se inaugura el conjunto actual, formado por una fuente y un pedestal, donde en cada uno de sus 8 lados aparece la figura, en bronce, de un diablo sujetando diversos animales.
+
+Por cierto, la altura sobre el nivel del mar de este punto es de 666 metros.</description>
+			<LookAt>
+				<longitude>-3.682531453595642</longitude>
+				<latitude>40.41104973134761</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>50</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A6</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.682531453595642,40.41104973134761,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Puerta del Ángel Caído</name>
+			<description>La puerta actual sustituye, desde el año 2000, a una anterior puerta de servicio.</description>
+			<LookAt>
+				<longitude>-3.68839583025884</longitude>
+				<latitude>40.40970453127829</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>30</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin01</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.68839583025884,40.40970453127829,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>La Rosaleda</name>
+			<description>Data de 1915 y es obra del Jardinero Mayor del Reino, Cecilio Rodriguez.
+
+Con anterioridad, en este lugar, se encontraba un estanque que al helarse servía de zona de patinaje para los madrileños. Pero se traslado a una zona más interior y sombría del parque para que el agua helada perdurase unos días más.
+
+Después se cubrió la zona para formar un invernadero de plantas exóticas, donación del Marqués de Salamanca en 1876.</description>
+			<LookAt>
+				<longitude>-3.680317326495768</longitude>
+				<latitude>40.41080048222501</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>70</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin0000</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.680317326495768,40.41080048222501,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Fuente del Fauno</name>
+			<description>Esta fuente forma pareja con la simetrica situada en esta misma rosaleda.
+Al parecer, son obra de Narciso Pascual y Colomer, y fueron diseñadas para el palacio del marqués de Salamanca.</description>
+			<LookAt>
+				<longitude>-3.680204819674968</longitude>
+				<latitude>40.41051035392515</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin01</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.680204819674968,40.41051035392515,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Noria de la Fábrica de Porcelana</name>
+			<description>Sobre estos terrenos se encontraba la Real Fábrica de Porcelana, fundada en 1760 por Carlos tercero. 
+
+Durante la guerra de independecia, las tropas francesas se instalaron el el parque. En concreto, la Real Fábrica de Porcelana fue utilizada como cuartel general. Y sobre la construcción, se añadieron baluartes defensivos.
+Tras los combates en Madrid en 1812 quedó destruida.
+
+Durante unas recientes excavaciones en la zona aparecieron elementos de la batalla y los restos de una noria, que surtía de agua a la fábrica en aquellos días. Lo que hoy se aprecia es esta noria restaurada.
+
+La Real Fábrica de Porcelana del Retiro se conocía popularmente por el sobrenombre de La China, por la calidad de sus productos. Las técnicas de fabricación fueron traidas por artesanos italianos y se guardaban con máximo secreto.
+
+Por cierto, aunque se tiende a responsabilizar a las tropas francesas de su destrucción, fueron las tropas inglesas las responsables, pues, el general Hill a su mando, ordenó la voldaura de la msima tras la rendicción de los soldados franceses.</description>
+			<LookAt>
+				<longitude>-3.683510344188576</longitude>
+				<latitude>40.41049297966126</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>30</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin10</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.683510344188576,40.41049297966126,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Federico Chueca</name>
+			<description>Busto en homenaje al compositor Federico Chueca, muy popular por sus obras de Zarzuela.
+El busto es del año 1909, un año después de su fallecimiento.</description>
+			<LookAt>
+				<longitude>-3.681126279992757</longitude>
+				<latitude>40.41096730551383</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A0</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.681126279992757,40.41096730551383,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Doctor Tolosa Latour</name>
+			<description>Busto, instalado en 1925, en memoria del doctor Manuel de Tolosa Latour, gran impulsor de la medicina infantil y de la Ley de protección infantil de 1904.
+
+Por cierto, su mujer, la famosa actriz Elisa Mendoza Tenorio, abandonó su carrera teatral de éxito, para convertirse en integrante destacada de las campañas de su marido.</description>
+			<LookAt>
+				<longitude>-3.681089421726338</longitude>
+				<latitude>40.41062158633643</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A400</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.681089421726338,40.41062158633643,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Puerta del Niño Jesús</name>
+			<description>Puerta de reciente construccion frente a la plaza del mismo nombre para completar el cerramiento del parque.</description>
+			<LookAt>
+				<longitude>-3.676651425700513</longitude>
+				<latitude>40.41126246874672</latitude>
+				<altitude>0</altitude>
+				<heading>-4.814333547864158</heading>
+				<tilt>28.77158999447479</tilt>
+				<range>50</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin01</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.676692437492786,40.41124926104361,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Miguel Moya</name>
+			<description>Monumento homenaje al periodista Miguel Moya Ojanguren (Madrid, 1856 – 1920).
+
+Fue el fundador y el primer presidente de la Asociación de la Prensa de Madrid.
+
+Por cierto, fue el suegro del doctor Gregorio Marañón.</description>
+			<LookAt>
+				<longitude>-3.679390487648228</longitude>
+				<latitude>40.41126130887201</latitude>
+				<altitude>0</altitude>
+				<heading>-16.68939347080871</heading>
+				<tilt>5.608914635421149</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A400</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.679384111456043,40.4111889909798,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Fuente de Cupido</name>
+			<description>Esta fuente forma pareja con la otra situada en esta misma rosaleda.
+
+Al parecer, son obra de Narciso Pascual y Colomer, y fueron diseñadas para el palacio del marqués de Salamanca.</description>
+			<LookAt>
+				<longitude>-3.680375156656598</longitude>
+				<latitude>40.41110675606702</latitude>
+				<altitude>0</altitude>
+				<heading>-2.433464731293401</heading>
+				<tilt>24.97952141744576</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_B</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.680394784433032,40.41106433355961,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Puerta de Mariano de Cavia</name>
+			<description>Puerta de Mariano de Cavia.
+Puerta de acceso al parque del Retiro en homenaje al periodista Mariano de Cavia, nacido en Zaragoza en 1855.
+Fue considerado el mejor columnista de su época. 
+Por cierto. 
+La lápida que aparece hoy en esta puerta, es de 1921, y  se encontraba sobre uno de los edificios de la plaza que lleva su nombre. EL edificio se derribó en 1975 y la lápida se rescató, meses después, entre el material de derribo.</description>
+			<LookAt>
+				<longitude>-3.678519403824685</longitude>
+				<latitude>40.40828753428275</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>30</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A02</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.678519403824685,40.40828753428275,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Puerta de Granada del Retiro</name>
+			<description>Puerta de reciente construcción (año 2000) para completar el cerramiento del parque.</description>
+			<LookAt>
+				<longitude>-3.676879557666202</longitude>
+				<latitude>40.41235167033867</latitude>
+				<altitude>0</altitude>
+				<heading>-4.814566016706368</heading>
+				<tilt>22.91519639832534</tilt>
+				<range>30</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin01</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.676879536386364,40.41232120533896,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Escultura de Campoamor</name>
+			<description>Homenaje a Ramón de Campoamor, dramaturgo Asturiano del siglo diecinueve.
+
+A esta escultura, que data de 1912, se le añadieron con posterioridad otras dos obras en bronce en referencia a dos de sus obras: quién supiera escribir, y el gaitero de Gijón.
+
+Por cierto, ambas esculturas fueron robadas y sólo una de ellas fue encontrada. El gaitero que actualente se ve, es una réplica del original. La otra figura, la encontró la policía, tiempo después, en el rastro de Madrid.</description>
+			<LookAt>
+				<longitude>-3.679815697548557</longitude>
+				<latitude>40.41310099489699</latitude>
+				<altitude>0</altitude>
+				<heading>-1.796260480355351</heading>
+				<tilt>24.3076253304885</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A400</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.679704168261572,40.4129221089784,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Hércules y la Hidra</name>
+			<description>Se trata de una escultura de 1650. Fue traida en tiempos de Carlos tercero desde el Palacio Real a estos jardines.
+
+Representa la escena mitológica de Hércules matando a la Hidra de Lerna con ayuda de su sobrino Yolao.
+
+En 1873 se abrió esta avenida para lo cual se talaron 122 árboles. De la tala, y por iniciativa del Conde de Toreno, se salvaron dos ejemplares magníficos de pino carrasco, que recibieron el nombre popular de los torenos. 
+
+Hoy queda sólo uno de ellos, de más de 220 años, el otro sucumbió a una tormeta y se ha sustituido por un ciprés del Libano.</description>
+			<LookAt>
+				<longitude>-3.679100833115668</longitude>
+				<latitude>40.41209913550005</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A10</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.679100833115668,40.41209913550005,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Dados de Hormigón</name>
+			<description>Dados de Hormigón.
+Sí. Se trata de una obra artística de 1982 denominada Cubos de la memoria del autor Agustín Ibarrola.</description>
+			<LookAt>
+				<longitude>-3.680879798056546</longitude>
+				<latitude>40.41408018566779</latitude>
+				<altitude>0</altitude>
+				<heading>-7.706659365905464</heading>
+				<tilt>12.86030188418796</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A40</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.680871013556308,40.4140520703839,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Juantxu Rodríguez</name>
+			<description>Busto de Juantxu Rodríguez.
+Periodista español muerto en 1989 durante las revueltas en Panamá.</description>
+			<LookAt>
+				<longitude>-3.688448035238999</longitude>
+				<latitude>40.41145691772969</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>10</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin0000</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.688448035238999,40.41145691772969,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Jacinto Benavente</name>
+			<description>Escultura homenaje al dramaturgo Jacinto Benavente, premio Nóbel de Literatura en 1922.
+
+Por cierto, está al lado del busto en recuerdo del pediatra, el doctor Benavente. Su padre.</description>
+			<LookAt>
+				<longitude>-3.686890840148606</longitude>
+				<latitude>40.41532385077103</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A20</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.686890840148606,40.41532385077103,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Doctor Benavente</name>
+			<description>Busto homenaje al pediatra Mariano Benavente. primer director e impulsor del Hospital infantil del Niño Jesús.
+
+El busto, realiado en marnol de Carrara, es de 1885.
+
+Por cierto, su hijo Jacinto, dramaturgo y Premio Nóbel de Literatura, dispone de una escultura homenaje a pocos metros.</description>
+			<LookAt>
+				<longitude>-3.686907089686251</longitude>
+				<latitude>40.41577696145131</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A20</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.686907089686251,40.41577696145131,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Fuente nueva de los Delfines del Parterre</name>
+			<description>Es una réplica que data del año 2001, de la original que databa de 1841.
+
+Forma parte de las reformas de ese año llevadas a cabo en el parque por el Jardinero Mayor del Palacio Real.
+
+Esta fuente es gemela de la simetrica ubicada en este parterre, pero mientras esta es una reconstrucción, aquella muestra perfectamente el paso del tiempo.</description>
+			<LookAt>
+				<longitude>-3.686555698326781</longitude>
+				<latitude>40.4149673014959</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A4</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.686555698326781,40.4149673014959,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Doctor Ángel Pulido Fernández</name>
+			<description>Busto en homenaje del doctor Ángel Pulido Fernández. Ilustre médico madrileño, dedicado a la lucha contra el Paludismo y la tuberculosis, pero también a la recuperación de los vinculos con las comunidades sefardíes por el mediterraneo.
+Fue senador vitalicio desde 1909, director General de Sanidad, Académico de Medicina, Presidente del Colegio de Médicos.</description>
+			<LookAt>
+				<longitude>-3.686896046466712</longitude>
+				<latitude>40.41486205648749</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A4</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.686896046466712,40.41486205648749,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Fuente de los Delfines del Parterre</name>
+			<description>Data de 1841.
+
+Forma parte de las reformas de ese año llevadas a cabo en el parque por el Jardinero Mayor del Palacio Real.
+
+Esta fuente es gemela de la simetrica ubicada en este parterre, pero mientras aquella es una reconstrucción, ésta muestra perfectamente el paso del tiempo.</description>
+			<LookAt>
+				<longitude>-3.686588543843877</longitude>
+				<latitude>40.4156650887066</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A4</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.686588543843877,40.4156650887066,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Ahuehuete del parterre</name>
+			<description>Se trata de un criprés calvo o ciprés de Montezuma.
+Es el árbol nacional de Méjico.
+Este ejemplar se cree que fue plantado en 1632 por lo que se trataría del árbol más antiguo de Madrid, casi 400 años de antigüedad.</description>
+			<LookAt>
+				<longitude>-3.688003143370894</longitude>
+				<latitude>40.41564109674848</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_parks00</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.688003143370894,40.41564109674848,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Estanque de las Campanillas</name>
+			<description>Este es uno de los pocos elementos que formaban parte del diseño original del parque en 1632.
+
+Contaba con aves acuáticas, gansos y cisnes. Así como de una torrecilla central -hoy desaparecida- que contaba con un conjunto de pequeñas campanas que sonaban con el viento. De ahí su nombre.</description>
+			<LookAt>
+				<longitude>-3.685951740829008</longitude>
+				<latitude>40.41591017839468</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>30</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A4</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.685951740829008,40.41591017839468,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Fernando IV</name>
+			<description>Rey de Castilla entre los años 1295 y 1312.
+
+Por cierto, lo denominaron a este rey como el emplazado, porque, según la leyenda, mandó ejecutar a dos hombres que clamaban su inocencia y emplazaron al rey a reencontrarse en un tribunal divino después de 30 días. Transcurrido ese plazo, el rey murió.</description>
+			<LookAt>
+				<longitude>-3.688164577206713</longitude>
+				<latitude>40.41681653662615</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>10</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A4</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.688164577206713,40.41681653662615,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sancho IV</name>
+			<description>Rey de Castilla entre los años 1284 y 1295.
+
+A la edad de 11 años desafió públicamente a su padre seguramente por un ataque de celos con Fernando, su hermano mayor y heredero. 
+
+Por cierto, le apodaron el bravo, aunque más bien, debería haber sido: el chulo. ¿Será causalidad que es el único rey que tiene dos estatuas en este espacio ?</description>
+			<LookAt>
+				<longitude>-3.687714186913362</longitude>
+				<latitude>40.41683967120238</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>10</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A4</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.687714186913362,40.41683967120238,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Enrique II</name>
+			<description>Rey de Castilla entre los años 1367 y 1379.</description>
+			<LookAt>
+				<longitude>-3.687193321192978</longitude>
+				<latitude>40.41687236254089</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>10</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A4</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.687193321192978,40.41687236254089,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>García I</name>
+			<description>Primer rey de León entre los años 910 y 914.</description>
+			<LookAt>
+				<longitude>-3.686750133907317</longitude>
+				<latitude>40.41689834310568</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>10</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A4</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.686750133907317,40.41689834310568,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Urraca I</name>
+			<description>Reina de León entre los años 1109 y 1126.</description>
+			<LookAt>
+				<longitude>-3.685818098669129</longitude>
+				<latitude>40.41700466915331</latitude>
+				<altitude>0</altitude>
+				<heading>-1.800343556188077</heading>
+				<tilt>29.99992049975008</tilt>
+				<range>10</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A400</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.686392691799465,40.41689949521017,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Berenguela</name>
+			<description>Reina de Castilla en 1217, exactamente durante 24 días, hasta que cedió el trono a su hijo Fernando Tercero de Castilla.</description>
+			<LookAt>
+				<longitude>-3.685742873059228</longitude>
+				<latitude>40.41695884997164</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>10</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A4</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.685742873059228,40.41695884997164,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Gundemaro</name>
+			<description>Rey Visigodo entre los años 610 y 612.</description>
+			<LookAt>
+				<longitude>-3.688153909935687</longitude>
+				<latitude>40.4166209815723</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>10</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A4</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.688153909935687,40.4166209815723,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Carlos I</name>
+			<description>Rey de España entre los años 1516 y 1556.
+
+Por cierto, a este rey, con uno de os imperios más grandes jamás conocidos, lo mató un mosquito, pues murió de paludismo por unas aguas estancadas en su retiro de Yuste.</description>
+			<LookAt>
+				<longitude>-3.687685351755691</longitude>
+				<latitude>40.41664962219156</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>10</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A4</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.68768535175569,40.41664962219156,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Carlos II</name>
+			<description>Rey de España desde el año1665 hasta 1700.
+
+La muerte de este rey sin descendencia significa el final de la Casa de Austria en España y, tras la guerra de Sucesión, el comienzo de los Borbones en España.
+
+Por cierto, el lamentable estado físico de este rey no se debía a la brujería, como se pensaba en esa época,  sino al sindrome de Klinefelte, una alteración cromosómica, posiblemente fruto de una excesiva cosanguineidad.</description>
+			<LookAt>
+				<longitude>-3.687167103620295</longitude>
+				<latitude>40.41669230687928</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>10</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A4</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.687167103620295,40.41669230687928,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Sancho IV</name>
+			<description>Rey de Castilla entre los años 1284 y 1295.
+
+A la edad de 11 años desafió públicamente a su padre seguramente por un ataque de celos con Fernando, su hermano mayor y heredero. 
+
+Por cierto, le apodaron el bravo, aunque más bien, debería haber sido: el chulo. ¿Será causalidad que es el único rey que tiene dos estatuas en este espacio ?</description>
+			<LookAt>
+				<longitude>-3.685158676297562</longitude>
+				<latitude>40.41681337591636</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>10</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A4</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.685158676297562,40.41681337591636,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Chintila</name>
+			<description>Rey visigodo entre los años 636 y 640.</description>
+			<LookAt>
+				<longitude>-3.686550565351995</longitude>
+				<latitude>40.41692460855531</latitude>
+				<altitude>0</altitude>
+				<heading>-1.80081987984801</heading>
+				<tilt>29.99906913874267</tilt>
+				<range>10</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A400</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.686387087663989,40.41673379518328,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Alfonso I</name>
+			<description>Rey de Aragón entre los años 1104 y 1134.
+
+Conocido con el sobrenombre de el batallador por sus innumerables batallas frente a los musulmanes.</description>
+			<LookAt>
+				<longitude>-3.685731066310339</longitude>
+				<latitude>40.41678105977226</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>10</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A400</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.685731066310339,40.41678105977226,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Ramón Berenguer IV</name>
+			<description>Conde de Barcelona y principe de Aragón entre los años 1131 y 1162.
+
+Por cierto, este rey fue caballero templario.</description>
+			<LookAt>
+				<longitude>-3.68674405381256</longitude>
+				<latitude>40.4167100355669</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>10</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A4</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.68674405381256,40.4167100355669,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Fuente de la Alcachofa</name>
+			<description>Data de 1781 como parte del proyecto de reurbanzacion y embellecimiento de la parte más occidental del Retiro -el actual paseo del Prado- por Carlos tercero. Su ubicación orginal era el la glorieta de Atocha, donde hoy hay una réplica, y no fue trasladada hasta su ubicación actual hasta 1877.
+
+El diseño es de Ventura Rodriguez, en un estilo barroco, y el nombre procede de la alcachofa que corona la fuente pero realmente hay división de opiniones sobre que representa exactamente este ornamento.
+
+El material para su construcción proviene de las canteras de Redueña en Madrid, también origen de la piedra de la famosa fuente de Cibeles.</description>
+			<LookAt>
+				<longitude>-3.684262366721433</longitude>
+				<latitude>40.41543357293099</latitude>
+				<altitude>0</altitude>
+				<heading>-1.736993609895864</heading>
+				<tilt>16.92246953239453</tilt>
+				<range>30.02451054681467</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A40</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.684244300668749,40.41541449126261,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Fuente de Isabel Segunda</name>
+			<description>También conocida como fuente de los galápagos.
+
+Su ubicación original fue en a Red de San Luis junto a la Gran vía, para celebrar el primer año de la futura reina Isabel segunda.
+
+Data de 1832 y es obra del arquitecto Francisco Javier de Marietegui y del escultor José Tomás.
+
+Inicialmente su funciónno era sólo ornamental y disponía de 12 caños para el suministro de agua a la población. Se trasladó después a la plaza de Santa Ana y finalmente, en 1879, a su actual ubicación.</description>
+			<LookAt>
+				<longitude>-3.685472307731266</longitude>
+				<latitude>40.41863546476634</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>30</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_ylw-pushpin</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.685472307731266,40.41863546476634,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Monolito de Francisco Morazán</name>
+			<description>Monolito en homenaje al General Francisco Morazán, lider hondureño de los insurgentes y presidente de la República Federal Centroamericana de 1827 a 1828, periodo turbulento que acabó con su derrocamiento.
+Este monolito fue un regalo de la embajada de Honduras a la villa de Madrid</description>
+			<LookAt>
+				<longitude>-3.684292541952836</longitude>
+				<latitude>40.41513973446214</latitude>
+				<altitude>0</altitude>
+				<heading>-3.663412602654485</heading>
+				<tilt>0</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A40</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.684365347162787,40.41515189800221,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Monolito de Francisco Solano</name>
+			<description>Monolito en homenaje al Mariscal Francisco Solano López. Fue el segundo presidente constitucional de la República del Paraguay, entre 1862 y 1870, y héroe nacional.
+
+El monolito representa su muerte durante la Guerra de la Triple Alianza.
+
+Se trata de un regalo de la embajada de Paraguay a la villa de Madrid.</description>
+			<LookAt>
+				<longitude>-3.684758527323076</longitude>
+				<latitude>40.41549565702371</latitude>
+				<altitude>0</altitude>
+				<heading>-3.663714709929199</heading>
+				<tilt>0</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A40</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.684765447342704,40.41553544949364,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Busto de Andrés Eloy Blanco</name>
+			<description>Busto en recuerdo de este poeta y político venezolano que fue instalado en el parque en 1975, coincidiendo con el 20 aniversario de su muerte.</description>
+			<LookAt>
+				<longitude>-3.682963062928146</longitude>
+				<latitude>40.41566869682133</latitude>
+				<altitude>0</altitude>
+				<heading>-3.662550661941018</heading>
+				<tilt>0</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A40</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.682693930779279,40.41555440073559,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Monumento a Alfonso XII</name>
+			<description>Grupo escultórico en homenaje al rey Alfonso Doce.
+Durante la regencia de su viuda, la reina Maria Cristina, se decidió la construcción de la estatua del fallecido rey. 
+Aunque la idea inicial era inaugurarlo en 1902 coincidiendo con la mayoría de edad del nuevo rey, Alfonso XIII, los diferentes retrasos hicieron que para esa fecha el rey tuvo que colocar la primera piedra del monumento en lugar de inaugurarlo.
+El arquitecto ganador del concurso convocado para realizar esta obra fue José Grases Riera, y contó con 24 artistas de primera línea para la ejecución.
+El elemento más destacado del conunto es la propia estatua equestre del rey obra de Mariano Benlliure.
+Las obras no se completaron hasta 1921, al parecer la suscripción popular no fue suficiente para cubrir los gastos y el proyecto se dilató en el tiempo.
+Por cierto, los cronistas no dicen si fue poca recaudación o mucho gasto.</description>
+			<LookAt>
+				<longitude>-3.683073121684595</longitude>
+				<latitude>40.41731205976117</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>50</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A02</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.683073121684595,40.41731205976117,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Laurel y Madroño</name>
+			<description>En 1976 como símbolo de hermanamiento entre las ciudad de Lloret de Mar y Madrid se plantaron un laurel y un madroño en esta glorieta.
+7  años más tarde, se colocó una placa conmemorativa de este homenaje.</description>
+			<LookAt>
+				<longitude>-3.681764254529906</longitude>
+				<latitude>40.41708578607538</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A000</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.681764254529906,40.41708578607538,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Fuente de la sardana</name>
+			<description>Escultura promovida por el círculo catalán de Madrid para reflejar la visita tradicional de los catalan en Madrid a este parque cada Domingo.
+Hasta hace no demasiado tiempo los domingos acudían a este punto diferente público para bailar el baile típico catalán: la sardana.
+Por cierto, por unos motivos o por otros ya cuesta mucho ver a nadie bailando sardanas en esta ubicación.</description>
+			<LookAt>
+				<longitude>-3.682043732260474</longitude>
+				<latitude>40.41711347510751</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A02</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.682043732260474,40.41711347510751,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Jacinto Verdaguer</name>
+			<description>Jacinto Verdaguer y Santaló (1845 - 1902).
+Uno de los mejores poetas españoles del siglo diecinueve. Toda su obra es en catalán. 
+
+Por cierto, cura franciscano, fue un reconocido exorcista a finales de siglo diecinueve, en Barcelona.</description>
+			<LookAt>
+				<longitude>-3.68171737652134</longitude>
+				<latitude>40.41719370382797</latitude>
+				<altitude>0</altitude>
+				<heading>-3.661743036724211</heading>
+				<tilt>0</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A1</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.681666647723598,40.41721141510221,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Santiago Ramón y Cajal</name>
+			<description>Escultura en homenaje al premio Nobel de Medicina por sus investigaciones sobre las células nerviosas.
+La escultura data de 1923 y fue iniciativa de la academia de medicina, como homenaje al investigador en su setenta aniversario.</description>
+			<LookAt>
+				<longitude>-3.680761517608749</longitude>
+				<latitude>40.41654433622367</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A21</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.680761517608749,40.41654433622367,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Diosa Hera</name>
+			<description>Escultura de la diosa Hera que data de 1750.
+
+Esta escultura se encuentra en esta ubicación sólo desde 2006, año en el que se trasladó aquí desde los jardines de Cecilio Rodriguez, para reponer una escultura anterior de un efebo y que desapareció misteriosamente.</description>
+			<LookAt>
+				<longitude>-3.679856444301579</longitude>
+				<latitude>40.41655641120516</latitude>
+				<altitude>0</altitude>
+				<heading>-3.660536513604913</heading>
+				<tilt>0</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A400</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.679904395486732,40.41652899639876,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Hércules y el León de Nemea</name>
+			<description>Data de 1650 y representa a Hércules en uno de sus doce trabajos: la lucha y muerte del león de Nemea.</description>
+			<LookAt>
+				<longitude>-3.680165802845191</longitude>
+				<latitude>40.41696868687631</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A21</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.680165802845191,40.41696868687631,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Puerta de Sainz de Baranda</name>
+			<description>Data del año 1950 y da acceso al parque desde la calle Menendez Pelayo</description>
+			<LookAt>
+				<longitude>-3.678563749804473</longitude>
+				<latitude>40.41717315688513</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>30</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A00</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.678563749804473,40.41717315688513,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Puerta de la Reina Mercedes</name>
+			<description>Data de 1950 y se construyo para dar acceso a este parque desde el la Avenida Menendez Pelayo.
+Está dedicada a la Reina Mercedes, reina consorte de Alfonso doce durante tan sólo cinco meses.</description>
+			<LookAt>
+				<longitude>-3.679033997160598</longitude>
+				<latitude>40.41828631668666</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>30</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A8</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.679033997160598,40.41828631668666,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Enrique Tierno Galván</name>
+			<description>Homenaje a este alcalde por parte de los libreros de Madrid.</description>
+			<LookAt>
+				<longitude>-3.67980768692864</longitude>
+				<latitude>40.41692055763598</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>10</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A21</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.67980768692864,40.41692055763598,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Fuente en la plaza del Mármol</name>
+			<description>Data de mitad del siglo veinte y puede ser réplica de alguna otra fuente de origen clásico.</description>
+			<LookAt>
+				<longitude>-3.679894235094304</longitude>
+				<latitude>40.41734347310946</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A21</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.679894235094304,40.41734347310946,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Pedro Vargas</name>
+			<description>Monumento homenaje a este cantante y actor mexicano conocido como el rey.</description>
+			<LookAt>
+				<longitude>-3.680190608396494</longitude>
+				<latitude>40.41786496603587</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>10</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A8</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.680190608396494,40.41786496603587,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>General Martínez Campos</name>
+			<description>Monumento en homenaje al general Martinez Campos. En recuedo de sus exitosas campañas en Africa, Méjico y Cuba.
+
+Fue protagonista del Alzamiento de Sagunto, el 27 de Diciembre de 1874, que precipitó la vuelta de los Borbones, en la figura del rey Alfonso trece. 
+
+Legó a ser presidente del Consejo de Ministros.
+
+Por cierto, probablemente tuviera que adelantar un día el alzamiento para que no coincidiese con el día de los Santos Inocentes.</description>
+			<LookAt>
+				<longitude>-3.680935533710498</longitude>
+				<latitude>40.41780321906777</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>30</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A02</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.680935533710498,40.41780321906777,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Hipólito Yrigoyen</name>
+			<description>Homenaje de los españoles residentes en Argentina al presidente de esta nación Hipólito Irigoyen, el primero elegido en sufragio popular en 1916.
+La placa incluye el texto íntegro del decreto de Irigoyen para instituir el Día de la Raza en América.
+La placa fue fundida en Buenos Aires y entregada al ayuntamiento de Madrid en 1928 e inaugurada el 12 de Octubre de ese mismo año.</description>
+			<LookAt>
+				<longitude>-3.682468659757003</longitude>
+				<latitude>40.41769916222214</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A02</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.682468659757003,40.41769916222214,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Diosa Diana</name>
+			<description>Estatua de la diosa romana Diana o Artemisa, como era denominada por los griegos. Diosa de la naturaleza.
+
+Data de 1750.
+
+Por cierto,la falta de su brazo derecho impide saber si mostraba un arco en este brazo, como era habitual representar a esta diosa: Diana, la cazadora.</description>
+			<LookAt>
+				<longitude>-3.682669980696203</longitude>
+				<latitude>40.41883585611016</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>30</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A00</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.682669980696203,40.41883585611016,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Juan Van-Halen y Sarti</name>
+			<description>Monumento dedicado al mariscal Juan van Halen, nacido en Cádiz pero de origen belga.
+
+Tras su destierro de España, por su apoyo a José Bonaparte, lucho al servicio del Zar  Nicolás primero, en Rusia, y en la independencia de Holanda, poco después.
+
+Tras la muerte de Fernando séptimo vuelve a España, donde apoyó al general Espartero.
+
+Por cierto, este busto es una réplica del realizado en 1846 por el rey Leopoldo primero de Bélgica.</description>
+			<LookAt>
+				<longitude>-3.683283913627845</longitude>
+				<latitude>40.4188192530259</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A1</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.683283913627845,40.4188192530259,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Embarcadero del Estanque</name>
+			<LookAt>
+				<longitude>-3.684441300361667</longitude>
+				<latitude>40.41833475297901</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>50</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_ylw-pushpin200</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.684441300361667,40.41833475297901,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Fuente de Cuba</name>
+			<description>Monumento homenaje a Cuba.
+
+Fue construido en agradecimiento de otro equivalente de homenaje a España en la Habana.
+
+Fue promovido en tiempos del general Primo de Rivera, pero el proyecto pasó por diferentes etapas y no fue hasta 1952 que se inauguró.
+
+Por cierto, el busto del presidente de Cuba, el general Machado, nunca fue instalado. Cosas de la política.</description>
+			<LookAt>
+				<longitude>-3.681168433396454</longitude>
+				<latitude>40.41931333148455</latitude>
+				<altitude>0</altitude>
+				<heading>-12.33105047946847</heading>
+				<tilt>0</tilt>
+				<range>30</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A400</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.681531827026952,40.41934916399588,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Fray Pedro Ponce de León</name>
+			<description>Monumento dedicado a fray Pedro Ponce de León.
+
+Este fraile benedictino logró que los niños sordomudos pudieran hablar y leer a través de un método para reconocer los sonidos de las letras.
+El método de Ponce de León constituye la base de lo que fue posteriormente la Escuela Española de Sordomudos.
+
+Por cierto, el monumento cita a Juan Pablo Bonet aunque  la figura muestra a fray Pedro. Quizá sea esta una manera de reconocer a los dos su labor, visto que en su época, ambos estuvieron enfrentados e incluso acusados de plagio.</description>
+			<LookAt>
+				<longitude>-3.681626167614314</longitude>
+				<latitude>40.41970512192705</latitude>
+				<altitude>0</altitude>
+				<heading>-12.33134726044769</heading>
+				<tilt>0</tilt>
+				<range>30</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A1</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.681876501416451,40.42018954688682,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Serafín y Joaquín Álvarez Quintero</name>
+			<description>Monumento inaugurado en 1934 homenaje a estos dos dramaturgos sevillanos.
+
+Esta obra fue costeada mediante representaciones teatrales de las obras de estos hermanos.
+
+Por cierto, cosa poco habitual, los homenajeados pudieron ver su homenaje en vida.</description>
+			<LookAt>
+				<longitude>-3.681626167614314</longitude>
+				<latitude>40.41970512192705</latitude>
+				<altitude>0</altitude>
+				<heading>-12.33134726044769</heading>
+				<tilt>0</tilt>
+				<range>30</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A1</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.682130088654859,40.4196180402082,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Ruperto Chapí</name>
+			<description>Monumento dedicado a Ruperto Chapí.
+
+Realizado en granito y bronce, este monumento fue inaugurado en 1921, dos años después de su muerte.
+
+Ruperto Chapí fue compositor musical y tuvo en este género de la zarzela sus granes éxitos.
+
+Por cierto, Ruperto Chapí fue el padre de la actual Sociedad General de Autores, y fue esta sociedad la promotora de la construcción de este monumento pero no de su financiación, que corrió a cargo de los ciudadanos.</description>
+			<LookAt>
+				<longitude>-3.68157250460095</longitude>
+				<latitude>40.41969284684406</latitude>
+				<altitude>0</altitude>
+				<heading>-12.33131246629203</heading>
+				<tilt>0</tilt>
+				<range>30</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A1</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.681428211269088,40.41979,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Puerta de los jardines de Herrero Palacios</name>
+			<description>Data de 1830 y se trata de la puerta que daba acceso a la casa de fieras, otro de los caprichos de Fernando séptimo, para adecuar la zona denominada el reservado.
+
+En 1972, al desmantelarse la casa de fieras, se reajardinó esta zona y adquirió el nombre de jardines de Herrero Palacios</description>
+			<LookAt>
+				<longitude>-3.679592512724176</longitude>
+				<latitude>40.41643175799697</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>10</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A00</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.679592512724176,40.41643175799697,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Osos sentados de la Casa de Fieras</name>
+			<description>Datan de 1850.
+
+Estas esculturas decoraban la entrada de las oseras de la antigua casa de fieras.</description>
+			<LookAt>
+				<longitude>-3.678883876360677</longitude>
+				<latitude>40.41615793669559</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>10</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A00</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.678883876360677,40.41615793669559,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Puerta del Doce de Octubre</name>
+			<description>Puerta del Doce de Octubre.
+Acceso construido en el año 2000.</description>
+			<LookAt>
+				<longitude>-3.678026479812477</longitude>
+				<latitude>40.41556646379221</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>30</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A00</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.678026479812477,40.41556646379221,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Biblioteca Popular</name>
+			<description>Biblioteca Popular en los jardines de Herrero de Palacios.
+
+Data de principios del siglo veinte y fueron instaladas para fomentar la lectura.
+
+Es una de las dos bibliotecas que se conserban en el parque, actualmente.
+
+Por cierto, actualmente no dispone de libros.</description>
+			<LookAt>
+				<longitude>-3.678751602843388</longitude>
+				<latitude>40.41559892083284</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>10</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A00</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.678751602843388,40.41559892083284,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Puerta de Herrero Palacios</name>
+			<description>Acceso construido en el año 2000.</description>
+			<LookAt>
+				<longitude>-3.677755788182107</longitude>
+				<latitude>40.41478253251094</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>30</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A00</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.677755788182107,40.41478253251094,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Cruceiro de la Plaza de Galicia</name>
+			<description>Plaza homenaje a esta comunidad autónoma, que cuenta en su centro con un cruceiro, réplica del que se encuentra en la plaza del Obradoiro, en Santiago de Compostela.</description>
+			<LookAt>
+				<longitude>-3.68227123412712</longitude>
+				<latitude>40.42004829323194</latitude>
+				<altitude>0</altitude>
+				<heading>-1.328069232237225e-09</heading>
+				<tilt>0</tilt>
+				<range>30</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A1</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.683266342900082,40.41993960986626,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Justo Arosemena</name>
+			<description>Monumento dedicado a Justo Arosemena, primer presidente constitucional de Panamá. 
+
+El monumento fue iniciativa de la embajada de Panamá en 1978.</description>
+			<LookAt>
+				<longitude>-3.679871238448737</longitude>
+				<latitude>40.4190899464725</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A400</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.679871238448737,40.4190899464725,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Francisco de Paula Martí Mora</name>
+			<description>Fue grabador, estenógrafo e inventor de la pluma estilográfica.
+
+Introdujo en España la taquigrafía.
+
+La inscripción en latín del monumento dice: Corran cuanto se quiera las palabras, la mano todavía corre más. Aún la lengua no ha concluido la obra, cuando la diestra ya ha dado fin a la suya.</description>
+			<LookAt>
+				<longitude>-3.680129504038651</longitude>
+				<latitude>40.41965908375982</latitude>
+				<altitude>0</altitude>
+				<heading>0.001388683458661229</heading>
+				<tilt>0</tilt>
+				<range>10</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A400</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.680467699372778,40.41951181658148,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Osos tumbados de la Casa de Fieras</name>
+			<description>Al igual que la pareja de osos sentados al otro lado de los jardines, estos osos, formaban parte de la decoración de la antigua Casa de Fieras que se encontraba en esta parte del parque, actualmente conocidos como: jardines de Herrero Palacios.</description>
+			<LookAt>
+				<longitude>-3.678421576515562</longitude>
+				<latitude>40.41481747085289</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>10</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A00</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.678421576515562,40.41481747085289,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Fuente de la Gaviota</name>
+			<description>Data de 1962 y es un regalo de la embajada de Noruega.
+
+Por cierto, se puso especial cuidado en no utilizar un granito cualquiera y se requirió que fuese granito de la sierra de la Pedriza. Para el hierro de las gaviotas, parece que no se puso el mismo cuidado y, en 1999, debieron reponerse por otras de acero inoxidable que son las que se aprecian actualmente.</description>
+			<LookAt>
+				<longitude>-3.678266399675974</longitude>
+				<latitude>40.41429745756233</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A00</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.678266399675974,40.41429745756233,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Fuentes de la Bellota</name>
+			<description>Conjunto de dos fuentes que se instalaron en 1925 como parte de la remodelación llevada a cabo en esta zona por el jardinero mayor del parque: Cecilio Rodriguez.</description>
+			<LookAt>
+				<longitude>-3.678270922002387</longitude>
+				<latitude>40.41456520224965</latitude>
+				<altitude>0</altitude>
+				<heading>-9.63026764815805</heading>
+				<tilt>0</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A00</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.677856715096403,40.41436209356095,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Casa del Pescador</name>
+			<description>Casita con fachadas de estilo pompeyano, construida en el centro de un estanque y a la que se llega mediante una pasarela.
+
+Esta construcción forma parte de las reformas ordenadas por Fernando séptimo y que constituyeron un área denominada el Reservado. Estas construcciones se denominaron los caprichos de Fernando séptimo y trataban de recuperar el parque del Retiro tras la devastación del la guerra de independencia.</description>
+			<LookAt>
+				<longitude>-3.680703962608764</longitude>
+				<latitude>40.42060604386823</latitude>
+				<altitude>0</altitude>
+				<heading>-0.0002233582998329036</heading>
+				<tilt>44.99985073161831</tilt>
+				<range>30</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A8</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.68097528054735,40.42058938484593,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Cecilio Rodríguez</name>
+			<description>Busto de 1949 en homenaje del que fuera el jardinero mayor del parque del retiro.
+
+A Cecilio Rodríguez, se le debe la reordenación y mejoramiento de partes del parque, tan emblemáticas, como la Rosaleda o estos mismos jardines que actualmente llevan su nombre.</description>
+			<LookAt>
+				<longitude>-3.67755589088612</longitude>
+				<latitude>40.41329877654221</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>10</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A7</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.67755589088612,40.41329877654221,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Fuentes de la Bellota</name>
+			<description>Conjunto de dos fuentes que se instalaron en 1925 como parte de la remodelación llevada a cabo en esta zona por el jardinero mayor del parque: Cecilio Rodriguez.</description>
+			<LookAt>
+				<longitude>-3.678270922002387</longitude>
+				<latitude>40.41456520224965</latitude>
+				<altitude>0</altitude>
+				<heading>-9.63026764815805</heading>
+				<tilt>0</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A00</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.678634945023473,40.41426259628418,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Puerta de O&apos;Donnell</name>
+			<description>Puerta del parque del Retiro que recibe su nombre de la Calle en memoria del General Leopoldo O&apos;Donnell, a la que da acceso.
+
+Por cierto, la puerta tal y como está hoy data del año 1968. Ese año, se demolió el Palacio de Anglada en la próxima calle de Serrano. Del material de demolición se aprovechó la puerta del palacio que se puede apreciar hoy en este acceso al parque del retiro.</description>
+			<LookAt>
+				<longitude>-3.680097438842762</longitude>
+				<latitude>40.42147496576745</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>50</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A02</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.680097438842762,40.42147496576745,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Puerta de la América Española</name>
+			<description>Puerta de acceso al parque del Retiro desde la Avenida de Menéndez Pelayo.
+
+Data de 1932 y se habilitó para mejorar el acceso del incipiente barrio del ensanche del Retiro.
+
+Por cierto, bajo el escudo de la villa de Madrid de la época, aparece la leyenda: AL AYUNTAMIENTO DE 1932, QUE ACORDO SU APERTURA, LOS VECINOS DEL BARRIO.</description>
+			<LookAt>
+				<longitude>-3.679494348119701</longitude>
+				<latitude>40.41977026652407</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>30</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A8</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.679494348119701,40.41977026652407,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Virgen de los Reyes</name>
+			<description>Situada en la pequeña plaza de Andalucía, data de 1968 con motivo de la Feria Nacional de la Flor.
+
+Por cierto, La Virgen de los Reyes es la patrona de Sevilla.</description>
+			<LookAt>
+				<longitude>-3.680633937541918</longitude>
+				<latitude>40.42018262512877</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>10</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A8</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.680633937541918,40.42018262512877,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Fuente de Sevilla</name>
+			<description>Fuente en homenaje a esta ciudad y a sus escritores más ilustres: Gustavo Adolfo Bécquer y los hermanos Alvarez quintero, entre otros.</description>
+			<LookAt>
+				<longitude>-3.68035336681058</longitude>
+				<latitude>40.42014098722395</latitude>
+				<altitude>0</altitude>
+				<heading>1.928339654248758</heading>
+				<tilt>3.903007196060166</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A20</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.680380940937562,40.42014962601444,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Montaña Artificial</name>
+			<description>La montaña artificial escondía una noria para la extracción de agua subterránea y alimentar así a las diferentes cascadas y rías de esta zona del parque.
+
+La montaña artificial es parte de la recuperación que llevó a cabo Fernando séptimo tras el final de la guerra de independencia y su regreso a españa en 1814.
+
+Por cierto, sobre esta construcción hay un mirador poco conocido que permite ver buena parte del parque del Retiro.</description>
+			<LookAt>
+				<longitude>-3.680531539821156</longitude>
+				<latitude>40.42110329137751</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>50</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A70</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.680531539821156,40.42110329137751,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>La casa del contrabandista</name>
+			<description>Se trata de uno de los caprichos de Fernando séptimo. Pequeñas construcciones que trataban de recuperar este parque tras la guerra de independencia.
+
+Aquí se conservaba una colección de autómatas que representaban escenas andaluzas, algunos de ellos vestidos como contrabandistas. De ahí su nombre.
+
+Fue vaquería a principios de siglo veinte pero se convirtió en sala de baile antes de la guerra civil y, tras esta, pasó a ser salón de té.
+
+Fue en los años 50 cuando se convirtió en una de las salas de fiestas de referencia de Madrid.</description>
+			<LookAt>
+				<longitude>-3.680296333985538</longitude>
+				<latitude>40.41805538549541</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>30</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A400</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.680296333985538,40.41805538549541,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Quiosco de música</name>
+			<description>Templete de música donde la banda municipal de Madrid realiza conciertos al público los domingos por la mañana.</description>
+			<LookAt>
+				<longitude>-3.68501500585371</longitude>
+				<latitude>40.41946910938884</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>50</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_ylw-pushpin0</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.68501500585371,40.41946910938884,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Fuente de las Cuatro Gracias o de las Sirenas</name>
+			<description>Fuente en granito que representa las cuatro sirenas de la mitología griega.
+
+Se ubicó en esta plaza en 1943, con el reordenamiento de esta parte del parque, aunque parece que su elaboración fue anterior.</description>
+			<LookAt>
+				<longitude>-3.686008830557502</longitude>
+				<latitude>40.42002437495515</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_ylw-pushpin01</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.686008830557502,40.42002437495515,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Fuente del Pequeño Tritón</name>
+			<description>Fuente ornamental, en bronce, ubicada en este lugar desde 1943 cuando el jardinero mayor, Cecilio Rodriguez, reordenó esta zona próxima a la puerta de Hernani.
+
+No se conoce bien su origen ni su antigüedad, aunque estuvo ubicada anteriormente en la Casa de Campo.</description>
+			<LookAt>
+				<longitude>-3.686068124549879</longitude>
+				<latitude>40.4201818837446</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_ylw-pushpin1</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.686068124549879,40.4201818837446,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Casa de Vacas</name>
+			<description>Centro Cultural, de exposiciones y conciertos.
+
+Data de 1874 cuando era una vaquería y despacho de leche.
+
+A principios del siglo veinte, se convirtió en una de las salas de fiestas de moda en Madrid, la sala Pavillón, hasta que un incendió la destruyó casi por completo, y terminó convirtiendose en el centro cultural que es actualmente.
+
+Por cierto, este edificio nunca ha tenido suerte. Al incendio de la sala Pavillón, le precedió el famoso tornado de Madrid, del 12 de Mayo de 1886, que se cebó, especialmente, con este local.</description>
+			<LookAt>
+				<longitude>-3.684164339888741</longitude>
+				<latitude>40.41918758044174</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>50</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_ylw-pushpin0</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.684164339888741,40.41918758044174,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Palacio de Velázquez</name>
+			<description>Palacio construido en 1883 para la exposición Nacional de Minería, por el arquitecto Ricardo Velázquez. No tiene por tanto este palacio ninguna relación con el pintor.
+Está inspirado en el crístal palas de Londres, presenta una bóveda de hierro y cristal, tan de moda en esos años. La fachada está construida en ladrillo rojo y adornada con cerámica de la antigua Real Fábrica de cerámica de La Moncloa.
+Actualmente forma parte del museo nacional de arte moderno Reina Sofía y se dedica a exposiciones temporales.</description>
+			<LookAt>
+				<longitude>-3.681980666630815</longitude>
+				<latitude>40.41513660191685</latitude>
+				<altitude>0</altitude>
+				<heading>-10.27200988653621</heading>
+				<tilt>5.814061403252383</tilt>
+				<range>60</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A40</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.681960509723662,40.41517255566827,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Palacio de Cristal</name>
+			<description>Posiblemente, el lugar más bello del parque del Retiro.
+
+Fue levantado en 1887 a semejanza del palacio de cristal londinense construido unos años antes.
+
+El motivo, fue la exposición dedicada a las Islas Filipinas, por lo que se buscó que el palacio tuviese las condiciones adecuadas para albergar especies exóticas y tropicales.
+
+Por cierto, fue aquí y no en el congreso de los diputados, donde Manuel Azaña fue elegido presidente de la segunda república.</description>
+			<LookAt>
+				<longitude>-3.682880690035879</longitude>
+				<latitude>40.41330539396518</latitude>
+				<altitude>0</altitude>
+				<heading>-9.635264219256657</heading>
+				<tilt>2.614663838670928</tilt>
+				<range>70</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A5</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.681958649568732,40.41359703296429,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Luis de Góngora</name>
+			<description>Monolito, de 1927, obra del escultor Vicente Beltrán Grimal.
+El monolito rinde homenaje al escritor cordobés del siglo de oro español.
+Representa unas estrofas de su poema: Fábula de Polifemo y Galatea.
+Góngora es el poeta barroco español por excelencia.</description>
+			<LookAt>
+				<longitude>-3.686282562370009</longitude>
+				<latitude>40.4200591870246</latitude>
+				<altitude>0</altitude>
+				<heading>-9.635354622508105</heading>
+				<tilt>9.300705354074955</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A02</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.686798262767195,40.42006312148664,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Fuente de la Salud</name>
+			<description>Se trata de uno de los caprichos del rey Fernando séptimo. Aprovechaba una antiguo manantial conocido por las propiedades medicinales de sus aguas. 
+
+Sería por esto, por lo que dejaron dos accesos a la fuente: uno público, para disfrute del pueblo, y otro, para disfrute real.</description>
+			<LookAt>
+				<longitude>-3.684699533755286</longitude>
+				<latitude>40.42034068992156</latitude>
+				<altitude>0</altitude>
+				<heading>-9.634333073822472</heading>
+				<tilt>20.28007181878415</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_ylw-pushpin</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.684404819788285,40.42045835351746,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Bosque de los ausentes</name>
+			<description>Homenaje a las 191 víctimas de los atentados del 11 de Marzo de 2004. Consta de de 191 cipreses en recuerdo de los fallecidos.</description>
+			<LookAt>
+				<longitude>-3.687151948101884</longitude>
+				<latitude>40.41209233006232</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>50</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A4</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.687151948101884,40.41209233006232,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Ría de patinaje</name>
+			<description>Data de 1870 ó 1876. 
+Al parecer se instaló una pista de patinaje sobre hielo en la actual zona de la rosaleda, pero visto que el hielo no duraba suficientes días, se trasladó la zona de patinaje a esta ría, alrededor del islote oval, mucho más sombría.</description>
+			<LookAt>
+				<longitude>-3.681437811492544</longitude>
+				<latitude>40.4120089494555</latitude>
+				<altitude>0</altitude>
+				<heading>-10.00033015125312</heading>
+				<tilt>5.616409083427506</tilt>
+				<range>40</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A40</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.681489153266866,40.41199742871991,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Ricardo Codorniu</name>
+			<description>Ingeniero de Montes que llevó a cabo grandes proyectos de reforestación.
+Tuvo el sobrenombre de Apostol del Arbol.
+Este busto fue erigido en 1926, a petición de los compañeros de profesión.
+
+Por cierto, fue uno de los introductores del Esperanto en España.</description>
+			<LookAt>
+				<longitude>-3.681351993760633</longitude>
+				<latitude>40.41273837928468</latitude>
+				<altitude>0</altitude>
+				<heading>-15.02773328404035</heading>
+				<tilt>0</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A30</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.680872133988965,40.41259556740689,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Pino carrasco</name>
+			<description>También conocido como pino de Alepo, región al norte de Siria.
+
+Ejemplar de aproximadamente 200 años. Se trata de un ejemplar muy longevo.
+
+Posee una altura de 35 metros lo que es excepcional para esta especie que no suele superar los 20metros.
+
+La madera de este ábol es muy apreciada por su alto contenido en resina, y su corteza se utilizaba para el curtido de cueros.
+Desde hace 2000 años se elabora en Grecia el vino resigna. Se trata de un vino blanco que era sellado en las ánforas con resina de pino carrasco. El sabor y aroma es tan apreciado que 2000 años después este vino se sigue elaborando de manera tradicional.</description>
+			<LookAt>
+				<longitude>-3.680835669785698</longitude>
+				<latitude>40.41097735288442</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>30</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_parks0</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.680835669785698,40.41097735288442,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Arce plateado</name>
+			<description>Especie originaria del Este de Estados Unidos y Canada.
+Es de rápido crecimiento y fácil cultivo, por lo que se introdujo en el siglo dieciocho en Europa como árbol ornamental.
+
+Esta especie suele alcanzar los 20 ó 30 metros pero este ejemplar no supera los 20 metros.</description>
+			<LookAt>
+				<longitude>-3.678533848283174</longitude>
+				<latitude>40.41393861415953</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>20</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_parks</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.678533848283174,40.41393861415953,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Refugio Antiaéreo</name>
+			<description>Refugio antiaéreo de la guerra civil.
+
+Por cierto, junto el acceso al refugio, todavía se aprecian os impactos de bala sobre la base de la verja aledaña.</description>
+			<LookAt>
+				<longitude>-3.679057916995411</longitude>
+				<latitude>40.41848521691966</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>10</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A8</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.679057916995411,40.41848521691966,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Cedro del Libano</name>
+			<description>Cedro del Libano.
+Se trata del árbol nacional  de ese país.
+Ejemplar de más de 120 años.</description>
+			<LookAt>
+				<longitude>-3.680888221750388</longitude>
+				<latitude>40.41726359286847</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>30</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_parks00</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.680888221750388,40.41726359286847,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Ciprés de los pantanos</name>
+			<description>Ciprés de los pantanos.
+Es una de las pocas coníferas caducifolias,es decir, que pierde la hoja.
+Es el árbol representativo del estado de Luisiana, en Estados Unidos. Allí es fácil encontrar cocodrilos alrededor de sus raices sumergidas. Aquí, en el parque del Retiro, es menos habitual.</description>
+			<LookAt>
+				<longitude>-3.681287039224674</longitude>
+				<latitude>40.41395996960669</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>30</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_parks01</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.681287039224674,40.41395996960669,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Palmera de la fortuna</name>
+			<description>Es originaria de China.
+Tolera muy bien ambos extremos de temperatura.
+La infusión de sus raíces tiene propiedades astingentes y se utilizaba como anticonceptivo en su zona de origen.</description>
+			<LookAt>
+				<longitude>-3.681507680546217</longitude>
+				<latitude>40.41264964237387</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>30</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_parks1</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.681507680546217,40.41264964237387,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Jardines de Cecilio Rodriguez</name>
+			<description>En 1941, tras la guerra civil, Cecilio Rodriguez se reincorpora a sus funciones de Jardinero Mayor, y diseña esta zona como ampliación a la Casa de Fieras y a los actuales jardines de Herrero Palacios.
+
+Dispone de un perímetro que permite su cierre, por lo que es utilizado actualmente por el ayuntamiento de Madrid, para la celebración de recepciones y actos oficiales.</description>
+			<LookAt>
+				<longitude>-3.677972071710044</longitude>
+				<latitude>40.41324585920941</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>90</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A7</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.677972071710044,40.41324585920941,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Ría Sur y cascada de la Chopera</name>
+			<description>Esta ría data de 1900 y tiene una longitud de unos 200 metros que termina sobre una rocalla produciendo la cascada que le da nombre.</description>
+			<LookAt>
+				<longitude>-3.68728442680814</longitude>
+				<latitude>40.41136841746741</latitude>
+				<altitude>0</altitude>
+				<heading>0</heading>
+				<tilt>45</tilt>
+				<range>40</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A01</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.68728442680814,40.41136841746741,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Centro Deportivo Municipal &quot;La Chopera&quot;</name>
+			<description>Centro deportivo municipal que data de 1970.
+
+Esta zona quedó desolada tras la guerra de la Independencia, en 1808, por lo que hace ya mucho tiempo que no se ven chopos por la zona.
+
+Se dedicó la zona a ferias de ganado y alguna exposición hasta principios del siglo veinte, pero fue durante el reinado de Alfonso trece, cuando adquirió su máximo esplendor como área deportiva, llegándose a construir hasta un hipódromo, que sería desmantelado poco tiempo después, en 1907.</description>
+			<LookAt>
+				<longitude>-3.686098691085201</longitude>
+				<latitude>40.41237566581199</latitude>
+				<altitude>0</altitude>
+				<heading>-7.592097141607991</heading>
+				<tilt>18.72850733668911</tilt>
+				<range>90</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A40</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.686208878731368,40.41235803174461,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Fuente Egipcia</name>
+			<description>Esta fuente escultórica que data de 1819, es un diseño del arquitecto Isidro González Velázquez y forma parte de los trabajos de mejoramiento del parque, promovidos por Fernando séptimo, después de la guerra de independencia.
+
+Originariamente incluía una representación del dios egipcio Ra, pero esa imagen se ha perdido a lo largo del tiempo.
+
+Como fuente, incluía una noria de madera que fue sustituida por un depósito.
+
+Por cierto, el monumento incluye dos esfinges que visto el tamaño de sus orejas, no debían sufrir ningún tipo de problema auditivo.</description>
+			<LookAt>
+				<longitude>-3.683493633801702</longitude>
+				<latitude>40.41592523783615</latitude>
+				<altitude>0</altitude>
+				<heading>-1.315490517163504</heading>
+				<tilt>20.12503747720691</tilt>
+				<range>30</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#m_ylw-pushpin11</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.68345991811459,40.41573443713663,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>General Espartero</name>
+			<description>Estatua ecuestre en homenaje al General Joaquín Baldomero Fernández Álvarez Espartero, que data de 1886.
+
+Incluye en el pedestal dos bajorelieves. Uno, orientado al Sur, representa la Batalla de Luchana, durante el asedio Carlista a la ciudad de Bilbao, en 1836. El otro, orientado al Norte, representa el abrazo de Vergara, que dio fin a la Primera Guerra Carlista, en 1839.</description>
+			<LookAt>
+				<longitude>-3.684787084561481</longitude>
+				<latitude>40.42038131713549</latitude>
+				<altitude>0</altitude>
+				<heading>-6.590283222320319</heading>
+				<tilt>19.81118077240962</tilt>
+				<range>40</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_A3</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-3.683637267712458,40.42110844217388,0</coordinates>
+			</Point>
+		</Placemark>
+	</Folder>
+	<Placemark>
+		<name>Punto de test</name>
+		<description>Este es un punto de test definido con 20000 metros de distancia</description>
+		<LookAt>
+			<longitude>-3.63984492197991</longitude>
+			<latitude>40.53571765002469</latitude>
+			<altitude>0</altitude>
+			<heading>-4.012308310135251</heading>
+			<tilt>29.78184693348663</tilt>
+			<range>20000</range>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</LookAt>
+		<styleUrl>#msn_A</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-3.639653848600042,40.53591531760377,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Punto de test Delicias</name>
+		<description>este punto está ubicado en las proximidades de mi casa</description>
+		<LookAt>
+			<longitude>-3.694270376479105</longitude>
+			<latitude>40.40106155112781</latitude>
+			<altitude>0</altitude>
+			<heading>-4.047887196084229</heading>
+			<tilt>29.58176914290057</tilt>
+			<range>50</range>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</LookAt>
+		<styleUrl>#msn_A</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-3.694211256780618,40.40114734393475,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Anguiano</name>
+		<description>Anguiano es mundialmente famoso por su danza de los zancos, donde 8 danzadores bajan dando vueltas y sobre zancos de medio metro, las calles del pueblo en honor a su patrona Santa María Magdalena, el 22 de Julio.
+
+También es famoso por los caparrones de Anguiano, alubias rojas muy apreciadas.
+
+El entorno ofrece interesantes recorridos entre hayedos organizados en 7 recorridos.
+
+Por cierto, si estás por aquí el tercer domingo de Noviembre no dejes de acudir al festival de la alubia para degustar un buen plato de caparrones con todos sus sacramentos.</description>
+		<LookAt>
+			<longitude>-2.767306551241783</longitude>
+			<latitude>42.26000161020308</latitude>
+			<altitude>0</altitude>
+			<heading>3.060495653802732</heading>
+			<tilt>7.87321315680775</tilt>
+			<range>1500</range>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</LookAt>
+		<styleUrl>#m_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-2.76541057664562,42.260663,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Badarán</name>
+		<description>Vino, chorizo y pan.</description>
+		<LookAt>
+			<longitude>-2.804546944600424</longitude>
+			<latitude>42.36569664045199</latitude>
+			<altitude>0</altitude>
+			<heading>2.992238057543732</heading>
+			<tilt>15.10454607850219</tilt>
+			<range>2000</range>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</LookAt>
+		<styleUrl>#m_ylw-pushpin</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-2.809486409691282,42.36687603332229,0</coordinates>
+		</Point>
+	</Placemark>
+</Document>
+</kml>
