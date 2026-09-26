@@ -582,6 +582,9 @@ p {
     width: 22px;
     height: 22px;
 }
+.btn-dark.wide {
+    flex: 1;
+}
 .btn-dark:active {
     background: var(--ink-line);
 }
