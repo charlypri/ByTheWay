@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <meta name="theme-color" content="#ffffff" />
+        <title>Bytheway · Prueba de voz</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@600;800&family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <p class="brand">by the way<span>.</span></p>
+                <h1>Prueba de voz</h1>
+                <p class="lede">
+                    Bytheway lee los lugares con la voz que trae tu móvil. Esta página comprueba si esa voz suena bien y cómo se
+                    comporta. Sube el volumen, haz las pruebas en orden y copia el informe al final.
+                </p>
+                <p id="device" class="device"></p>
+            </header>
+
+            <ol class="steps">
+                <li class="step" id="step-voices">
+                    <h2>Voces de este móvil</h2>
+                    <p class="hint">Elegimos automáticamente la que mejor pinta para cada idioma. Puedes cambiarla para comparar.</p>
+                    <div class="voice-pickers">
+                        <label>Castellano <select id="voice-es"></select></label>
+                        <label>Inglés <select id="voice-en"></select></label>
+                    </div>
+                    <p id="voice-summary" class="result"></p>
+                </li>
+
+                <li class="step" id="step-announce">
+                    <h2>Anuncio</h2>
+                    <p class="hint">Al entrar en un lugar solo se dice su nombre.</p>
+                    <div class="actions">
+                        <button data-say="announce-es">Oír en castellano</button>
+                        <button data-say="announce-en" class="secondary">Oír en inglés</button>
+                    </div>
+                    <fieldset class="rate" data-key="anuncio">
+                        <legend>¿Se entiende bien?</legend>
+                        <button value="bien">Bien</button><button value="regular">Regular</button><button value="mal">Mal</button>
+                    </fieldset>
+                </li>
+
+                <li class="step" id="step-narration">
+                    <h2>Narración</h2>
+                    <p class="hint">Una descripción real y larga, leída frase a frase, como lo hará la app. Prueba a pausar y seguir.</p>
+                    <div class="actions">
+                        <button id="narrate-es">Escuchar en castellano</button>
+                        <button id="narrate-en" class="secondary">Escuchar en inglés</button>
+                    </div>
+                    <div class="player" id="player" hidden>
+                        <p id="player-title" class="player-title"></p>
+                        <div class="bar"><span id="player-bar"></span></div>
+                        <p id="player-sentence" class="sentence"></p>
+                        <div class="actions">
+                            <button id="player-toggle" class="secondary">Pausar</button>
+                            <button id="player-stop" class="secondary">Parar</button>
+                        </div>
+                    </div>
+                    <p class="note">El texto en inglés es una traducción de ejemplo hecha para esta prueba, no la del Editor.</p>
+                    <fieldset class="rate" data-key="narracion">
+                        <legend>¿Escucharías así una historia de dos minutos?</legend>
+                        <button value="bien">Sí</button><button value="regular">Con esfuerzo</button><button value="mal">No</button>
+                    </fieldset>
+                    <fieldset class="rate" data-key="pausa_por_frases">
+                        <legend>Al pausar y seguir, ¿retoma bien?</legend>
+                        <button value="bien">Sí</button><button value="mal">No</button><button value="no_probado">No lo he probado</button>
+                    </fieldset>
+                </li>
+
+                <li class="step" id="step-cutoff">
+                    <h2>Locución larga de una vez</h2>
+                    <p class="hint">
+                        La misma descripción, pero sin partir en frases. En algunos Chrome se corta sola a los 15 segundos. Déjala
+                        terminar: medimos cuánto dura.
+                    </p>
+                    <div class="actions"><button id="cutoff">Empezar</button><button id="cutoff-stop" class="secondary">Parar</button></div>
+                    <p id="cutoff-result" class="result"></p>
+                </li>
+
+                <li class="step" id="step-pause">
+                    <h2>Pausa del navegador</h2>
+                    <p class="hint">Pausamos la voz a los 4 segundos y la reanudamos 2 segundos después.</p>
+                    <div class="actions"><button id="native-pause">Empezar</button></div>
+                    <p id="native-pause-result" class="result"></p>
+                    <fieldset class="rate" data-key="pausa_nativa">
+                        <legend>¿Siguió justo donde se paró?</legend>
+                        <button value="bien">Sí</button><button value="reinicio">Volvió a empezar</button><button value="mal">Se quedó muda</button>
+                    </fieldset>
+                </li>
+
+                <li class="step" id="step-screen">
+                    <h2>Pantalla apagada</h2>
+                    <p class="hint">
+                        Empieza la narración, bloquea el móvil unos 20 segundos y vuelve a esta página. Medimos si la voz siguió
+                        mientras no se veía la pantalla.
+                    </p>
+                    <div class="actions"><button id="screen">Empezar y bloquear</button></div>
+                    <p id="screen-result" class="result"></p>
+                </li>
+
+                <li class="step" id="step-report">
+                    <h2>Informe</h2>
+                    <p class="hint">Cópialo y pégalo en el issue #2 del repo.</p>
+                    <textarea id="report" readonly rows="12"></textarea>
+                    <div class="actions">
+                        <button id="copy">Copiar informe</button>
+                        <button id="share" class="secondary" hidden>Compartir</button>
+                    </div>
+                    <p id="copy-result" class="result"></p>
+                </li>
+            </ol>
+        </main>
+        <script type="module" src="./main.ts"></script>
+    </body>
+</html>
