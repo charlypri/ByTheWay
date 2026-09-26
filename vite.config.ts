@@ -1,3 +1,4 @@
+import { execSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { cpSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
@@ -66,9 +67,22 @@ const serviceWorker = (): Plugin => ({
 
 const page = (path: string) => resolve(import.meta.dirname, path);
 
+/** Versión y commit, visibles en Ajustes para saber qué build se está probando. */
+function buildName() {
+    const { version } = JSON.parse(readFileSync(resolve(import.meta.dirname, 'package.json'), 'utf8')) as { version: string };
+    let commit = process.env.GITHUB_SHA?.slice(0, 7);
+    try {
+        commit ??= execSync('git rev-parse --short HEAD', { encoding: 'utf8' }).trim();
+    } catch {
+        // sin git (p. ej. un zip del repo): solo la versión
+    }
+    return commit ? `${version} (${commit})` : version;
+}
+
 export default defineConfig({
     base: BASE,
     envPrefix: ['VITE_', 'TOMTOM_'],
+    define: { __BUILD__: JSON.stringify(buildName()) },
     plugins: [svelte(), publishData(), serviceWorker()],
     // MapLibre usa campos de clase nativos; sin esnext sus workers fallan en silencio.
     build: {

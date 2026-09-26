@@ -114,6 +114,7 @@
         <span class="set-hint">{app.t('startOverHint')}</span>
         <button bind:this={startOverBtn} class="btn-wide btn-outline" type="button" onclick={openConfirm}>{app.t('startOver')}</button>
     </div>
+    <p class="build">Bytheway {__BUILD__}</p>
 </div>
 
 {#if confirming}
@@ -127,3 +128,12 @@
         </div>
     </div>
 {/if}
+
+<style>
+    .build {
+        padding: 20px 0 4px;
+        font-size: 13px;
+        color: var(--on-ink-2);
+        font-variant-numeric: tabular-nums;
+    }
+</style>

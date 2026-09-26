@@ -2,7 +2,7 @@
     import { onMount } from 'svelte';
     import type { MapMouseEvent, MapTouchEvent } from 'maplibre-gl';
     import type { App } from '../app/app.svelte';
-    import { formatDistance } from '../lib/i18n';
+    import { formatDistance, LOCALE } from '../lib/i18n';
     import { TIME_SCALES, type Simulator, type SpeedProfile } from '../lib/simulator';
     import { ICONS } from './icons';
 
@@ -71,6 +71,8 @@
         };
     });
 
+    const num = (n: number, min: number) => n.toLocaleString(LOCALE[app.lang], { minimumFractionDigits: min, maximumFractionDigits: 1 });
+
     function setProfile(p: SpeedProfile) {
         sim.profile = p;
         version++;
@@ -126,9 +128,17 @@
                 <span>{app.t('simGps')}</span>
             </button>
         </div>
-        {#if !view.gps}
-            <p class="demo-readout">{formatDistance(view.travelled, app.lang)} / {formatDistance(view.length, app.lang)}</p>
-        {/if}
+        <!-- Lo que ve la cámara: sirve para cazar los saltos del GPS real que alejan el zoom. -->
+        <p class="demo-readout">
+            {#if !view.gps}{formatDistance(view.travelled, app.lang)} / {formatDistance(view.length, app.lang)}<br />{/if}
+            {#if app.fix}
+                {app.t('simReadout', {
+                    accuracy: Math.round(app.fix.accuracy),
+                    speed: num((app.fix.speed ?? 0) * 3.6, 1),
+                    zoom: num(app.camera.zoom, 0),
+                })}
+            {/if}
+        </p>
     </section>
 {/if}
 
