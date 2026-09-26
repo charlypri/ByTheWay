@@ -170,7 +170,7 @@ Contenido de la pantalla:
 
 ## 7. Voz
 
-- **Motor:** Web Speech API detrás de la interfaz `Narrador`, que podrá cambiarse por MP3 pregenerados si la prueba del #2 no convence.
+- **Motor:** Web Speech API detrás de la interfaz `Narrador` (ADR 0005). Se validó en Android e iPhone en el #2; los MP3 pregenerados podrían entrar después sin tocar la guía.
 - **Voz:** la mejor disponible para el idioma, con preferencia por el locale exacto (es-ES, en-GB, en-US) y luego las voces de mejor calidad aparente. Se puede cambiar en ajustes.
 - **Narración:** el título, seguido de la Descripción partida en frases, con una locución por frase. Así se evita el corte de Chrome a los ~15 s y el progreso es preciso.
 - **Pausar/Seguir:** pausar cancela la frase en curso y seguir la repite desde el principio. `speechSynthesis.pause()` no es fiable en Android.
@@ -249,9 +249,7 @@ Contenido de la pantalla:
 
 ## 15. Pendiente de decidir
 
-| Tema | Se decide en |
-|---|---|
-| Web Speech frente a MP3 | #2 (prueba de voz en dispositivos, guion en [pruebas/voz.md](pruebas/voz.md)) |
+Nada por ahora. La voz (Web Speech frente a MP3) se decidió en el ADR 0005.
 
 ## 16. Trazabilidad
 
