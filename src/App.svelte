@@ -1,12 +1,13 @@
 <script lang="ts">
     import { onMount, tick } from 'svelte';
     import { FAR_AWAY_M, type App } from './app/app.svelte';
+    import type { Simulator } from './lib/simulator';
     import Dock from './ui/Dock.svelte';
     import MapControls from './ui/MapControls.svelte';
     import StartScreen from './ui/StartScreen.svelte';
     import Toast from './ui/Toast.svelte';
 
-    let { app }: { app: App } = $props();
+    let { app, sim }: { app: App; sim?: Promise<Simulator> } = $props();
     let container: HTMLElement;
 
     let settingsOpen = $state(false);
@@ -85,6 +86,11 @@
 {#if app.mapReady}
     <div inert={modal || pre}>
         <MapControls {app} onSettings={openSettings} />
+        {#if sim}
+            {#await Promise.all([sim, import('./ui/SimPanel.svelte')]) then [simulator, { default: SimPanel }]}
+                <SimPanel {app} sim={simulator} />
+            {/await}
+        {/if}
         {#if app.selected}
             {#await bubble() then { default: Bubble }}<Bubble {app} hidden={pre} />{/await}
         {/if}
