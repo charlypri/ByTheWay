@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#15181B" />
+    <title>Bytheway · Navegador</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Figtree:wght@600;700;800&family=Noto+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    />
+</head>
+<body>
+    <div id="map" aria-label="Mapa"></div>
+
+    <!-- Barra superior: velocidad, demo, ajustes y brújula -->
+    <header class="hud" id="hud">
+        <div class="speed" id="speed" aria-live="off">
+            <span class="speed-icon" id="speedIcon" aria-hidden="true"></span>
+            <span class="speed-text">
+                <span class="speed-num"><b id="speedNum">0</b> <span data-t="kmh"></span></span>
+                <span class="speed-band" id="speedBand"></span>
+            </span>
+        </div>
+        <button class="demo-tab" id="demoTab" type="button" aria-expanded="false" aria-controls="demo">
+            <span class="demo-dot" id="demoDot" aria-hidden="true"></span>
+            <span data-t="demo"></span>
+        </button>
+        <div class="map-buttons">
+            <button class="round" id="settingsBtn" type="button" data-t-aria="settings"></button>
+            <button class="round compass" id="northBtn" type="button" data-t-aria="north" aria-pressed="false">
+                <span class="needle" id="needle" aria-hidden="true"></span>
+                <span class="compass-mode" id="compassMode" aria-hidden="true"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Burbuja anclada al POI seleccionado -->
+    <button class="bubble" id="bubble" type="button" hidden>
+        <span class="bubble-text">
+            <span class="bubble-title" id="bubbleTitle"></span>
+            <span class="bubble-meta" id="bubbleMeta"></span>
+        </span>
+        <span class="bubble-open" id="bubbleOpen" aria-hidden="true"></span>
+    </button>
+
+    <!-- Panel inferior tipo navegador -->
+    <section class="dock" id="dock" aria-label="Guía">
+        <button class="recenter" id="recenter" type="button" hidden>
+            <span class="recenter-icon" aria-hidden="true"></span>
+            <span data-t="recenter"></span>
+        </button>
+        <div class="stack" id="stack">
+            <div class="upnext" id="upnext" hidden aria-live="polite">
+                <span class="upnext-dot" aria-hidden="true"></span>
+                <span class="upnext-label" data-t="next"></span>
+                <span class="upnext-title" id="upnextTitle"></span>
+                <span class="upnext-more" id="upnextMore"></span>
+            </div>
+            <div class="panel" id="panel" data-mode="next">
+                <!-- Próximo POI -->
+                <div class="p-next" id="pNext">
+                    <button class="next-main" id="nextOpen" type="button">
+                        <span class="dir-tile" aria-hidden="true"><span class="dir-arrow" id="nextArrow"></span></span>
+                        <span class="next-text">
+                            <span class="dist" id="nextDist"></span>
+                            <span class="next-title" id="nextTitle"></span>
+                            <span class="approach" aria-hidden="true"><i id="nextBar"></i></span>
+                        </span>
+                    </button>
+                </div>
+
+                <!-- Anuncio -->
+                <div class="p-card" id="pCard" hidden>
+                    <div class="card-head">
+                        <span class="card-status" id="cardStatus"><span class="pulse" aria-hidden="true"></span><span id="cardStatusText"></span></span>
+                        <button class="icon-btn" id="cardClose" type="button" data-t-aria="dismiss"></button>
+                    </div>
+                    <h2 class="card-title" id="cardTitle"></h2>
+                    <span class="badge-es" id="cardBadge" data-t="onlyInSpanish" hidden></span>
+                    <div class="card-actions">
+                        <button class="btn-listen" id="cardListen" type="button"></button>
+                        <button class="btn-dark" id="cardRead" type="button"></button>
+                    </div>
+                    <div class="linger" id="cardLinger" hidden>
+                        <div class="linger-track" aria-hidden="true"><i id="lingerBar"></i></div>
+                        <span id="lingerText"></span>
+                    </div>
+                </div>
+
+                <!-- Narración -->
+                <div class="p-player" id="pPlayer" hidden>
+                    <div class="bar bar-red" aria-hidden="true"><i id="plBar"></i></div>
+                    <div class="pl-head">
+                        <span class="pl-state" id="plState"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span><span id="plStateText"></span></span>
+                        <span class="pl-count" id="plCount"></span>
+                    </div>
+                    <button class="pl-title" id="plTitle" type="button">
+                        <span id="plTitleText"></span>
+                        <span class="badge-es" id="plBadge" data-t="onlyInSpanish" hidden></span>
+                    </button>
+                    <div class="pl-controls">
+                        <button class="btn-listen" id="plToggle" type="button"></button>
+                        <button class="btn-dark" id="plStop" type="button"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="scrim" id="scrim" hidden></div>
+
+    <!-- Ficha del POI -->
+    <section class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" hidden>
+        <header class="sheet-head">
+            <div class="sheet-top">
+                <span class="sheet-meta">
+                    <span class="sheet-dist" id="sheetDist"></span>
+                    <span class="state-chip" id="sheetState" hidden></span>
+                </span>
+                <button class="icon-btn" id="sheetClose" type="button" data-t-aria="close"></button>
+            </div>
+            <h2 class="sheet-title" id="sheetTitle"></h2>
+            <span class="badge-es" id="sheetBadge" data-t="onlyInSpanish" hidden></span>
+            <div class="sheet-actions">
+                <button class="btn-listen" id="sheetListen" type="button"></button>
+                <button class="btn-dark" id="sheetStop" type="button" hidden></button>
+            </div>
+        </header>
+        <div class="sheet-body" id="sheetBody"></div>
+    </section>
+
+    <!-- Ajustes -->
+    <section class="settings" id="settings" role="dialog" aria-modal="true" aria-labelledby="settingsTitle" hidden>
+        <div class="settings-top">
+            <h2 id="settingsTitle" data-t="settings"></h2>
+            <button class="icon-btn" id="settingsClose" type="button" data-t-aria="close"></button>
+        </div>
+        <div class="set-row">
+            <span class="set-label" id="langLabel" data-t="language"></span>
+            <div class="seg" role="radiogroup" aria-labelledby="langLabel" data-lang-seg>
+                <button type="button" role="radio" data-lang="es">Español</button>
+                <button type="button" role="radio" data-lang="en">English</button>
+            </div>
+        </div>
+        <div class="set-row set-inline">
+            <span class="set-label" id="darkLabel" data-t="darkMap"></span>
+            <button class="switch" id="darkSwitch" type="button" role="switch" aria-checked="false" aria-labelledby="darkLabel"><i></i></button>
+        </div>
+        <div class="set-row">
+            <span class="set-label" data-t="pocket"></span>
+            <span class="set-hint" data-t="pocketHint"></span>
+            <button class="btn-wide" id="pocketBtn" type="button"></button>
+        </div>
+        <div class="set-row">
+            <span class="set-label" data-t="resetSession"></span>
+            <span class="set-hint" data-t="sessionHint"></span>
+            <button class="btn-wide btn-outline" id="resetSession" type="button" data-t="resetSessionDo"></button>
+        </div>
+        <div class="set-row set-mock">
+            <span class="set-label" data-t="resetHeard"></span>
+            <span class="set-hint" data-t="heardHint"></span>
+            <button class="btn-wide btn-outline" id="resetHeard" type="button" data-t="resetHeardDo"></button>
+        </div>
+    </section>
+
+    <!-- Herramientas de demo: no forman parte de la app -->
+    <section class="demo" id="demo" aria-labelledby="demoTitle" hidden>
+        <div class="demo-top">
+            <h2 id="demoTitle" data-t="demoTitle"></h2>
+            <button class="icon-btn icon-btn-light" id="demoClose" type="button" data-t-aria="close"></button>
+        </div>
+        <p class="demo-note" data-t="demoNote"></p>
+        <div class="demo-row">
+            <button class="demo-btn demo-primary" id="simToggle" type="button"></button>
+            <button class="demo-btn" id="simRestart" type="button" data-t="restart"></button>
+        </div>
+        <span class="demo-label" id="profileLabel" data-t="profile"></span>
+        <div class="seg seg-light" role="radiogroup" aria-labelledby="profileLabel">
+            <button type="button" role="radio" data-profile="walk" data-t="walk"></button>
+            <button type="button" role="radio" data-profile="bike" data-t="bike"></button>
+            <button type="button" role="radio" data-profile="car" data-t="car"></button>
+        </div>
+        <span class="demo-label" id="clockLabel" data-t="clock"></span>
+        <div class="seg seg-light" role="radiogroup" aria-labelledby="clockLabel">
+            <button type="button" role="radio" data-scale="1">×1</button>
+            <button type="button" role="radio" data-scale="4">×4</button>
+            <button type="button" role="radio" data-scale="10">×10</button>
+            <button type="button" role="radio" data-scale="20">×20</button>
+        </div>
+        <button class="demo-btn demo-gps" id="useGps" type="button" data-t="useGps"></button>
+        <p class="demo-readout" id="demoReadout"></p>
+    </section>
+
+    <!-- Modo bolsillo -->
+    <div class="pocket" id="pocket" role="dialog" aria-modal="true" aria-labelledby="pocketExit" tabindex="-1" hidden>
+        <div class="pocket-center">
+            <span class="pocket-state" id="pocketState"></span>
+            <span class="pocket-dist" id="pocketDist"></span>
+            <span class="pocket-title" id="pocketTitle"></span>
+        </div>
+        <span class="pocket-exit" id="pocketExit" data-t="pocketExit"></span>
+    </div>
+
+    <!-- Pantalla de inicio -->
+    <div class="start" id="start" role="dialog" aria-modal="true" aria-labelledby="startTitle">
+        <div class="start-body">
+            <h1 class="wordmark" id="startTitle">Bytheway</h1>
+            <p class="start-hint" data-t="startHint"></p>
+            <ol class="steps">
+                <li><b>1</b><span data-t="step1"></span></li>
+                <li><b>2</b><span data-t="step2"></span></li>
+                <li><b>3</b><span data-t="step3"></span></li>
+            </ol>
+            <div class="seg" role="radiogroup" data-t-aria="language" data-lang-seg>
+                <button type="button" role="radio" data-lang="es">Español</button>
+                <button type="button" role="radio" data-lang="en">English</button>
+            </div>
+            <button class="btn-start" id="startBtn" type="button" disabled></button>
+        </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+    <div class="sr-only" id="live" aria-live="assertive"></div>
+
+    <script type="module" src="./main.ts"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{
+  "name": "bytheway",
+  "version": "0.0.0",
+  "description": "Guía turístico virtual: anuncia y narra puntos de interés al acercarte",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "test": "vitest run"
+  },
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.3.1",
+    "@tsconfig/svelte": "^5.0.8",
+    "happy-dom": "^20.14.5",
+    "svelte": "^5.57.1",
+    "svelte-check": "^4.7.6",
+    "typescript": "^6.0.3",
+    "vite": "^8.3.1",
+    "vitest": "^5.0.2"
+  },
+  "dependencies": {
+    "@tomtom-org/maps-sdk": "^0.57.0",
+    "@turf/turf": "^7.4.0",
+    "lodash-es": "^4.18.1",
+    "maplibre-gl": "^6.11.2",
+    "zod": "^4.6.5"
+  }
+}

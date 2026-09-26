@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#eef0f1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Bytheway · Final</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@600;700;800&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body class="pre">
+    <div id="map" role="application" data-s-aria="mapLabel"></div>
+
+    <!-- Burbuja anclada al POI tocado -->
+    <button id="bubble" class="bubble" type="button" hidden>
+        <span class="bubble-text">
+            <span id="bubble-title" class="bubble-title"></span>
+            <span id="bubble-meta" class="bubble-meta"></span>
+        </span>
+        <svg class="bubble-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+
+    <!-- Controles del mapa: pequeños, circulares, silenciosos -->
+    <div id="top-left" class="map-ctrl">
+        <button id="demo-btn" class="demo-chip" type="button" aria-expanded="false" aria-controls="demo">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6M10 3v6.2L4.8 18a2 2 0 0 0 1.7 3h11a2 2 0 0 0 1.7-3L14 9.2V3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span data-s="demo"></span>
+        </button>
+    </div>
+    <div id="top-right" class="map-ctrl">
+        <button id="settings-btn" class="map-btn" type="button" data-s-aria="settings" aria-haspopup="dialog">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M4 7.5h9M18 7.5h2M4 16.5h3M11 16.5h9"/><circle cx="15.5" cy="7.5" r="2.3"/><circle cx="8.5" cy="16.5" r="2.3"/></g></svg>
+        </button>
+        <button id="north-btn" class="map-btn" type="button" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><g id="needle"><path d="M12 2.8 15.4 12H8.6z" fill="#DF1B12"/><path d="M12 21.2 8.6 12h6.8z" fill="currentColor" opacity=".38"/></g></svg>
+        </button>
+        <button id="tilt-btn" class="map-btn tilt-btn" type="button" aria-pressed="false">
+            <span id="tilt-label" aria-hidden="true">3D</span>
+        </button>
+    </div>
+
+    <!-- Zona inferior: Anuncio o Narración (paneles grafito); en reposo, nada -->
+    <section id="dock" class="dock" data-s-aria="guide">
+        <button id="recenter" type="button" class="recenter" hidden>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l7.2 17.6L12 16.3l-7.2 4.1z" fill="currentColor"/></svg>
+            <span data-s="recenter"></span>
+        </button>
+        <div id="stack" class="stack">
+            <button id="upnext" class="upnext" type="button" hidden>
+                <span class="upnext-dot" aria-hidden="true"></span>
+                <span class="upnext-label" data-s="next"></span>
+                <span id="upnext-title" class="upnext-title"></span>
+                <span id="upnext-more" class="upnext-more"></span>
+            </button>
+            <div id="panel" class="panel" data-mode="none" hidden>
+                <!-- Anuncio -->
+                <div id="p-card" class="p-card" hidden>
+                    <div class="card-head">
+                        <span id="card-status" class="card-status"><span class="pulse" aria-hidden="true"></span><span id="card-status-text"></span></span>
+                        <span id="card-dist" class="card-dist"></span>
+                        <button id="card-close" class="icon-btn" type="button" data-s-aria="dismiss">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>
+                        </button>
+                    </div>
+                    <h2 id="card-title" class="card-title"></h2>
+                    <span id="card-badge" class="badge-es" data-s="onlyInSpanish" hidden></span>
+                    <div class="card-actions">
+                        <button id="card-listen" class="btn-listen" type="button"></button>
+                        <button id="card-read" class="btn-dark" type="button"></button>
+                    </div>
+                    <div id="card-linger" class="linger" hidden>
+                        <div class="linger-track" aria-hidden="true"><i id="linger-bar"></i></div>
+                        <span id="linger-text"></span>
+                    </div>
+                </div>
+
+                <!-- Narración -->
+                <div id="p-player" class="p-player" hidden>
+                    <div class="bar" aria-hidden="true"><i id="pl-bar"></i></div>
+                    <div class="pl-head">
+                        <span id="pl-state" class="pl-state"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span><span id="pl-state-text"></span></span>
+                        <span id="pl-dist" class="card-dist"></span>
+                    </div>
+                    <button id="pl-title" class="pl-title" type="button">
+                        <span id="pl-title-text"></span>
+                    </button>
+                    <span id="pl-count" class="pl-count"></span>
+                    <div class="pl-controls">
+                        <button id="pl-toggle" class="btn-listen" type="button"></button>
+                        <button id="pl-stop" class="btn-dark" type="button"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ficha del POI: hoja clara, no modal (el mapa sigue a la vista y se puede mover) -->
+    <section id="sheet" class="sheet" role="dialog" aria-labelledby="sheet-title" hidden>
+        <div id="sheet-grip" class="sheet-grip">
+            <span class="grip" aria-hidden="true"></span>
+            <div class="sheet-head">
+                <h2 id="sheet-title" class="sheet-title" tabindex="-1"></h2>
+                <button id="sheet-close" class="icon-btn quiet" type="button" data-s-aria="close">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+            </div>
+            <p id="sheet-meta" class="meta sheet-meta"></p>
+        </div>
+        <!-- Acciones arriba, como en la B: se ven sin tener que bajar hasta el final del texto -->
+        <div class="sheet-actions">
+            <button id="sheet-listen" class="btn-accent wide" type="button">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.6v12.8a1 1 0 0 0 1.5.85l10-6.4a1 1 0 0 0 0-1.7l-10-6.4A1 1 0 0 0 8 5.6z" fill="currentColor"/></svg>
+                <span id="sheet-listen-label"></span>
+            </button>
+            <div id="sheet-playing" class="sheet-playing" hidden>
+                <button id="sheet-toggle" class="btn-quiet" type="button"></button>
+                <button id="sheet-stop" class="btn-quiet" type="button">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2" fill="currentColor"/></svg>
+                    <span data-s="stop"></span>
+                </button>
+            </div>
+        </div>
+        <div id="sheet-body" class="sheet-body" tabindex="0"></div>
+    </section>
+
+    <div id="scrim" class="scrim" hidden></div>
+
+    <!-- Ajustes (hoja grafito, modal) -->
+    <section id="settings" class="settings" role="dialog" aria-modal="true" aria-labelledby="settings-title" hidden>
+        <div class="settings-top">
+            <h2 id="settings-title" data-s="settings"></h2>
+            <button id="settings-close" class="icon-btn" type="button" data-s-aria="close">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>
+            </button>
+        </div>
+        <div class="set-row">
+            <span class="set-label" id="lang-label" data-s="language"></span>
+            <div class="seg" role="group" aria-labelledby="lang-label">
+                <button type="button" data-lang="es" lang="es">Español</button>
+                <button type="button" data-lang="en" lang="en">English</button>
+            </div>
+        </div>
+        <div class="set-row">
+            <label class="set-label" for="voice-select" data-s="voice"></label>
+            <span class="set-hint" id="voice-hint" data-s="voiceHint"></span>
+            <div class="select-wrap">
+                <select id="voice-select" aria-describedby="voice-hint"></select>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 9.5 12 15l5.5-5.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+        </div>
+        <div class="set-row">
+            <span class="set-label" data-s="pocket"></span>
+            <span class="set-hint" data-s="pocketHint"></span>
+            <button id="pocket-btn" class="btn-wide" type="button" data-s="pocketOn"></button>
+        </div>
+        <div class="set-row">
+            <span class="set-label" data-s="startOver"></span>
+            <span class="set-hint" data-s="startOverHint"></span>
+            <button id="start-over" class="btn-wide btn-outline" type="button" data-s="startOver"></button>
+        </div>
+    </section>
+
+    <!-- Confirmación de Empezar de cero -->
+    <section id="confirm" class="confirm" role="alertdialog" aria-modal="true" aria-labelledby="confirm-title" aria-describedby="confirm-text" hidden>
+        <h2 id="confirm-title" class="confirm-title" data-s="startOverAsk"></h2>
+        <p id="confirm-text" class="confirm-text" data-s="startOverConfirm"></p>
+        <div class="confirm-actions">
+            <button id="confirm-cancel" class="btn-dark" type="button" data-s="cancel"></button>
+            <button id="confirm-ok" class="btn-wide" type="button" data-s="startOver"></button>
+        </div>
+    </section>
+
+    <!-- Herramientas de demo, separadas de la app -->
+    <section id="demo" class="demo" role="dialog" aria-labelledby="demo-title" hidden>
+        <div class="panel-head">
+            <h2 id="demo-title" data-s="demoTitle"></h2>
+            <button class="icon-btn quiet" type="button" data-close="demo" data-s-aria="close">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </button>
+        </div>
+        <p class="demo-note" data-s="demoNote"></p>
+        <div class="demo-row btn-pair">
+            <button id="sim-toggle" class="btn-quiet" type="button"></button>
+            <button id="sim-restart" class="btn-quiet" type="button" data-s="restartWalk"></button>
+        </div>
+        <div class="demo-row">
+            <span class="demo-label" id="profile-label" data-s="profile"></span>
+            <div class="seg-q" role="group" aria-labelledby="profile-label">
+                <button type="button" data-profile="walk" data-s="walk"></button>
+                <button type="button" data-profile="bike" data-s="bike"></button>
+                <button type="button" data-profile="car" data-s="car"></button>
+            </div>
+        </div>
+        <div class="demo-row">
+            <span class="demo-label" id="clock-label" data-s="clock"></span>
+            <div class="seg-q" role="group" aria-labelledby="clock-label">
+                <button type="button" data-scale="1">1×</button>
+                <button type="button" data-scale="4">4×</button>
+                <button type="button" data-scale="10">10×</button>
+            </div>
+        </div>
+        <div class="demo-row">
+            <span class="demo-label" id="theme-label" data-s="forceTheme"></span>
+            <div class="seg-q" role="group" aria-labelledby="theme-label">
+                <button type="button" data-theme-force="auto" data-s="themeAuto"></button>
+                <button type="button" data-theme-force="day" data-s="themeDay"></button>
+                <button type="button" data-theme-force="night" data-s="themeNight"></button>
+            </div>
+        </div>
+        <div class="demo-row">
+            <button id="gps-btn" class="btn-quiet wide" type="button">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="6.5"/><circle cx="12" cy="12" r="2" fill="currentColor"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3"/></g></svg>
+                <span data-s="useGps"></span>
+            </button>
+        </div>
+        <p id="demo-readout" class="demo-readout"></p>
+    </section>
+
+    <!-- Pantalla de inicio, sobre el mapa -->
+    <section id="start" class="start" aria-labelledby="wordmark">
+        <div class="start-lang seg-q" role="group" aria-label="Idioma / Language">
+            <button type="button" data-lang="es" lang="es">Español</button>
+            <button type="button" data-lang="en" lang="en">English</button>
+        </div>
+        <div class="start-inner">
+            <div class="start-copy">
+                <h1 id="wordmark" class="wordmark">Bytheway</h1>
+                <p class="tagline" data-s="tagline"></p>
+            </div>
+            <div class="start-legend" aria-hidden="true">
+                <span><i class="glyph" data-state="pending"></i><span data-s="legendNew"></span></span>
+                <span><i class="glyph" data-state="announced"></i><span data-s="legendAnnounced"></span></span>
+                <span><i class="glyph" data-state="heard"></i><span data-s="heard"></span></span>
+            </div>
+            <button id="start-btn" class="btn-start" type="button" disabled><span id="start-label"></span></button>
+            <p class="start-hint" data-s="startHint"></p>
+            <p id="start-error" class="start-error" role="alert" hidden></p>
+        </div>
+    </section>
+
+    <!-- Modo bolsillo -->
+    <div id="pocket" class="pocket" role="dialog" aria-modal="true" aria-labelledby="pocket-hint" tabindex="-1" hidden>
+        <p id="pocket-status" class="pocket-status" aria-live="polite"></p>
+        <p id="pocket-hint" class="pocket-hint" data-s="pocketExit"></p>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <div id="card-live" class="sr-only" aria-live="polite"></div>
+
+    <script type="module" src="./main.ts"></script>
+</body>
+</html>
