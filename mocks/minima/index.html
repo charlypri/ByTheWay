@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#eceef1" />
+    <title>Bytheway · Mínima</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@700;800&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body class="pre">
+    <div id="map" role="application" data-s-aria="mapLabel"></div>
+
+    <!-- Burbuja anclada al POI tocado -->
+    <div id="bubble-anchor" hidden>
+        <button id="bubble" type="button">
+            <span id="bubble-title" class="bubble-title"></span>
+            <span id="bubble-meta" class="bubble-meta"></span>
+            <svg class="bubble-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+    </div>
+
+    <!-- Controles del mapa: pequeños, circulares, silenciosos -->
+    <div id="top-left">
+        <button id="demo-btn" class="demo-chip" type="button" aria-expanded="false" aria-controls="demo">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6M10 3v6.2L4.8 18a2 2 0 0 0 1.7 3h11a2 2 0 0 0 1.7-3L14 9.2V3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span data-s="demo"></span>
+        </button>
+    </div>
+    <div id="top-right">
+        <button id="settings-btn" class="map-btn" type="button" data-s-aria="settings" aria-expanded="false" aria-controls="settings">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M4 7.5h9M18 7.5h2M4 16.5h3M11 16.5h9"/><circle cx="15.5" cy="7.5" r="2.3"/><circle cx="8.5" cy="16.5" r="2.3"/></g></svg>
+        </button>
+        <button id="north-btn" class="map-btn" type="button" aria-pressed="false" data-s-aria="north">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><g id="needle"><path d="M12 2.8 15.4 12H8.6z" fill="currentColor"/><path d="M12 21.2 8.6 12h6.8z" fill="currentColor" opacity=".32"/></g></svg>
+        </button>
+    </div>
+
+    <button id="recenter" type="button" class="recenter" hidden>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 18.8 20 12 16.4 5.2 20z" fill="currentColor"/></svg>
+        <span data-s="recenter"></span>
+    </button>
+
+    <!-- La píldora: un único elemento que cambia de forma -->
+    <div id="dock">
+        <button id="next" type="button" aria-hidden="true" tabindex="-1">
+            <span class="glyph" data-state="pending" aria-hidden="true"></span>
+            <span class="next-label" data-s="next"></span>
+            <span id="next-title" class="next-title"></span>
+            <span id="next-more" class="next-more"></span>
+        </button>
+        <div id="pill" data-mode="idle">
+            <div class="view" data-view="idle">
+                <span class="glyph" data-state="pending" aria-hidden="true"></span>
+                <span class="idle-text" role="status">
+                    <span id="idle-main" class="idle-main"></span>
+                    <span id="idle-sub" class="idle-sub"></span>
+                </span>
+            </div>
+
+            <div class="view" data-view="announce">
+                <button id="ann-open" class="ann-open" type="button">
+                    <span id="ann-title" class="ann-title"></span>
+                </button>
+                <button id="ann-close" class="icon-btn quiet" type="button" data-s-aria="dismiss">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+                <span id="ann-meta" class="meta ann-meta"></span>
+                <button id="ann-listen" class="btn-accent" type="button">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.6v12.8a1 1 0 0 0 1.5.85l10-6.4a1 1 0 0 0 0-1.7l-10-6.4A1 1 0 0 0 8 5.6z" fill="currentColor"/></svg>
+                    <span data-s="listen"></span>
+                </button>
+            </div>
+
+            <div class="view" data-view="narration">
+                <button id="narr-toggle" class="ring-btn" type="button">
+                    <svg class="ring" viewBox="0 0 56 56" aria-hidden="true">
+                        <circle class="ring-bg" cx="28" cy="28" r="25.5" />
+                        <circle id="ring-fg" class="ring-fg" cx="28" cy="28" r="25.5" pathLength="100" />
+                    </svg>
+                    <svg id="narr-icon-pause" class="ring-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="5" width="4" height="14" rx="1.3" fill="currentColor"/><rect x="13.5" y="5" width="4" height="14" rx="1.3" fill="currentColor"/></svg>
+                    <svg id="narr-icon-play" class="ring-icon" viewBox="0 0 24 24" aria-hidden="true" hidden><path d="M8.5 5.6v12.8a1 1 0 0 0 1.5.85l10-6.4a1 1 0 0 0 0-1.7l-10-6.4a1 1 0 0 0-1.5.85z" fill="currentColor"/></svg>
+                </button>
+                <button id="narr-open" class="narr-open" type="button">
+                    <span id="narr-title" class="narr-title"></span>
+                    <span id="narr-sub" class="narr-sub"></span>
+                </button>
+                <button id="narr-stop" class="icon-btn" type="button" data-s-aria="stop">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2" fill="currentColor"/></svg>
+                </button>
+            </div>
+
+            <div class="view" data-view="sheet" role="dialog" aria-labelledby="sheet-title">
+                <div class="sheet-head">
+                    <h2 id="sheet-title" class="sheet-title" tabindex="-1"></h2>
+                    <button id="sheet-close" class="icon-btn quiet" type="button" data-s-aria="close">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    </button>
+                </div>
+                <p id="sheet-meta" class="meta sheet-meta"></p>
+                <div id="sheet-body" class="sheet-body"></div>
+                <div class="sheet-foot">
+                    <button id="sheet-listen" class="btn-accent wide" type="button">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.6v12.8a1 1 0 0 0 1.5.85l10-6.4a1 1 0 0 0 0-1.7l-10-6.4A1 1 0 0 0 8 5.6z" fill="currentColor"/></svg>
+                        <span id="sheet-listen-label"></span>
+                    </button>
+                    <div id="sheet-playing" class="sheet-playing" hidden>
+                        <button id="sheet-toggle" class="btn-quiet" type="button"></button>
+                        <button id="sheet-stop" class="btn-quiet" type="button">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2" fill="currentColor"/></svg>
+                            <span data-s="stop"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ajustes -->
+    <section id="settings" class="panel panel-right" role="dialog" aria-labelledby="settings-title" hidden>
+        <div class="panel-head">
+            <h2 id="settings-title" data-s="settings"></h2>
+            <button class="icon-btn quiet" type="button" data-close="settings" data-s-aria="close">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </button>
+        </div>
+        <div class="row">
+            <span class="row-label" id="lang-label" data-s="language"></span>
+            <div class="seg" role="group" aria-labelledby="lang-label">
+                <button type="button" data-lang="es" lang="es">Español</button>
+                <button type="button" data-lang="en" lang="en">English</button>
+            </div>
+        </div>
+        <div class="row">
+            <span class="row-label" id="dark-label" data-s="darkMap"></span>
+            <button id="dark-switch" class="switch" type="button" role="switch" aria-checked="false" aria-labelledby="dark-label"><span></span></button>
+        </div>
+        <div class="row row-stack">
+            <button id="pocket-btn" class="btn-quiet wide" type="button">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10 18.5h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                <span data-s="pocket"></span>
+            </button>
+            <span class="row-hint" data-s="pocketHint"></span>
+        </div>
+        <div class="row row-links">
+            <button id="reset-session" class="link-btn" type="button" data-s="resetSession"></button>
+            <button id="reset-heard" class="link-btn" type="button" data-s="resetHeard"></button>
+        </div>
+    </section>
+
+    <!-- Herramientas de demo, separadas de la app -->
+    <section id="demo" class="panel panel-left demo" role="dialog" aria-labelledby="demo-title" hidden>
+        <div class="panel-head">
+            <h2 id="demo-title" data-s="demoTitle"></h2>
+            <button class="icon-btn quiet" type="button" data-close="demo" data-s-aria="close">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </button>
+        </div>
+        <p class="demo-note" data-s="demoNote"></p>
+        <div class="row row-stack">
+            <div class="btn-pair">
+                <button id="sim-toggle" class="btn-quiet" type="button"></button>
+                <button id="sim-restart" class="btn-quiet" type="button" data-s="restartWalk"></button>
+            </div>
+        </div>
+        <div class="row row-stack">
+            <span class="row-label" id="profile-label" data-s="profile"></span>
+            <div class="seg wide" role="group" aria-labelledby="profile-label">
+                <button type="button" data-profile="walk" data-s="walk"></button>
+                <button type="button" data-profile="bike" data-s="bike"></button>
+                <button type="button" data-profile="car" data-s="car"></button>
+            </div>
+        </div>
+        <div class="row row-stack">
+            <span class="row-label" id="clock-label" data-s="clock"></span>
+            <div class="seg wide" role="group" aria-labelledby="clock-label">
+                <button type="button" data-scale="1">1×</button>
+                <button type="button" data-scale="4">4×</button>
+                <button type="button" data-scale="10">10×</button>
+            </div>
+        </div>
+        <div class="row row-stack">
+            <button id="gps-btn" class="btn-quiet wide" type="button">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="6.5"/><circle cx="12" cy="12" r="2" fill="currentColor"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3"/></g></svg>
+                <span data-s="useGps"></span>
+            </button>
+        </div>
+        <p id="demo-readout" class="demo-readout"></p>
+    </section>
+
+    <!-- Pantalla de inicio -->
+    <section id="start" aria-labelledby="wordmark">
+        <div class="start-inner">
+            <div class="start-lang seg" role="group" aria-label="Idioma / Language">
+                <button type="button" data-lang="es" lang="es">Español</button>
+                <button type="button" data-lang="en" lang="en">English</button>
+            </div>
+            <div class="start-copy">
+                <h1 id="wordmark" class="wordmark">Bytheway</h1>
+                <p class="tagline" data-s="tagline"></p>
+            </div>
+            <div class="start-legend" aria-hidden="true">
+                <span><i class="glyph" data-state="pending"></i><span data-s="legendNew"></span></span>
+                <span><i class="glyph" data-state="announced"></i><span data-s="legendAnnounced"></span></span>
+                <span><i class="glyph" data-state="heard"></i><span data-s="heard"></span></span>
+            </div>
+            <button id="start-btn" class="btn-accent big" type="button" disabled><span data-s="start"></span></button>
+            <p class="start-hint" data-s="startHint"></p>
+            <p id="start-error" class="start-error" role="alert" hidden></p>
+        </div>
+    </section>
+
+    <!-- Modo bolsillo -->
+    <div id="pocket" hidden>
+        <p id="pocket-status" class="pocket-status" aria-live="polite"></p>
+        <p class="pocket-hint" data-s="pocketExit"></p>
+    </div>
+
+    <div id="toast" role="status" aria-live="polite"></div>
+    <div id="sr-live" class="sr-only" aria-live="assertive"></div>
+
+    <script type="module" src="./main.ts"></script>
+</body>
+</html>

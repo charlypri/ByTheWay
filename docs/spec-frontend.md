@@ -159,7 +159,7 @@ Contenido de la pantalla:
 | Carretera | > 60 km/h | 13,5 |
 
 - **Cambio de tramo** con histéresis de ±1,5 km/h y transición suave (≈ 900 ms, *ease-out*).
-- **Orientación:** norte arriba a pie. Rumbo arriba a partir de 17 km/h, y vuelta al norte por debajo de 13 km/h. En rumbo arriba, el usuario se coloca en el tercio inferior para ver lo que viene. La brújula fija el norte arriba a cualquier velocidad.
+- **Orientación:** norte arriba a pie. Rumbo arriba a partir de 15 km/h, y vuelta al norte por debajo de 12 km/h. En rumbo arriba, el usuario se coloca en el tercio inferior para ver lo que viene. La brújula fija el norte arriba a cualquier velocidad.
 - **Rumbo:** `coords.heading` si existe y hay movimiento; si no, se calcula entre posiciones consecutivas.
 - **Salir y volver:** arrastrar, hacer zoom o girar el mapa con los dedos abandona el Modo seguimiento, que no vuelve solo. **Recentrar** lo recupera con una animación de 600 ms.
 
