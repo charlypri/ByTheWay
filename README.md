@@ -1,4 +1,4 @@
-# Bytheway
+# ByTheWay
 
 Guía turístico virtual para el móvil. Mientras paseas, la app te dice en voz alta el nombre de cada lugar curado junto al que pasas y, si quieres, te cuenta su historia completa. Cada historia termina con un "Por cierto…".
 

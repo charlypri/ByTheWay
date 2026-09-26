@@ -21,7 +21,7 @@
     </div>
     <div class="start-inner">
         <div class="start-copy">
-            <h1 id="wordmark" class="wordmark">Bytheway</h1>
+            <h1 id="wordmark" class="wordmark">ByTheWay</h1>
             <p class="tagline">{app.t('tagline')}</p>
         </div>
         <div class="start-legend" aria-hidden="true">

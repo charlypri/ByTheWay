@@ -56,7 +56,7 @@ function layers(dark: boolean): CustomGeoJSONModuleConfig<Sources>['sources'] {
             ],
         },
         pois: {
-            cluster: { cluster: true, clusterRadius: 44, clusterMaxZoom: CLUSTER_MAX_ZOOM },
+            cluster: { cluster: true, clusterRadius: 64, clusterMaxZoom: CLUSTER_MAX_ZOOM },
             layers: [
                 {
                     id: 'cluster-circle',
@@ -64,8 +64,8 @@ function layers(dark: boolean): CustomGeoJSONModuleConfig<Sources>['sources'] {
                     filter: ['has', 'point_count'],
                     paint: {
                         'circle-color': cluster.fill,
-                        'circle-radius': ['step', ['get', 'point_count'], 16, 10, 20, 50, 26],
-                        'circle-stroke-width': 2,
+                        'circle-radius': ['step', ['get', 'point_count'], 28, 10, 34, 50, 42],
+                        'circle-stroke-width': 3,
                         'circle-stroke-color': cluster.stroke,
                     },
                 },
@@ -73,7 +73,7 @@ function layers(dark: boolean): CustomGeoJSONModuleConfig<Sources>['sources'] {
                     id: 'cluster-count',
                     type: 'symbol',
                     filter: ['has', 'point_count'],
-                    layout: { 'text-field': ['get', 'point_count_abbreviated'], 'text-font': ['Noto-Bold'], 'text-size': 13 },
+                    layout: { 'text-field': ['get', 'point_count_abbreviated'], 'text-font': ['Noto-Bold'], 'text-size': 22 },
                     paint: { 'text-color': cluster.text },
                 },
                 // Nombres e iconos van en capas separadas y los iconos encima: un nombre nunca tapa un icono.
@@ -86,13 +86,13 @@ function layers(dark: boolean): CustomGeoJSONModuleConfig<Sources>['sources'] {
                         'symbol-sort-key': sortKey,
                         'text-field': ['step', ['zoom'], '', 16, ['get', 'title']],
                         'text-font': ['Noto-Bold'],
-                        'text-size': 14.5,
+                        'text-size': 26,
                         'text-variable-anchor': ['top', 'bottom', 'right', 'left'],
                         'text-radial-offset': ['match', ['get', 'state'], 'playing', 1.6, 1.2],
                         'text-justify': 'auto',
                         'text-max-width': 9,
                     },
-                    paint: { 'text-color': label.color, 'text-halo-color': label.halo, 'text-halo-width': 2.2 },
+                    paint: { 'text-color': label.color, 'text-halo-color': label.halo, 'text-halo-width': 3 },
                 },
                 {
                     id: 'poi-symbol',
