@@ -4,13 +4,37 @@ import { App as GuideApp } from './app/app.svelte';
 import { webAudioChime } from './app/chime';
 import { Catalog, httpText } from './lib/catalog';
 import { browserNarrator } from './lib/narrator';
-import { browserGps } from './lib/position';
+import { browserGps, type PositionSource } from './lib/position';
 import { localStore } from './lib/storage';
 import { keepScreenOn } from './lib/wakelock';
 import { createGuideMap } from './map/guide-map';
 import './ui/styles.css';
 
 const store = localStore();
+const gps = browserGps();
+// ?sim cambia el GPS por un paseo simulado por el Retiro; sin ?sim, su código ni se descarga.
+// Sin await de primer nivel: con él, el bundler parte el chunk inicial en trozos y pesa más.
+const sim = new URLSearchParams(location.search).has('sim')
+    ? import('./lib/simulator').then(
+          ({ Simulator }) =>
+              new Simulator({
+                  now: Date.now,
+                  every: (fn, ms) => {
+                      const id = setInterval(fn, ms);
+                      return () => clearInterval(id);
+                  },
+                  random: Math.random,
+                  gps,
+              }),
+      )
+    : undefined;
+/** El simulador llega por la red; las llamadas esperan a que esté, en el mismo orden. */
+const position: PositionSource = sim
+    ? {
+          start: (onFix, onError) => void sim.then((s) => s.start(onFix, onError)),
+          stop: () => void sim.then((s) => s.stop()),
+      }
+    : gps;
 const dark = matchMedia('(prefers-color-scheme: dark)');
 
 const app = new GuideApp({
@@ -26,7 +50,7 @@ const app = new GuideApp({
         },
     }),
     narrator: browserNarrator(store),
-    position: browserGps(),
+    position,
     now: Date.now,
     systemDark: { matches: () => dark.matches, onChange: (fn) => dark.addEventListener('change', fn) },
     createMap: (container, opts) => createGuideMap(container, opts),
@@ -34,7 +58,7 @@ const app = new GuideApp({
     keepScreenOn: () => keepScreenOn(navigator, document),
 });
 
-mount(App, { target: document.getElementById('app')!, props: { app } });
+mount(App, { target: document.getElementById('app')!, props: { app, sim } });
 
 // Service worker: la app funciona sin red (sección 13). Solo en el build, para no cachear el desarrollo.
 if (import.meta.env.PROD && 'serviceWorker' in navigator) {

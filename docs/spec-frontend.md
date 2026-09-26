@@ -11,7 +11,7 @@ Qué hace la app, pantalla a pantalla, y qué reglas sigue. Los términos en **n
 - Castellano e inglés.
 - PWA instalable que funciona sin red (salvo las teselas del mapa que no se hayan visto).
 - Modo bolsillo.
-- Simulador de paseo tras `?sim`.
+- Simulador de paseo tras `?sim`: una ruta de ejemplo por el Retiro; para probar lugares de otra zona se arrastra la flecha hasta ellos.
 
 **No entra**
 - Funcionamiento con la pantalla bloqueada (ADR 0002).
@@ -252,7 +252,6 @@ Contenido de la pantalla:
 | Tema | Se decide en |
 |---|---|
 | Web Speech frente a MP3 | #2 (prueba de voz en dispositivos) |
-| Ruta de ejemplo del simulador fuera del Retiro | #13 |
 
 ## 16. Trazabilidad
 

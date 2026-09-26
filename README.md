@@ -21,6 +21,8 @@ Puedes tener varios conjuntos (`retiro.es.kml`, `rioja.es.kml`…): la app los s
 
 Al subir un fichero se publica solo en un par de minutos (pestaña *Actions*), y los móviles que tengan la app abierta lo reciben en menos de 30 minutos. No hace falta tocar nada más.
 
+Para probar los lugares sin salir de casa, abre la app con `?sim` al final de la dirección (por ejemplo, `…/ByTheWay/?sim`). Aparece el chip *Simulador*: da un paseo por el Retiro a pie, en bici o en coche, y en cualquier otra zona basta con arrastrar la flecha hasta el lugar.
+
 ## Desarrollo
 
 ```sh
