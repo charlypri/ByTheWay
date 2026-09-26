@@ -1,25 +1,39 @@
-import { cpSync } from 'node:fs';
+import { cpSync, readdirSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import type { Plugin } from 'vite';
 import { defineConfig } from 'vitest/config';
 import { svelte } from '@sveltejs/vite-plugin-svelte';
 
+const BASE = '/ByTheWay/';
+const DATA = resolve(import.meta.dirname, 'data');
+
+/** La lista de ficheros de data/: un navegador no puede listar una carpeta (ADR 0004). */
+const manifest = () => JSON.stringify({ files: readdirSync(DATA).filter((f) => f.toLowerCase().endsWith('.kml')).sort() });
+
 // Los KML de data/ no se empaquetan: la app los descarga en tiempo de ejecución (ADR 0004).
-// En el build se copian tal cual para que los mocks y la app los encuentren junto a la web.
-const copyData = (): Plugin => ({
-    name: 'copy-data',
-    apply: 'build',
+// En el build se copian tal cual junto a su lista; en desarrollo la lista se genera en cada petición.
+const publishData = (): Plugin => ({
+    name: 'publish-data',
+    configureServer(server) {
+        server.middlewares.use((req, res, next) => {
+            if (!req.url?.split('?')[0].endsWith('/data/index.json')) return next();
+            res.setHeader('Content-Type', 'application/json');
+            res.end(manifest());
+        });
+    },
     closeBundle() {
-        cpSync(resolve(import.meta.dirname, 'data'), resolve(import.meta.dirname, 'dist/data'), { recursive: true });
+        const out = resolve(import.meta.dirname, 'dist/data');
+        cpSync(DATA, out, { recursive: true });
+        writeFileSync(resolve(out, 'index.json'), manifest());
     },
 });
 
 const page = (path: string) => resolve(import.meta.dirname, path);
 
 export default defineConfig({
-    base: '/ByTheWay/',
+    base: BASE,
     envPrefix: ['VITE_', 'TOMTOM_'],
-    plugins: [svelte(), copyData()],
+    plugins: [svelte(), publishData()],
     // MapLibre usa campos de clase nativos; sin esnext sus workers fallan en silencio.
     build: {
         target: 'esnext',

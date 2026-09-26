@@ -2,7 +2,7 @@ name: CI y despliegue
 
 on:
     push:
-        branches: [main, fase-0]
+        branches: [main]
     pull_request:
     workflow_dispatch:
 
@@ -35,7 +35,7 @@ jobs:
               with:
                   path: dist
 
-    # Publica en Pages desde main y, mientras dure la Fase 0, desde la rama de la PR para revisar los mocks en el móvil.
+    # Publica en Pages desde main. Un KML nuevo en data/ llega así a los móviles sin más pasos (ADR 0004).
     deploy:
         if: github.event_name != 'pull_request'
         needs: build
