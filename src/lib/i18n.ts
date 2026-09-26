@@ -83,6 +83,7 @@ const es = {
     car: 'En coche',
     simClock: 'Velocidad del reloj',
     simGps: 'Usar mi GPS',
+    simReadout: 'Precisión {accuracy} m, {speed} km/h, zoom {zoom}',
 };
 
 type Strings = typeof es;
@@ -162,6 +163,7 @@ const en: Strings = {
     car: 'By car',
     simClock: 'Clock speed',
     simGps: 'Use my GPS',
+    simReadout: 'Accuracy {accuracy} m, {speed} km/h, zoom {zoom}',
 };
 
 const STRINGS: Record<Lang, Strings> = { es, en };
