@@ -6,6 +6,7 @@ import { Catalog, httpText } from './lib/catalog';
 import { browserNarrator } from './lib/narrator';
 import { browserGps } from './lib/position';
 import { localStore } from './lib/storage';
+import { keepScreenOn } from './lib/wakelock';
 import { createGuideMap } from './map/guide-map';
 import './ui/styles.css';
 
@@ -30,6 +31,7 @@ const app = new GuideApp({
     systemDark: { matches: () => dark.matches, onChange: (fn) => dark.addEventListener('change', fn) },
     createMap: (container, opts) => createGuideMap(container, opts),
     chime: webAudioChime(),
+    keepScreenOn: () => keepScreenOn(navigator, document),
 });
 
 mount(App, { target: document.getElementById('app')!, props: { app } });

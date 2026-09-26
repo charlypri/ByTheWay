@@ -22,6 +22,8 @@ export interface AppDeps {
     systemDark: { matches(): boolean; onChange(fn: () => void): void };
     createMap(container: HTMLElement, opts: { dark: boolean; lang: Lang }): Promise<GuideMap>;
     chime: Chime;
+    /** Mantiene la pantalla encendida; devuelve cómo soltarla. */
+    keepScreenOn(): () => void;
 }
 
 export interface Narration {
@@ -45,6 +47,9 @@ export interface FollowView {
 
 /** La tarjeta del Anuncio sigue 30 s después de salir del radio (sección 4.5). */
 export const LINGER_MS = 30_000;
+/** Lejos de todos los POIs: se ofrece ir a ver el más cercano (sección 4.9). */
+export const FAR_AWAY_M = 5000;
+const TOAST_MS = 3200;
 /** El tema se revisa como mucho una vez por minuto (sección 5). */
 const DARK_CHECK_MS = 60_000;
 
@@ -69,6 +74,10 @@ export class App {
     dataError = $state(false);
     positionError = $state<PositionError | null>(null);
     started = $state(false);
+    pocket = $state(false);
+    toast = $state<string | null>(null);
+    /** El POI más cercano y su distancia, para el aviso de "lejos de todo". */
+    nearest = $state.raw<{ poi: Poi; distance: number } | null>(null);
 
     guide!: Guide;
     map!: GuideMap;
@@ -81,6 +90,7 @@ export class App {
     private sheetFollow = { was: false, panned: false };
     private mapMoveListeners = new Set<() => void>();
     private lingerTimer: ReturnType<typeof setTimeout> | undefined;
+    private toastTimer: ReturnType<typeof setTimeout> | undefined;
 
     constructor(readonly deps: AppDeps) {
         this.lang = deps.store.get<Lang>('lang') ?? 'es';
@@ -108,6 +118,8 @@ export class App {
         ml.on('move', () => this.mapMoveListeners.forEach((fn) => fn()));
         ml.on('rotate', () => (this.bearing = ml.getBearing()));
         ml.once('load', () => this.redraw());
+        // Antes de empezar, el punto de partida se ve en la mitad libre, sobre la pantalla de inicio.
+        if (!this.started) ml.jumpTo({ padding: { top: 0, left: 0, right: 0, bottom: Math.round(window.innerHeight * 0.5) } });
         this.mapReady = true;
 
         this.guide = new Guide(catalog.pois, {
@@ -168,10 +180,16 @@ export class App {
         }
     }
 
-    /** Empieza a seguir la posición. */
+    /**
+     * Empezar: debe llamarse dentro del toque del usuario. Desbloquea la voz y el audio (iOS),
+     * mantiene la pantalla encendida y empieza a seguir la posición.
+     */
     start() {
         if (this.started) return;
         this.started = true;
+        this.narrator.unlock();
+        this.deps.chime.unlock();
+        this.deps.keepScreenOn();
         this.deps.position.start(
             (fix) => this.onFix(fix),
             (error) => (this.positionError = error),
@@ -320,6 +338,36 @@ export class App {
 
     // ------------------------------------------------------------------ ajustes
 
+    setVoice(id: string | null) {
+        this.narrator.setVoice(this.lang, id);
+        if (!this.narration) void this.narrator.say(this.t('voiceSample'), this.lang);
+    }
+
+    /** Empezar de cero: todos los lugares vuelven a anunciarse, también los ya escuchados. */
+    startOver() {
+        this.guide.startOver();
+        this.showToast(this.t('startOverDone'));
+    }
+
+    setPocket(on: boolean) {
+        this.pocket = on;
+    }
+
+    showToast(message: string) {
+        this.toast = message;
+        clearTimeout(this.toastTimer);
+        this.toastTimer = setTimeout(() => (this.toast = null), TOAST_MS);
+    }
+
+    /** Lleva el mapa al POI más cercano y lo selecciona. */
+    showNearest() {
+        const n = this.nearest;
+        if (!n) return;
+        this.camera.suspend();
+        this.select(n.poi);
+        this.map.flyTo(n.poi, this.bottomInset);
+    }
+
     setLang(lang: Lang) {
         if (lang === this.lang) return;
         this.lang = lang;
@@ -336,12 +384,22 @@ export class App {
         this.map.setUser(fix, this.weakFix);
         this.camera.update(fix);
         this.guide.update(fix);
+        this.nearest = this.findNearest(fix);
         // Si vuelves a entrar en el radio del Anuncio, la tarjeta deja de cerrarse.
         if (this.card?.exitAt != null && this.guide.isInside(this.card.poi)) {
             clearTimeout(this.lingerTimer);
             this.card = { poi: this.card.poi, exitAt: null };
         }
         this.evaluateDark();
+    }
+
+    private findNearest(fix: Fix) {
+        let best: { poi: Poi; distance: number } | null = null;
+        for (const poi of this.pois) {
+            const distance = distanceM(poi, fix);
+            if (!best || distance < best.distance) best = { poi, distance };
+        }
+        return best;
     }
 
     /** Oscuro si el sistema lo pide o si es de noche donde está el usuario. */
