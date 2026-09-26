@@ -251,7 +251,7 @@ Contenido de la pantalla:
 
 | Tema | Se decide en |
 |---|---|
-| Web Speech frente a MP3 | #2 (prueba de voz en dispositivos) |
+| Web Speech frente a MP3 | #2 (prueba de voz en dispositivos, guion en [pruebas/voz.md](pruebas/voz.md)) |
 
 ## 16. Trazabilidad
 

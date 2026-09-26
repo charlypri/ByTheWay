@@ -5,6 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <meta name="theme-color" content="#ffffff" />
         <title>Bytheway · Prueba de voz</title>
+        <!-- Instalable aparte: la PWA de la app no puede abrir esta página (no tiene barra de direcciones). -->
+        <link rel="manifest" href="/probe/voz/manifest.webmanifest" />
+        <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-title" content="Prueba de voz" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@600;800&family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -40,12 +45,39 @@
                         <button data-say="announce-es">Oír en castellano</button>
                         <button data-say="announce-en" class="secondary">Oír en inglés</button>
                     </div>
+                    <fieldset class="rate" data-key="primer_toque">
+                        <legend>La primera vez que tocaste, ¿cómo sonó?</legend>
+                        <button value="entera">Entera</button><button value="con_retraso">Con retraso</button><button value="cortada">Cortada al principio</button><button value="muda">No sonó</button>
+                    </fieldset>
                     <fieldset class="rate" data-key="anuncio">
                         <legend>¿Se entiende bien?</legend>
                         <button value="bien">Bien</button><button value="regular">Regular</button><button value="mal">Mal</button>
                     </fieldset>
                 </li>
 
+                <li class="step" id="step-deferred">
+                    <h2>Anuncio diferido</h2>
+                    <p class="hint">
+                        En la app, el Anuncio suena al entrar en un lugar, sin que toques nada. Toca Preparar (como Empezar en la
+                        app), deja el móvil quieto y espera: a los 10 segundos sonará un aviso y un título.
+                    </p>
+                    <div class="actions"><button id="deferred">Preparar</button></div>
+                    <p id="deferred-result" class="result"></p>
+                    <fieldset class="rate" data-key="anuncio_diferido">
+                        <legend>¿Qué oíste a los 10 segundos?</legend>
+                        <button value="aviso_y_voz">Aviso y voz</button><button value="solo_voz">Solo la voz</button><button value="solo_aviso">Solo el aviso</button><button value="nada">Nada</button>
+                    </fieldset>
+                    <p class="hint">
+                        Ahora lo mismo al volver: toca Preparar y bloquear, bloquea el móvil unos 10 segundos y vuelve a esta
+                        página sin tocar la pantalla. A los 3 segundos de volver sonará otro título.
+                    </p>
+                    <div class="actions"><button id="deferred-back" class="secondary">Preparar y bloquear</button></div>
+                    <p id="deferred-back-result" class="result"></p>
+                    <fieldset class="rate" data-key="anuncio_al_volver">
+                        <legend>Al volver, ¿oíste el título?</legend>
+                        <button value="si">Sí</button><button value="no">No</button>
+                    </fieldset>
+                </li>
                 <li class="step" id="step-narration">
                     <h2>Narración</h2>
                     <p class="hint">Una descripción real y larga, leída frase a frase, como lo hará la app. Prueba a pausar y seguir.</p>
