@@ -3,6 +3,7 @@
     import type { App } from './app/app.svelte';
     import Bubble from './ui/Bubble.svelte';
     import Dock from './ui/Dock.svelte';
+    import GuidePanel from './ui/GuidePanel.svelte';
     import MapControls from './ui/MapControls.svelte';
     import Sheet from './ui/Sheet.svelte';
 
@@ -29,7 +30,8 @@
     }
 </script>
 
-<svelte:window onkeydown={onKey} />
+<!-- El audio necesita un toque del usuario para sonar. -->
+<svelte:window onkeydown={onKey} onpointerdown={() => app.deps.chime.unlock()} />
 <svelte:body class:sheet-open={!!app.sheet} />
 
 <div id="map" bind:this={container} role="application" aria-label={app.t('mapLabel')}></div>
@@ -37,6 +39,8 @@
 {#if app.mapReady}
     <MapControls {app} />
     <Bubble {app} />
-    <Dock {app} inert={!!app.sheet} />
+    <Dock {app} inert={!!app.sheet}>
+        <GuidePanel {app} />
+    </Dock>
     <Sheet {app} />
 {/if}

@@ -1,6 +1,7 @@
 import { mount } from 'svelte';
 import App from './App.svelte';
 import { App as GuideApp } from './app/app.svelte';
+import { webAudioChime } from './app/chime';
 import { Catalog, httpText } from './lib/catalog';
 import { browserNarrator } from './lib/narrator';
 import { browserGps } from './lib/position';
@@ -28,6 +29,7 @@ const app = new GuideApp({
     now: Date.now,
     systemDark: { matches: () => dark.matches, onChange: (fn) => dark.addEventListener('change', fn) },
     createMap: (container, opts) => createGuideMap(container, opts),
+    chime: webAudioChime(),
 });
 
 mount(App, { target: document.getElementById('app')!, props: { app } });

@@ -10,6 +10,7 @@ import type { NarrationProgress, Narrator } from '../lib/narrator';
 import type { PositionError, PositionSource } from '../lib/position';
 import type { KeyValueStore } from '../lib/storage';
 import type { GuideMap } from '../map/guide-map';
+import type { Chime } from './chime';
 
 export interface AppDeps {
     store: KeyValueStore;
@@ -20,12 +21,19 @@ export interface AppDeps {
     /** ¿Pide el sistema el tema oscuro? `onChange` avisa cuando cambia. */
     systemDark: { matches(): boolean; onChange(fn: () => void): void };
     createMap(container: HTMLElement, opts: { dark: boolean; lang: Lang }): Promise<GuideMap>;
+    chime: Chime;
 }
 
 export interface Narration {
     poi: Poi;
     progress: NarrationProgress;
     paused: boolean;
+}
+
+/** Tarjeta del Anuncio. `exitAt`: cuándo salió el usuario del radio, o null si sigue dentro. */
+export interface AnnounceCard {
+    poi: Poi;
+    exitAt: number | null;
 }
 
 export interface FollowView {
@@ -35,6 +43,8 @@ export interface FollowView {
     pitched: boolean;
 }
 
+/** La tarjeta del Anuncio sigue 30 s después de salir del radio (sección 4.5). */
+export const LINGER_MS = 30_000;
 /** El tema se revisa como mucho una vez por minuto (sección 5). */
 const DARK_CHECK_MS = 60_000;
 
@@ -48,6 +58,9 @@ export class App {
     selected = $state.raw<Poi | null>(null);
     sheet = $state.raw<Poi | null>(null);
     narration = $state.raw<Narration | null>(null);
+    card = $state.raw<AnnounceCard | null>(null);
+    /** Anuncios que esperan a que termine la Narración. */
+    queue = $state.raw<Poi[]>([]);
     follow = $state<FollowView>({ active: true, headingUp: false, northLocked: false, pitched: true });
     /** Rumbo del mapa, para la aguja de la brújula. */
     bearing = $state(0);
@@ -67,6 +80,7 @@ export class App {
     /** Al abrir la ficha: ¿seguía la cámara al usuario? ¿movió el mapa mientras tanto? */
     private sheetFollow = { was: false, panned: false };
     private mapMoveListeners = new Set<() => void>();
+    private lingerTimer: ReturnType<typeof setTimeout> | undefined;
 
     constructor(readonly deps: AppDeps) {
         this.lang = deps.store.get<Lang>('lang') ?? 'es';
@@ -103,6 +117,15 @@ export class App {
                 const tx = textFor(poi, this.lang);
                 return narrator.say(tx.title, tx.lang);
             },
+        });
+        this.guide.on('announce', (poi) => this.showCard(poi));
+        this.guide.on('exit', (poi) => {
+            if (this.card?.poi.id === poi.id && this.card.exitAt == null) this.leaveCard();
+        });
+        this.guide.on('queue', (queue) => {
+            // Una Entrada nueva espera a que termine la Narración: aviso visual y sonoro.
+            if (queue.length > this.queue.length && this.narration) this.deps.chime.play();
+            this.queue = queue;
         });
         this.guide.on('states', () => {
             this.revision++;
@@ -245,6 +268,8 @@ export class App {
         this.guide.startNarration(poi);
         this.deps.catalog.setBusy(true);
         this.narration = { poi, progress: { index: 0, total: 1 }, paused: false };
+        // La Narración consume la tarjeta del Anuncio de ese POI.
+        if (this.card?.poi.id === poi.id) this.dismissCard();
         this.narrator.narrate(tx.title, tx.description, tx.lang);
     }
 
@@ -265,6 +290,34 @@ export class App {
         this.narrator.stop();
     }
 
+    // ------------------------------------------------------------------ tarjeta del Anuncio
+
+    /** Abajo, el reproductor si hay Narración, si no la tarjeta del Anuncio y, si tampoco, nada. */
+    get panel(): 'player' | 'card' | 'none' {
+        return this.narration ? 'player' : this.card ? 'card' : 'none';
+    }
+
+    dismissCard() {
+        clearTimeout(this.lingerTimer);
+        this.card = null;
+    }
+
+    private showCard(poi: Poi) {
+        clearTimeout(this.lingerTimer);
+        this.card = { poi, exitAt: null };
+        if (!this.guide.isInside(poi)) this.leaveCard();
+    }
+
+    private leaveCard() {
+        if (!this.card) return;
+        const { poi } = this.card;
+        this.card = { poi, exitAt: this.deps.now() };
+        clearTimeout(this.lingerTimer);
+        this.lingerTimer = setTimeout(() => {
+            if (this.card?.poi.id === poi.id && !this.guide.isInside(poi)) this.dismissCard();
+        }, LINGER_MS);
+    }
+
     // ------------------------------------------------------------------ ajustes
 
     setLang(lang: Lang) {
@@ -283,6 +336,11 @@ export class App {
         this.map.setUser(fix, this.weakFix);
         this.camera.update(fix);
         this.guide.update(fix);
+        // Si vuelves a entrar en el radio del Anuncio, la tarjeta deja de cerrarse.
+        if (this.card?.exitAt != null && this.guide.isInside(this.card.poi)) {
+            clearTimeout(this.lingerTimer);
+            this.card = { poi: this.card.poi, exitAt: null };
+        }
         this.evaluateDark();
     }
 
@@ -307,6 +365,10 @@ export class App {
         const byId = new Map(this.pois.map((p) => [p.id, p]));
         if (this.selected) this.selected = byId.get(this.selected.id) ?? null;
         if (this.sheet) this.sheet = byId.get(this.sheet.id) ?? null;
+        if (this.card) {
+            const poi = byId.get(this.card.poi.id);
+            this.card = poi ? { ...this.card, poi } : null;
+        }
         this.redraw();
     }
 
