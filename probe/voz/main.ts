@@ -1,4 +1,5 @@
 // Prueba de voz (issue #2): ¿vale la Web Speech API de este móvil para Bytheway?
+import { webAudioChime } from '../../src/app/chime';
 import { parseKml, type Lang } from '../../src/lib/kml';
 import { bestVoice, splitSentences, voicesReady } from '../../mocks/shared/speech';
 
@@ -243,6 +244,85 @@ function screenOffTest() {
     document.addEventListener('visibilitychange', onVisibility);
 }
 
+/** Como `Empezar` en la app: una locución muda y el audio desbloqueados dentro del toque. */
+const chime = webAudioChime();
+function unlock() {
+    chime.unlock();
+    const u = utter(' ', 'es');
+    u.volume = 0;
+    speechSynthesis.speak(u);
+}
+
+/** Dice un título sin gesto del usuario y mide si el navegador llega a empezarlo. */
+function sayLater(title: string, key: string, out: HTMLElement, withChime: boolean) {
+    const u = utter(title, 'es');
+    let asked = Date.now();
+    let started = false;
+    u.onstart = () => {
+        started = true;
+        results[key] = `empezó a los ${Date.now() - asked} ms`;
+        out.textContent = `El navegador empezó a decir «${title}». Indica abajo qué has oído.`;
+        out.className = 'result ok';
+        renderReport();
+    };
+    if (withChime) chime.play();
+    // En la app el título va justo después del aviso.
+    setTimeout(
+        () => {
+            asked = Date.now();
+            speechSynthesis.speak(u);
+        },
+        withChime ? 700 : 0,
+    );
+    setTimeout(() => {
+        if (started) return;
+        results[key] = 'no empezó en 8 s';
+        out.textContent = 'El navegador no llegó a decir el título. Indica abajo si oíste el aviso.';
+        out.className = 'result warn';
+        renderReport();
+    }, 8000);
+}
+
+function deferredTest() {
+    stopNarration();
+    unlock();
+    const out = $('deferred-result');
+    out.className = 'result';
+    let left = 10;
+    out.textContent = `Preparado. No toques la pantalla: suena en ${left} s…`;
+    const id = setInterval(() => {
+        left--;
+        if (left > 0) {
+            out.textContent = `Preparado. No toques la pantalla: suena en ${left} s…`;
+            return;
+        }
+        clearInterval(id);
+        sayLater(texts.announce.title, 'anuncio_diferido_inicio', out, true);
+        $('step-deferred').classList.add('done');
+    }, 1000);
+}
+
+function deferredBackTest() {
+    stopNarration();
+    unlock();
+    const out = $('deferred-back-result');
+    out.className = 'result';
+    out.textContent = 'Preparado. Bloquea el móvil ahora y vuelve en unos 10 segundos, sin tocar la pantalla.';
+    let hiddenAt = 0;
+    const onVisibility = () => {
+        if (document.visibilityState === 'hidden') {
+            hiddenAt = Date.now();
+            return;
+        }
+        if (!hiddenAt) return;
+        document.removeEventListener('visibilitychange', onVisibility);
+        results.anuncio_al_volver_oculta = `${Math.round((Date.now() - hiddenAt) / 1000)} s`;
+        out.textContent = 'Has vuelto. En 3 segundos suena el título…';
+        setTimeout(() => sayLater(texts.long.title, 'anuncio_al_volver_inicio', out, false), 3000);
+    };
+    document.addEventListener('visibilitychange', onVisibility);
+}
+
 // ---- Informe ---------------------------------------------------------------------------
 
 function renderReport() {
@@ -276,6 +356,8 @@ function wire() {
     $('cutoff-stop').onclick = () => speechSynthesis.cancel();
     $('native-pause').onclick = nativePauseTest;
     $('screen').onclick = screenOffTest;
+    $('deferred').onclick = deferredTest;
+    $('deferred-back').onclick = deferredBackTest;
 
     document.querySelectorAll<HTMLFieldSetElement>('.rate').forEach((set) => {
         set.querySelectorAll('button').forEach((b) => {
