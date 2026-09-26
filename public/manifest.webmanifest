@@ -1,6 +1,6 @@
 {
-    "name": "Bytheway",
-    "short_name": "Bytheway",
+    "name": "ByTheWay",
+    "short_name": "ByTheWay",
     "description": "Guía turístico virtual: te avisa al pasar junto a cada lugar y te cuenta su historia.",
     "lang": "es",
     "start_url": "./",

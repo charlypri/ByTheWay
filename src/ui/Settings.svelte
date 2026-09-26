@@ -114,7 +114,7 @@
         <span class="set-hint">{app.t('startOverHint')}</span>
         <button bind:this={startOverBtn} class="btn-wide btn-outline" type="button" onclick={openConfirm}>{app.t('startOver')}</button>
     </div>
-    <p class="build">Bytheway {__BUILD__}</p>
+    <p class="build">ByTheWay {__BUILD__}</p>
 </div>
 
 {#if confirming}

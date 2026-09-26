@@ -1,4 +1,4 @@
-# Bytheway
+# ByTheWay
 
 Guía turístico virtual para el móvil: anuncia en voz alta los lugares curados a medida que el usuario se acerca a ellos, y los narra si el usuario lo pide. Por convención editorial, cada narración termina con un "Por cierto…", la anécdota que da nombre a la aplicación.
 

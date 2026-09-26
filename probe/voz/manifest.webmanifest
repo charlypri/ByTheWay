@@ -1,7 +1,7 @@
 {
-    "name": "Prueba de voz de Bytheway",
+    "name": "Prueba de voz de ByTheWay",
     "short_name": "Prueba de voz",
-    "description": "Comprueba la voz del móvil instalada como app, igual que Bytheway.",
+    "description": "Comprueba la voz del móvil instalada como app, igual que ByTheWay.",
     "lang": "es",
     "start_url": "./",
     "scope": "./",

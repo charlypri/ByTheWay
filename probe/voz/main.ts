@@ -1,4 +1,4 @@
-// Prueba de voz (issue #2): ¿vale la Web Speech API de este móvil para Bytheway?
+// Prueba de voz (issue #2): ¿vale la Web Speech API de este móvil para ByTheWay?
 import { webAudioChime } from '../../src/app/chime';
 import { parseKml, type Lang } from '../../src/lib/kml';
 import { bestVoice, splitSentences, voicesReady } from '../../mocks/shared/speech';
@@ -31,7 +31,7 @@ const supported = 'speechSynthesis' in window;
 async function init() {
     $('device').textContent = navigator.userAgent;
     if (!supported) {
-        $('voice-summary').textContent = 'Este navegador no tiene síntesis de voz. Bytheway necesitaría audios pregenerados.';
+        $('voice-summary').textContent = 'Este navegador no tiene síntesis de voz. ByTheWay necesitaría audios pregenerados.';
         $('voice-summary').className = 'result warn';
         results.soporte = 'sin speechSynthesis';
         document.querySelectorAll<HTMLButtonElement>('.step:not(#step-report) button').forEach((b) => (b.disabled = true));
@@ -327,7 +327,7 @@ function deferredBackTest() {
 
 function renderReport() {
     const lines = [
-        'Bytheway · prueba de voz',
+        'ByTheWay · prueba de voz',
         `Fecha: ${new Date().toISOString()}`,
         `Navegador: ${navigator.userAgent}`,
         `Modo: ${matchMedia('(display-mode: standalone)').matches ? 'PWA instalada' : 'navegador'}`,
@@ -381,7 +381,7 @@ function wire() {
     };
     if ('share' in navigator) {
         $('share').hidden = false;
-        $('share').onclick = () => void navigator.share({ title: 'Bytheway · prueba de voz', text: $<HTMLTextAreaElement>('report').value }).catch(() => {});
+        $('share').onclick = () => void navigator.share({ title: 'ByTheWay · prueba de voz', text: $<HTMLTextAreaElement>('report').value }).catch(() => {});
     }
 }
 

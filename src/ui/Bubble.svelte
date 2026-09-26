@@ -20,7 +20,8 @@
         const margin = 12;
         const left = Math.min(Math.max(p.x - w / 2, margin), window.innerWidth - w - margin);
         const tip = Math.min(Math.max(p.x - left, 20), w - 20);
-        const lift = poiState === 'playing' ? 30 : 24;
+        // Medio icono del mapa (icons.ts) más el pico de la burbuja.
+        const lift = poiState === 'playing' ? 46 : 36;
         const offscreen = p.x < 0 || p.x > window.innerWidth || p.y < 0 || p.y > window.innerHeight;
         el.style.visibility = offscreen ? 'hidden' : '';
         el.style.setProperty('--tip', `${Math.round(tip)}px`);

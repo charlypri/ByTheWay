@@ -1,4 +1,4 @@
-// Service worker de Bytheway (sección 13). Lo genera el build, que rellena VERSION y PRECACHE
+// Service worker de ByTheWay (sección 13). Lo genera el build, que rellena VERSION y PRECACHE
 // con la lista exacta de ficheros de la app. Nada sale del móvil salvo las peticiones del mapa.
 const VERSION = '__VERSION__';
 /** Rutas relativas al scope: la app, sus chunks, el worker de MapLibre, el manifest y los iconos. */

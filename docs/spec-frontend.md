@@ -1,4 +1,4 @@
-# Especificación de frontend · Bytheway v0.1.0
+# Especificación de frontend · ByTheWay v0.1.0
 
 Qué hace la app, pantalla a pantalla, y qué reglas sigue. Los términos en **negrita** están definidos en el [glosario](../CONTEXT.md); las decisiones de fondo, en los [ADR](adr/). Donde este documento y un mock no coincidan, manda este documento. La dirección visual se decide con los mocks (#4) y completará la sección 10.
 
@@ -237,7 +237,7 @@ Contenido de la pantalla:
 
 ## 13. PWA y offline
 
-- **Instalación:** manifest con nombre "Bytheway", iconos y color de tema. Se puede usar desde el navegador o instalada.
+- **Instalación:** manifest con nombre "ByTheWay", iconos y color de tema. Se puede usar desde el navegador o instalada.
 - **Service worker:** precarga la app (la lista exacta de ficheros la genera el build). Una versión nueva de la app se instala en segundo plano y se usa al volver a abrirla. Los KML van primero a la red y, sin ella, a la última copia, para que una versión nueva llegue en menos de 30 min. Las tipografías se guardan al verlas. Las teselas y estilos de TomTom no se precargan; solo quedan en la caché del navegador las ya vistas.
 - **Wake Lock:** se pide al empezar y se re-adquiere en `visibilitychange`.
 

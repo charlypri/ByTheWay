@@ -3,7 +3,7 @@
 import type { PoiState } from '../lib/guide';
 
 export const COLORS = { ink: '#15181B', red: '#DF1B12', amber: '#FFB100', grey: '#8A9199', blue: '#1F6FEB' };
-const ICON_SCALE = 1.4;
+const ICON_SCALE = 2.6;
 
 /** Dibuja un icono en un lienzo a 2x y lo devuelve como ImageData para el mapa. */
 export function drawIcon(size: number, draw: (ctx: CanvasRenderingContext2D, s: number) => void): ImageData {
@@ -94,8 +94,12 @@ export function poiIcons(): Record<PoiState, ImageData> {
 }
 
 /** Flecha del usuario; gris mientras el GPS no tiene precisión suficiente. */
+/** La flecha se dibuja en una caja de 44 y se muestra a PUCK_PX. */
+const PUCK_PX = 54;
+
 export function puckIcon(fill: string): ImageData {
-    return drawIcon(44, (x) => {
+    return drawIcon(PUCK_PX, (x) => {
+        x.scale(PUCK_PX / 44, PUCK_PX / 44);
         x.save();
         x.shadowColor = 'rgba(0,0,0,0.45)';
         x.shadowBlur = 5;
