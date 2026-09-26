@@ -39,12 +39,16 @@ Lectura en voz alta de la Descripción completa de un POI. Solo empieza cuando e
 _Avoid_: reproducción manual, audio, locución
 
 **Sesión**:
-Conjunto de POIs anunciados en las últimas 12 horas. Mientras un POI está en la Sesión, una nueva Entrada no lo vuelve a anunciar. Cada POI sale de la Sesión 12 horas después de su Anuncio.
+Conjunto de POIs anunciados en las últimas 12 horas. Mientras un POI está en la Sesión, una nueva Entrada no lo vuelve a anunciar. Cada POI sale de la Sesión 12 horas después de su Anuncio, o antes si el usuario decide Empezar de cero.
 _Avoid_: visita, recorrido
 
 **Escuchado**:
-Estado permanente de un POI cuya Narración el usuario ha empezado alguna vez. Un POI escuchado no vuelve a anunciarse nunca, pero se puede volver a narrar a mano desde su ficha.
+Estado de un POI cuya Narración el usuario ha empezado alguna vez. Un POI escuchado no vuelve a anunciarse, pero se puede volver a narrar a mano desde su ficha. Solo deja de estarlo si el usuario decide Empezar de cero.
 _Avoid_: visto, visitado, completado
+
+**Empezar de cero**:
+Acción del usuario que vacía la Sesión y olvida todos los Escuchados, de modo que cada POI vuelve a anunciarse como si fuera la primera visita.
+_Avoid_: reiniciar sesión, borrar escuchados, resetear
 
 **Modo seguimiento**:
 Estado del mapa en el que la cámara sigue la posición del usuario y ajusta el zoom a su velocidad. Se abandona en cuanto el usuario mueve el mapa con el dedo y solo se recupera con "Recentrar".

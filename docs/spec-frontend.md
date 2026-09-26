@@ -41,8 +41,7 @@ Qué hace la app, pantalla a pantalla, y qué reglas sigue. Los términos en **n
 | Anuncio en cola cuando sales del radio | se descarta |
 | Sesión | un POI anunciado no se vuelve a anunciar en las 12 h siguientes a su Anuncio |
 | Escuchado | se marca al empezar la Narración; es permanente y el POI no se vuelve a anunciar nunca |
-| Borrar la Sesión | botón "Reiniciar sesión" en ajustes |
-| Borrar Escuchados | solo borrando los datos de la app |
+| Empezar de cero | un único botón en ajustes que vacía la Sesión y olvida los Escuchados, con confirmación |
 | Radios anidados o solapados | cada POI se evalúa por separado |
 
 Casos de referencia (se convierten en tests en el #6):
@@ -50,6 +49,7 @@ Casos de referencia (se convierten en tests en el #6):
 - **Parque de 1 km con una estatua de 20 m en su borde**, al entrar en ambos a la vez: primero el parque, luego la estatua (si sigues dentro de ella).
 - **Narración de 2 minutos**, entras en otro POI y sales antes de que acabe: ese POI no se anuncia y podrá anunciarse al volver.
 - **Recarga de la página** a mitad de paseo: la Sesión y los Escuchados se conservan.
+- **Empezar de cero** tras un paseo completo: todos los POIs vuelven a estar por escuchar y se anuncian otra vez.
 - **Narración escuchada en casa desde la ficha**: el POI ya es Escuchado y no se anunciará al pasar por él.
 
 ## 4. Pantallas
@@ -59,7 +59,7 @@ Casos de referencia (se convierten en tests en el #6):
 Primera pantalla de cada arranque.
 
 - **Contenido:** la marca, una frase que explica qué va a pasar ("Te avisaremos al pasar junto a cada lugar. Lleva la pantalla encendida."), un selector ES/EN y el botón **Empezar**.
-- **Idioma por defecto:** castellano si el navegador está en castellano; si no, inglés.
+- **Idioma por defecto:** castellano, sea cual sea el idioma del navegador. Si el usuario elige otro, se recuerda.
 - **Empezar**, dentro del mismo toque: pide el permiso de ubicación, desbloquea la voz (iOS la exige desde un gesto), activa el Wake Lock y empieza a seguir la posición.
 - Si hay una Sesión viva de menos de 12 h, el botón sigue diciendo "Empezar": la Sesión se conserva sin preguntar.
 
@@ -69,8 +69,10 @@ Primera pantalla de cada arranque.
 - **Controles:**
   - **Recentrar**: solo visible fuera del Modo seguimiento; grande y en la zona del pulgar.
   - **Brújula**: indica el rumbo. Tocarla fija el norte arriba; volver a tocarla lo desbloquea.
+  - **2D/3D**: cambia entre el mapa inclinado y el plano (sección 6).
   - **Ajustes**.
-- **Zona inferior:** la tarjeta del Anuncio, el reproductor o nada, según el estado. Su altura se pasa a la cámara como `padding` para que el usuario nunca quede tapado.
+- **No se muestra la velocidad** del usuario: solo se usa para el zoom y la inclinación de la cámara.
+- **Zona inferior:** la tarjeta del Anuncio o el reproductor (4.5 y 4.6). Si no hay ninguno de los dos, no se muestra nada: solo el mapa. No hay un panel de "próximo POI" al estilo navegador. Su altura se pasa a la cámara como `padding` para que el usuario nunca quede tapado.
 
 ### 4.3 Burbuja
 
@@ -86,13 +88,14 @@ Hoja inferior que se abre desde la burbuja o desde la tarjeta del Anuncio.
 - **Contenido:** título, distancia, estado ("Escuchado" si procede), el aviso "Solo en castellano" si no hay traducción, la Descripción completa y **▶ Escuchar**.
 - **Descripción:** se muestra tal cual la escribió el Editor, partida en párrafos solo para leerla. No se reconocen partes: el "Por cierto" no recibe ningún tratamiento especial.
 - **Sin descripción:** "Este lugar aún no tiene descripción." El botón Escuchar lee solo el título.
+- **Acciones arriba:** ▶ Escuchar (o Pausar/Seguir y Parar mientras suena) va justo debajo del título y la distancia, antes del texto, para no tener que bajar hasta el final.
 - **Se cierra** deslizando hacia abajo o con Cerrar. Mientras está abierta, el Modo seguimiento se pausa, y se reanuda al cerrarla si no se movió el mapa.
 
 ### 4.5 Tarjeta del Anuncio
 
-Aparece al anunciarse un POI.
+Aparece al anunciarse un POI. Como toda tarjeta de un POI, muestra la distancia en vivo hasta él.
 
-- **Contenido:** título, distancia en vivo y **▶ Escuchar**. Tocar el título abre la ficha.
+- **Contenido:** "Estás aquí" o la distancia, el título, **▶ Escuchar** y **Leer**, que abre la ficha.
 - **Duración:** se mantiene mientras el usuario está dentro del radio y 30 s después de salir. Se puede descartar deslizándola.
 - Si llega un nuevo Anuncio, sustituye a la tarjeta anterior.
 
@@ -109,10 +112,10 @@ Sustituye a la tarjeta mientras hay una Narración.
 
 Contenido de la pantalla:
 - **Idioma:** ES/EN. Cambia a la vez la interfaz, el contenido, la voz y las etiquetas del mapa.
-- **Mapa oscuro:** apagado por defecto. Cambia a `monoDark`.
 - **Voz:** la elegida automáticamente, con la lista de las disponibles para el idioma actual.
 - **Modo bolsillo.**
-- **Reiniciar sesión.** Pide confirmación: "Se volverán a anunciar los lugares de las últimas 12 horas."
+- **Empezar de cero.** Pide confirmación: "Se volverán a anunciar todos los lugares, también los que ya escuchaste."
+- No hay ajuste de tema: el oscuro es automático (sección 5).
 
 ### 4.8 Modo bolsillo
 
@@ -134,7 +137,7 @@ Contenido de la pantalla:
 ## 5. Mapa
 
 - **SDK:** TomTom Maps SDK JS (`@tomtom-org/maps-sdk`), que usa MapLibre GL por debajo. El worker de MapLibre se empaqueta aparte y se registra con `setWorkerUrl`.
-- **Estilo:** `monoLight` por defecto y `monoDark` en ajustes. Etiquetas del mapa en el idioma de la app.
+- **Estilo:** el mapa estándar con color, `standardLight`. Pasa a `standardDark`, junto con toda la interfaz, si el sistema pide tema oscuro o si es de noche en la posición del usuario (del atardecer al amanecer, calculado con la fecha y las coordenadas). Se revisa como mucho una vez por minuto. Etiquetas del mapa en el idioma de la app.
 - **POIs:** `CustomGeoJSONModule`, con un icono por estado:
 
   | Estado | Significado | Tratamiento |
@@ -145,9 +148,10 @@ Contenido de la pantalla:
   | sonando | Narración en curso | acento, dibujado encima del resto |
 
 - **Agrupación** por debajo de z14 (La Rioja frente a Madrid). Tocar un grupo acerca el zoom hasta separarlo.
-- **Etiquetas** de los POIs a partir de z16,5 y opcionales (desaparecen si colisionan).
+- **Etiquetas** de los POIs a partir de z16, de 14–15 px y con halo marcado para leerse sobre el mapa con color. Son opcionales: desaparecen si colisionan.
+- **Iconos** grandes (unos 30–34 px), legibles también con el mapa inclinado.
 - **Círculos de radio** en el POI seleccionado y en los de radio ≥ 200 m, dibujados con turf.
-- **Usuario:** marcador con rumbo y círculo de precisión.
+- **Usuario:** flecha azul con rumbo y círculo de precisión azul.
 
 ## 6. Modo seguimiento
 
@@ -161,6 +165,7 @@ Contenido de la pantalla:
 - **Cambio de tramo** con histéresis de ±1,5 km/h y transición suave (≈ 900 ms, *ease-out*).
 - **Orientación:** norte arriba a pie. Rumbo arriba a partir de 15 km/h, y vuelta al norte por debajo de 12 km/h. En rumbo arriba, el usuario se coloca en el tercio inferior para ver lo que viene. La brújula fija el norte arriba a cualquier velocidad.
 - **Rumbo:** `coords.heading` si existe y hay movimiento; si no, se calcula entre posiciones consecutivas.
+- **3D:** a pie la cámara se inclina 55° con edificios en 3D; en bici o coche pasa a plano para ver más lejos. El botón 2D/3D fija la opción contraria a la que se ve, a cualquier velocidad, hasta que se vuelva a tocar.
 - **Salir y volver:** arrastrar, hacer zoom o girar el mapa con los dedos abandona el Modo seguimiento, que no vuelve solo. **Recentrar** lo recupera con una animación de 600 ms.
 
 ## 7. Voz
@@ -183,7 +188,7 @@ Contenido de la pantalla:
 ## 9. Idiomas y textos
 
 - **Idiomas:** castellano e inglés, con un único ajuste. No se usan cadenas sueltas en el código: todas salen de un diccionario ES/EN.
-- **Tono:** frases cortas, en minúscula inicial, con verbos que dicen lo que pasa ("Escuchar", "Recentrar", "Reiniciar sesión"). Los errores explican qué ha pasado y qué hacer, sin disculpas.
+- **Tono:** frases cortas, en minúscula inicial, con verbos que dicen lo que pasa ("Escuchar", "Recentrar", "Empezar de cero"). Los errores explican qué ha pasado y qué hacer, sin disculpas.
 - **Formatos:** las distancias se redondean a 5 m por debajo de 1 km ("120 m") y con un decimal por encima ("1,2 km" / "1.2 km").
 
 | Clave | ES | EN |
@@ -196,13 +201,14 @@ Contenido de la pantalla:
 | escuchado | Escuchado | Heard |
 | solo en castellano | Solo en castellano | Spanish only |
 | modo bolsillo | Modo bolsillo | Pocket mode |
-| reiniciar sesión | Reiniciar sesión | Reset session |
+| empezar de cero | Empezar de cero | Start over |
 
 ## 10. Sistema visual
 
-- **Tipografía:** Noto Sans para el texto (es la de las etiquetas del mapa de TomTom) y Figtree como display en títulos y cifras. Las dos son libres, de Google Fonts. Los mocks prueban también la Descripción en serif (A) y Noto Sans en exclusiva (C).
+- **Dirección elegida (#4):** la base es la C (Mínima): interfaz clara, el mapa manda y los botones del mapa son pequeños y discretos. De la B (Navegador) se toman las tarjetas, los ajustes, los marcadores de estado y el marcador del usuario. Referencia: `mocks/final/`.
+- **Tipografía:** Noto Sans para el texto (es la de las etiquetas del mapa de TomTom) y Figtree en los títulos de las tarjetas y en las cifras. Las dos son libres, de Google Fonts.
 - **Escala tipográfica** (16 px de base): 13 · 15 · 16 · 20 · 26 · 34.
-- **Color:** se fija con la dirección elegida. Requisitos:
+- **Color** (paleta de la B): grafito para las tarjetas, rojo `#DF1B12` para lo que suena ahora, ámbar para anunciado, gris para escuchado y azul `#1F6FEB` para el usuario, Recentrar y el foco. Requisitos:
   - contraste AA en todo el texto;
   - los estados de los POIs se distinguen también por forma o marca, no solo por color;
   - el acento de "sonando" es único en la pantalla.
@@ -243,7 +249,6 @@ Contenido de la pantalla:
 
 | Tema | Se decide en |
 |---|---|
-| Dirección visual y tokens de color | #4 (mocks) |
 | Web Speech frente a MP3 | #2 (prueba de voz en dispositivos) |
 | Ruta de ejemplo del simulador fuera del Retiro | #13 |
 
