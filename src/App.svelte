@@ -1,38 +1,42 @@
 <script lang="ts">
-    const base = import.meta.env.BASE_URL;
+    import { onMount } from 'svelte';
+    import type { App } from './app/app.svelte';
+    import Bubble from './ui/Bubble.svelte';
+    import Dock from './ui/Dock.svelte';
+    import MapControls from './ui/MapControls.svelte';
+    import Sheet from './ui/Sheet.svelte';
+
+    let { app }: { app: App } = $props();
+    let container: HTMLElement;
+
+    onMount(() => {
+        void app.boot(container).then(() => app.start());
+    });
+
+    $effect(() => {
+        document.documentElement.lang = app.lang;
+    });
+
+    $effect(() => {
+        document.documentElement.dataset.theme = app.dark ? 'dark' : 'light';
+        document.querySelector('meta[name="theme-color"]')?.setAttribute('content', app.dark ? '#111315' : '#eef0f1');
+    });
+
+    function onKey(e: KeyboardEvent) {
+        if (e.key !== 'Escape') return;
+        if (app.sheet) app.closeSheet();
+        else if (app.selected) app.select(null);
+    }
 </script>
 
-<main>
-    <h1>by the way<span>.</span></h1>
-    <p class="lede">La guía que te cuenta lo que no ves al pasar. La versión 0.1.0 está en construcción.</p>
-    <nav>
-        <a href="{base}mocks/">Ver las propuestas de diseño</a>
-        <a href="{base}probe/voz/">Probar la voz en este móvil</a>
-    </nav>
-</main>
+<svelte:window onkeydown={onKey} />
+<svelte:body class:sheet-open={!!app.sheet} />
 
-<style>
-    main {
-        max-width: 34rem;
-        margin: 0 auto;
-        padding: 18vh 24px 48px;
-    }
-    h1 {
-        font: 800 clamp(2.6rem, 11vw, 4rem) / 0.95 var(--font-display);
-        letter-spacing: -0.03em;
-        margin: 0 0 20px;
-    }
-    h1 span { color: var(--accent); }
-    .lede { color: var(--muted); max-width: 26rem; margin: 0 0 40px; }
-    nav { display: grid; gap: 12px; }
-    a {
-        display: block;
-        padding: 16px 18px;
-        border: 1px solid var(--line);
-        border-radius: 14px;
-        color: var(--ink);
-        text-decoration: none;
-        font: 700 1.05rem var(--font-display);
-    }
-    a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
-</style>
+<div id="map" bind:this={container} role="application" aria-label={app.t('mapLabel')}></div>
+
+{#if app.mapReady}
+    <MapControls {app} />
+    <Bubble {app} />
+    <Dock {app} inert={!!app.sheet} />
+    <Sheet {app} />
+{/if}
