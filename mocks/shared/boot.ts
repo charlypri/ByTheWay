@@ -3,7 +3,7 @@ import { textFor, type Lang, type Poi } from '../../src/lib/kml';
 import { loadPois } from './data';
 import { Follow } from './follow';
 import { Guide, type Fix } from './guide';
-import { createGuideMap, type GuideMap, type MapTheme } from './map';
+import { createGuideMap, type GuideMap, type MapStyles, type MapTheme } from './map';
 import { Simulator, watchGps, type PositionSource, type SpeedProfile } from './position';
 import { Narrator, type NarrationProgress } from './speech';
 import { keepScreenOn } from './ui';
@@ -28,6 +28,12 @@ export interface MockUI {
     onSelect?(poi: Poi | null): void;
     /** El paseo simulado llegó al final de la ruta. */
     onSimEnd?(): void;
+    /** Estilos del mapa base; por defecto mono. */
+    mapStyles?: MapStyles;
+    /** Idioma si el usuario aún no ha elegido uno; por defecto, el del navegador. */
+    defaultLang?: Lang;
+    /** Tema al arrancar; por defecto el último elegido en ajustes. */
+    initialDark?(): boolean;
 }
 
 export class MockApp {
@@ -47,8 +53,9 @@ export class MockApp {
     private gps: PositionSource | null = null;
 
     constructor(private readonly ui: MockUI) {
-        this.lang = (localStorage.getItem(`btw-${ui.name}:lang`) as Lang) ?? (navigator.language.startsWith('es') ? 'es' : 'en');
-        this.dark = localStorage.getItem(`btw-${ui.name}:dark`) === '1';
+        this.lang =
+            (localStorage.getItem(`btw-${ui.name}:lang`) as Lang) ?? ui.defaultLang ?? (navigator.language.startsWith('es') ? 'es' : 'en');
+        this.dark = ui.initialDark ? ui.initialDark() : localStorage.getItem(`btw-${ui.name}:dark`) === '1';
         this.sim = new Simulator(
             (fix) => this.onFix(fix),
             () => this.ui.onSimEnd?.(),
@@ -64,7 +71,7 @@ export class MockApp {
         }
         await this.narrator.init();
         this.guide = new Guide(this.pois, `btw-${this.ui.name}`, (poi) => this.narrator.say(this.text(poi).title, this.text(poi).lang));
-        this.map = await createGuideMap(container, this.ui.theme(this.dark), { dark: this.dark, lang: this.lang });
+        this.map = await createGuideMap(container, this.ui.theme(this.dark), { dark: this.dark, lang: this.lang, styles: this.ui.mapStyles });
         this.follow = new Follow(this.map.ml, () => this.ui.bottomInset());
         this.follow.onChange = () => this.ui.onFollowChange();
 

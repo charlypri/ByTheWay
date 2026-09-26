@@ -29,8 +29,15 @@ export function nextBand(current: number, kmh: number): number {
     return i;
 }
 
+/** Inclinación de la cámara en 3D. */
+export const PITCH_3D = 55;
+
+export type TiltMode = 'auto' | '3d' | '2d';
+
 export class Follow {
     active = true;
+    /** `auto`: 3D a pie y plano a más velocidad. `3d`/`2d`: lo que eligió el usuario. */
+    tilt: TiltMode = '2d';
     headingUp = false;
     northLocked = false;
     band = 0;
@@ -50,6 +57,18 @@ export class Follow {
         map.on('rotatestart', leave);
     }
 
+    get pitched() {
+        return this.tilt === '3d' || (this.tilt === 'auto' && BANDS[this.band].name === 'walk');
+    }
+
+    /** El toggle fija lo contrario de lo que se ve ahora, a cualquier velocidad. */
+    toggleTilt() {
+        this.tilt = this.pitched ? '2d' : '3d';
+        this.onChange();
+        if (this.active) this.move(600);
+        else this.map.easeTo({ pitch: this.pitched ? PITCH_3D : 0, duration: 600 });
+    }
+
     get kmh() {
         return this.last?.speed != null ? this.last.speed * 3.6 : 0;
     }
@@ -63,10 +82,11 @@ export class Follow {
             : this.headingUp
               ? kmh >= HEADING_UP_OFF_KMH
               : kmh >= HEADING_UP_ON_KMH;
+        const wasPitched = this.pitched;
         const changed = band !== this.band || headingUp !== this.headingUp;
         this.band = band;
         this.headingUp = headingUp;
-        if (changed) this.onChange();
+        if (changed || wasPitched !== this.pitched) this.onChange();
         if (this.active) this.move(900);
     }
 
@@ -98,6 +118,7 @@ export class Follow {
             center: [this.last.lon, this.last.lat],
             zoom: BANDS[this.band].zoom,
             bearing: this.headingUp && this.last.heading != null ? this.last.heading : 0,
+            pitch: this.pitched ? PITCH_3D : 0,
             // Rumbo arriba: el usuario se coloca en el tercio inferior para ver lo que viene.
             padding: { top: this.headingUp ? inset * 0.2 + 160 : 0, bottom: inset, left: 0, right: 0 },
             duration,

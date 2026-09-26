@@ -136,7 +136,13 @@ export class Guide {
         this.emit('states', undefined);
     }
 
-    /** Solo existe en los mocks: en producción Escuchado solo se borra con los datos de la app. */
+    /** Empezar de cero: vacía la Sesión y olvida los Escuchados. */
+    resetAll() {
+        this.heard.clear();
+        save(`${this.storageKey}:heard`, []);
+        this.resetSession();
+    }
+
     resetHeard() {
         this.heard.clear();
         save(`${this.storageKey}:heard`, []);

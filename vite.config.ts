@@ -30,6 +30,7 @@ export default defineConfig({
                 editorial: page('mocks/editorial/index.html'),
                 navegador: page('mocks/navegador/index.html'),
                 minima: page('mocks/minima/index.html'),
+                final: page('mocks/final/index.html'),
                 voz: page('probe/voz/index.html'),
             },
         },

@@ -24,19 +24,23 @@ export function voicesReady(): Promise<SpeechSynthesisVoice[]> {
     });
 }
 
+function voiceScore(v: SpeechSynthesisVoice, lang: Lang) {
+    const locale = LOCALES[lang].findIndex((l) => v.lang.replace('_', '-').toLowerCase().startsWith(l.toLowerCase()));
+    if (locale < 0) return -1;
+    let s = 100 - locale * 10;
+    if (/premium|enhanced|natural|neural|google/i.test(v.name)) s += 5;
+    if (v.localService) s += 2;
+    return s;
+}
+
+/** Voces que sirven para un idioma, de mejor a peor. */
+export function voicesForLang(voices: SpeechSynthesisVoice[], lang: Lang): SpeechSynthesisVoice[] {
+    return voices.filter((v) => voiceScore(v, lang) >= 0).sort((a, b) => voiceScore(b, lang) - voiceScore(a, lang));
+}
+
 /** Elige la mejor voz disponible para un idioma: locale exacto, luego calidad aparente. */
 export function bestVoice(voices: SpeechSynthesisVoice[], lang: Lang): SpeechSynthesisVoice | undefined {
-    const score = (v: SpeechSynthesisVoice) => {
-        const locale = LOCALES[lang].findIndex((l) => v.lang.replace('_', '-').toLowerCase().startsWith(l.toLowerCase()));
-        if (locale < 0) return -1;
-        let s = 100 - locale * 10;
-        if (/premium|enhanced|natural|neural|google/i.test(v.name)) s += 5;
-        if (v.localService) s += 2;
-        return s;
-    };
-    return voices
-        .filter((v) => score(v) >= 0)
-        .sort((a, b) => score(b) - score(a))[0];
+    return voicesForLang(voices, lang)[0];
 }
 
 export interface NarrationProgress {
@@ -50,6 +54,10 @@ export class Narrator {
     private index = 0;
     private token = 0;
     lang: Lang = 'es';
+    /** Voz elegida a mano por idioma (`voiceURI`). Sin elegir, o si ya no existe, manda `bestVoice`. */
+    preferred: Partial<Record<Lang, string>> = {};
+    /** Las voces llegan tarde en algunos navegadores: avisa cuando cambia la lista. */
+    onVoices: () => void = () => {};
     onProgress: (p: NarrationProgress) => void = () => {};
     onEnd: () => void = () => {};
     speaking = false;
@@ -57,6 +65,23 @@ export class Narrator {
 
     async init() {
         this.voices = await voicesReady();
+        if ('speechSynthesis' in window) {
+            speechSynthesis.addEventListener('voiceschanged', () => {
+                this.voices = speechSynthesis.getVoices();
+                this.onVoices();
+            });
+        }
+    }
+
+    /** Voces disponibles para un idioma, de mejor a peor. */
+    voicesFor(lang: Lang): SpeechSynthesisVoice[] {
+        return voicesForLang(this.voices, lang);
+    }
+
+    /** La voz que sonará en ese idioma: la elegida o, si no, la mejor. */
+    voiceFor(lang: Lang): SpeechSynthesisVoice | undefined {
+        const uri = this.preferred[lang];
+        return (uri && this.voices.find((v) => v.voiceURI === uri)) || bestVoice(this.voices, lang);
     }
 
     /** iOS exige que la primera locución salga de un gesto del usuario. */
@@ -139,7 +164,7 @@ export class Narrator {
 
     private utterance(text: string, lang: Lang) {
         const u = new SpeechSynthesisUtterance(text);
-        const voice = bestVoice(this.voices, lang);
+        const voice = this.voiceFor(lang);
         if (voice) u.voice = voice;
         u.lang = voice?.lang ?? LOCALES[lang][0];
         u.rate = 1;

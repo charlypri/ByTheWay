@@ -1,7 +1,7 @@
 // Mapa TomTom para los mocks: POIs agrupados con estado, círculos de radio y posición del usuario.
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { TomTomConfig } from '@tomtom-org/maps-sdk/core';
-import { CustomGeoJSONModule, TomTomMap, type CustomGeoJSONModuleConfig } from '@tomtom-org/maps-sdk/map';
+import { CustomGeoJSONModule, TomTomMap, type CustomGeoJSONModuleConfig, type StandardStyleID } from '@tomtom-org/maps-sdk/map';
 import { circle } from '@turf/turf';
 import type { Feature, FeatureCollection, Point, Polygon } from 'geojson';
 import { setWorkerUrl, type GeoJSONSource, type Map as MapLibreMap } from 'maplibre-gl';
@@ -22,7 +22,11 @@ export interface MapTheme {
     /** Un icono por estado. Usa `drawIcon` para dibujarlos. */
     icons: Record<PoiState, ImageData>;
     puck: ImageData;
-    label: { color: string; halo: string; size?: number };
+    /** `minZoom`: a partir de qué zoom se ven los nombres de los POIs (16,5 por defecto).
+     *  `haloWidth` (1,5 por defecto) y `font` (Noto-Medium) son opcionales. */
+    /** Si los iconos reservan espacio, los nombres los esquivan; exige lienzos sin margen sobrante. */
+    iconsBlockLabels?: boolean;
+    label: { color: string; halo: string; size?: number; minZoom?: number; offset?: number; offsetPlaying?: number; haloWidth?: number; font?: string };
     radius: { fill: string; line: string };
     cluster: { fill: string; text: string; stroke?: string };
     accuracy: string;
@@ -90,6 +94,29 @@ function layersFor(theme: MapTheme): CustomGeoJSONModuleConfig<Sources>['sources
                     layout: { 'text-field': ['get', 'point_count_abbreviated'], 'text-font': ['Noto-Bold'], 'text-size': 13 },
                     paint: { 'text-color': theme.cluster.text },
                 },
+                // Nombres e iconos van en capas separadas y los iconos se dibujan encima: un nombre nunca tapa
+                // un icono. Con `iconsBlockLabels` los iconos reservan su espacio y un nombre que choca con
+                // cualquier icono se oculta; sin él, el nombre puede quedar por debajo de un icono vecino.
+                {
+                    id: 'poi-label',
+                    type: 'symbol',
+                    filter: ['!', ['has', 'point_count']],
+                    layout: {
+                        'symbol-sort-key': ['match', ['get', 'state'], 'playing', 0, 'pending', 1, 'announced', 2, 3],
+                        'text-field': ['step', ['zoom'], '', theme.label.minZoom ?? 16.5, ['get', 'title']],
+                        'text-font': [theme.label.font ?? 'Noto-Medium'],
+                        'text-size': theme.label.size ?? 12,
+                        'text-variable-anchor': ['top', 'bottom', 'right', 'left'],
+                        'text-radial-offset': ['match', ['get', 'state'], 'playing', theme.label.offsetPlaying ?? theme.label.offset ?? 1.4, theme.label.offset ?? 1.4],
+                        'text-justify': 'auto',
+                        'text-max-width': 9,
+                    },
+                    paint: {
+                        'text-color': theme.label.color,
+                        'text-halo-color': theme.label.halo,
+                        'text-halo-width': theme.label.haloWidth ?? 1.5,
+                    },
+                },
                 {
                     id: 'poi-symbol',
                     type: 'symbol',
@@ -97,19 +124,11 @@ function layersFor(theme: MapTheme): CustomGeoJSONModuleConfig<Sources>['sources
                     layout: {
                         'icon-image': ['concat', 'poi-', ['get', 'state']],
                         'icon-allow-overlap': true,
+                        'icon-ignore-placement': !theme.iconsBlockLabels,
+                        'icon-padding': 0,
                         'symbol-sort-key': ['match', ['get', 'state'], 'playing', 0, 'pending', 1, 'announced', 2, 3],
-                        'text-field': ['step', ['zoom'], '', 16.5, ['get', 'title']],
-                        'text-font': ['Noto-Medium'],
-                        'text-size': theme.label.size ?? 12,
-                        'text-offset': [0, 1.4],
-                        'text-anchor': 'top',
-                        'text-max-width': 9,
-                        'text-optional': true,
                     },
                     paint: {
-                        'text-color': theme.label.color,
-                        'text-halo-color': theme.label.halo,
-                        'text-halo-width': 1.5,
                         'icon-opacity': ['match', ['get', 'state'], 'heard', 0.7, 1],
                     },
                 },
@@ -133,9 +152,21 @@ function layersFor(theme: MapTheme): CustomGeoJSONModuleConfig<Sources>['sources
     };
 }
 
-export async function createGuideMap(container: string, theme: MapTheme, opts: { dark?: boolean; lang?: Lang } = {}): Promise<GuideMap> {
+export interface MapStyles {
+    light: StandardStyleID;
+    dark: StandardStyleID;
+}
+
+const MONO: MapStyles = { light: 'monoLight', dark: 'monoDark' };
+
+export async function createGuideMap(
+    container: string,
+    theme: MapTheme,
+    opts: { dark?: boolean; lang?: Lang; styles?: MapStyles } = {},
+): Promise<GuideMap> {
+    const styles = opts.styles ?? MONO;
     const tt = new TomTomMap({
-        style: opts.dark ? 'monoDark' : 'monoLight',
+        style: opts.dark ? styles.dark : styles.light,
         language: opts.lang === 'en' ? 'en-GB' : 'es-ES',
         mapLibre: { container, center: SIM_START, zoom: 16 },
     });
@@ -193,7 +224,7 @@ export async function createGuideMap(container: string, theme: MapTheme, opts: {
             );
         },
         setDark(dark, next) {
-            tt.setStyle(dark ? 'monoDark' : 'monoLight');
+            tt.setStyle(dark ? styles.dark : styles.light);
             module.applyConfig({ images, sources: layersFor(next) });
         },
         setLanguage(lang) {
