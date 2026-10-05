@@ -3,8 +3,7 @@
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { TomTomConfig } from '@tomtom-org/maps-sdk/core';
 import { BaseMapModule, CustomGeoJSONModule, TomTomMap, type CustomGeoJSONModuleConfig } from '@tomtom-org/maps-sdk/map';
-import { circle } from '@turf/turf';
-import type { Feature, FeatureCollection, Point, Polygon } from 'geojson';
+import type { Feature, FeatureCollection, GeoJsonProperties, Point, Polygon } from 'geojson';
 import { setWorkerUrl, type ExpressionSpecification, type GeoJSONSource, type Map as MapLibreMap } from 'maplibre-gl';
 // MapLibre 6 carga su worker por URL relativa, que se pierde al empaquetar: se lo damos ya empaquetado.
 import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
@@ -24,6 +23,20 @@ const CLUSTER_MAX_ZOOM = 13;
 const STYLES = { light: 'standardLight', dark: 'standardDark' } as const;
 /** El Retiro, mientras no hay posición. */
 export const DEFAULT_CENTER: [number, number] = [-3.6843, 40.4153];
+
+/** Círculo de `radiusM` metros alrededor de un punto, como polígono. Propio: turf pesaba 0,9 KB del JS inicial. */
+function circle(lon: number, lat: number, radiusM: number, steps: number, properties: GeoJsonProperties): Feature<Polygon> {
+    const rad = Math.PI / 180;
+    const d = radiusM / 6371008.8;
+    const [φ, λ] = [lat * rad, lon * rad];
+    const ring = Array.from({ length: steps + 1 }, (_, i) => {
+        const bearing = ((i % steps) * -2 * Math.PI) / steps;
+        const φ2 = Math.asin(Math.sin(φ) * Math.cos(d) + Math.cos(φ) * Math.sin(d) * Math.cos(bearing));
+        const λ2 = λ + Math.atan2(Math.sin(bearing) * Math.sin(d) * Math.cos(φ), Math.cos(d) - Math.sin(φ) * Math.sin(φ2));
+        return [λ2 / rad, φ2 / rad];
+    });
+    return { type: 'Feature', properties, geometry: { type: 'Polygon', coordinates: [ring] } };
+}
 
 type Sources = {
     radii: FeatureCollection<Polygon>;
@@ -195,7 +208,7 @@ export async function createGuideMap(container: HTMLElement, opts: { dark: boole
             void module.show(
                 {
                     type: 'FeatureCollection',
-                    features: circles.map((p) => circle([p.lon, p.lat], p.radius, { units: 'meters', steps: 64, properties: { selected: p.id === selectedId } })),
+                    features: circles.map((p) => circle(p.lon, p.lat, p.radius, 64, { selected: p.id === selectedId })),
                 },
                 'radii',
             );
@@ -209,7 +222,7 @@ export async function createGuideMap(container: HTMLElement, opts: { dark: boole
                 'user',
             );
             void module.show(
-                { type: 'FeatureCollection', features: [circle([fix.lon, fix.lat], Math.max(fix.accuracy, 1), { units: 'meters', steps: 48, properties: { weak } })] },
+                { type: 'FeatureCollection', features: [circle(fix.lon, fix.lat, Math.max(fix.accuracy, 1), 48, { weak })] },
                 'accuracy',
             );
         },

@@ -1,6 +1,6 @@
 import { execSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
-import { cpSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { cpSync, createReadStream, existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import type { Plugin } from 'vite';
 import { defineConfig } from 'vitest/config';
@@ -8,6 +8,7 @@ import { svelte } from '@sveltejs/vite-plugin-svelte';
 
 const BASE = '/ByTheWay/';
 const DATA = resolve(import.meta.dirname, 'data');
+const VOICE = resolve(import.meta.dirname, '.voice');
 
 /** La lista de ficheros de data/: un navegador no puede listar una carpeta (ADR 0004). */
 const manifest = () => JSON.stringify({ files: readdirSync(DATA).filter((f) => f.toLowerCase().endsWith('.kml')).sort() });
@@ -29,6 +30,39 @@ const publishData = (): Plugin => ({
         writeFileSync(resolve(out, 'index.json'), manifest());
     },
 });
+
+/** Los audios de la voz que tiene .voice/index.json (`npm run voice`). Sin ellos, la app usa la voz del navegador. */
+const voiceClips = (): string[] => (existsSync(resolve(VOICE, 'index.json')) ? JSON.parse(readFileSync(resolve(VOICE, 'index.json'), 'utf8')) : []);
+
+// Los audios de la voz Elvira (ADR 0006): en el build se copian a dist/audio/; en desarrollo se sirven de .voice/.
+const publishVoice = (): Plugin => {
+    let build = false;
+    return {
+        name: 'publish-voice',
+        configResolved(config) {
+            build = config.command === 'build';
+        },
+        configureServer(server) {
+            server.middlewares.use((req, res, next) => {
+                const m = /\/audio\/([0-9a-f]+\.mp3)$/.exec(req.url?.split('?')[0] ?? '');
+                if (!m) return next();
+                // Como en Pages: sin audio, un 404 (y no la app), y la app usa la voz del navegador.
+                if (!existsSync(resolve(VOICE, m[1]))) return void res.writeHead(404).end();
+                res.setHeader('Content-Type', 'audio/mpeg');
+                createReadStream(resolve(VOICE, m[1])).pipe(res);
+            });
+        },
+        // También se llama al cerrar el servidor de desarrollo, que no debe escribir en dist/.
+        closeBundle() {
+            if (!build) return;
+            const clips = voiceClips();
+            const out = resolve(import.meta.dirname, 'dist/audio');
+            mkdirSync(out, { recursive: true });
+            clips.forEach((f) => cpSync(resolve(VOICE, f), resolve(out, f)));
+            console.log(`voz: ${clips.length} audios en dist/audio/`);
+        },
+    };
+};
 
 interface ManifestChunk {
     file: string;
@@ -81,7 +115,7 @@ export default defineConfig({
     base: BASE,
     envPrefix: ['VITE_', 'TOMTOM_'],
     define: { __BUILD__: JSON.stringify(buildName()) },
-    plugins: [svelte(), publishData(), serviceWorker()],
+    plugins: [svelte(), publishData(), publishVoice(), serviceWorker()],
     // MapLibre usa campos de clase nativos; sin esnext sus workers fallan en silencio.
     // Solo se publica la app (index.html). El mock final y la prueba de voz se ven con `npm run dev`.
     build: {

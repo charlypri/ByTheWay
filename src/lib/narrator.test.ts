@@ -1,4 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+import type { ClipPlayer, ClipResult } from './clips';
 import { narrationSentences, splitSentences, WebSpeechNarrator, type SpeechSynthesisLike } from './narrator';
 import { memoryStore, type KeyValueStore } from './storage';
 
@@ -203,5 +204,131 @@ describe('Voces', () => {
         synth.loadVoices([helena]);
         expect(changed).toHaveBeenCalled();
         expect(n.voiceFor('es')?.name).toBe('Microsoft Helena');
+    });
+});
+
+describe('Voces del móvil', () => {
+    it('deja al final las voces robóticas de iOS', () => {
+        const eddy = voice('Eddy (Español (España))', 'es-ES');
+        const grandma = voice('Grandma (Español (España))', 'es-ES');
+        const monica = voice('Mónica', 'es-ES');
+        const { n } = narrator(fakeSynth([eddy, grandma, monica]));
+        expect(n.voiceFor('es')?.name).toBe('Mónica');
+        expect(n.voicesFor('es').map((v) => v.name)).toEqual(['Mónica', 'Eddy (Español (España))', 'Grandma (Español (España))']);
+    });
+});
+
+/** Audios pregenerados falsos: `available` dice qué textos tienen audio. */
+function fakeClips(available: string[]) {
+    const plays: { text: string; finish: (r: ClipResult) => void }[] = [];
+    const calls: string[] = [];
+    const clips: ClipPlayer & { plays: typeof plays; calls: string[] } = {
+        plays,
+        calls,
+        voice: { id: 'clips:elvira', name: 'Elvira', lang: 'es-ES' },
+        lang: 'es',
+        unlock: () => calls.push('unlock'),
+        play(text) {
+            if (!available.includes(text)) return Promise.resolve('missing');
+            return new Promise((finish) => plays.push({ text, finish }));
+        },
+        pause: () => calls.push('pause'),
+        resume: () => calls.push('resume'),
+        stop() {
+            calls.push('stop');
+            plays.splice(0).forEach((p) => p.finish('stopped'));
+        },
+        prefetch: (text) => calls.push(`prefetch ${text}`),
+    };
+    return clips;
+}
+
+const tick = () => new Promise((r) => setTimeout(r));
+
+describe('Audios pregenerados', () => {
+    const monica = voice('Mónica', 'es-ES');
+    const daniel = voice('Daniel', 'en-GB');
+
+    function withClips(available: string[]) {
+        const synth = fakeSynth([monica, daniel]);
+        const clips = fakeClips(available);
+        const n = new WebSpeechNarrator({ synth, utterance, store, clips });
+        const end = vi.fn();
+        n.on('end', end);
+        return { n, synth, clips, end };
+    }
+
+    it('en castellano, Elvira es la voz recomendada y la elegida por defecto', () => {
+        const { n } = withClips([]);
+        expect(n.voicesFor('es').map((v) => v.name)).toEqual(['Elvira', 'Mónica']);
+        expect(n.voiceFor('es')?.name).toBe('Elvira');
+        expect(n.voicesFor('en').map((v) => v.name)).toEqual(['Daniel']);
+    });
+
+    it('lee la Narración con los audios y adelanta la descarga de la frase siguiente', async () => {
+        const { n, synth, clips, end } = withClips(['Estanque.', 'Una.']);
+        n.narrate('Estanque', 'Una.', 'es');
+        expect(clips.plays.map((p) => p.text)).toEqual(['Estanque.']);
+        expect(clips.calls).toContain('prefetch Una.');
+        clips.plays[0].finish('end');
+        await tick();
+        expect(clips.plays.map((p) => p.text)).toEqual(['Estanque.', 'Una.']);
+        clips.plays[1].finish('end');
+        await tick();
+        expect(end).toHaveBeenCalledOnce();
+        expect(synth.spoken).toHaveLength(0);
+    });
+
+    it('una frase sin audio la dice la voz del móvil, y luego sigue con los audios', async () => {
+        const { n, synth, clips } = withClips(['Estanque.', 'Tres.']);
+        n.narrate('Estanque', 'Dos. Tres.', 'es');
+        clips.plays[0].finish('end');
+        await tick();
+        expect(synth.spoken.map((u) => u.text)).toEqual(['Dos.']);
+        expect(synth.spoken[0].voice).toBe(monica);
+        synth.finish();
+        await tick();
+        expect(clips.plays.map((p) => p.text)).toEqual(['Estanque.', 'Tres.']);
+    });
+
+    it('pausar un audio lo deja a media frase y seguir lo retoma', () => {
+        const { n, clips } = withClips(['Estanque.']);
+        n.narrate('Estanque', '', 'es');
+        n.pause();
+        n.resume();
+        expect(clips.calls.slice(-2)).toEqual(['pause', 'resume']);
+        expect(clips.plays).toHaveLength(1);
+    });
+
+    it('el Anuncio suena con su audio y resuelve al cortarse', async () => {
+        const { n, clips } = withClips(['Estanque']);
+        const said = n.say('Estanque', 'es');
+        await tick();
+        expect(clips.plays.map((p) => p.text)).toEqual(['Estanque']);
+        n.stop();
+        await expect(said).resolves.toBeUndefined();
+    });
+
+    it('si se elige una voz del móvil, deja de usar los audios', () => {
+        const { n, synth, clips } = withClips(['Estanque.']);
+        n.setVoice('es', monica.voiceURI);
+        n.narrate('Estanque', '', 'es');
+        expect(clips.plays).toHaveLength(0);
+        expect(synth.spoken[0].voice).toBe(monica);
+        n.setVoice('es', 'clips:elvira');
+        expect(store.get('voices')).toEqual({});
+    });
+
+    it('en inglés no usa los audios', () => {
+        const { n, synth, clips } = withClips(['Pond.']);
+        n.narrate('Pond', '', 'en');
+        expect(clips.plays).toHaveLength(0);
+        expect(synth.spoken[0].voice).toBe(daniel);
+    });
+
+    it('desbloquea también el audio al empezar', () => {
+        const { n, clips } = withClips([]);
+        n.unlock();
+        expect(clips.calls).toEqual(['unlock']);
     });
 });

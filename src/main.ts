@@ -3,6 +3,7 @@ import App from './App.svelte';
 import { App as GuideApp } from './app/app.svelte';
 import { webAudioChime } from './app/chime';
 import { Catalog, httpText } from './lib/catalog';
+import { audioClips } from './lib/clips';
 import { browserNarrator } from './lib/narrator';
 import { browserGps, type PositionSource } from './lib/position';
 import { localStore } from './lib/storage';
@@ -49,7 +50,7 @@ const app = new GuideApp({
             return () => clearInterval(id);
         },
     }),
-    narrator: browserNarrator(store),
+    narrator: browserNarrator(store, audioClips(import.meta.env.BASE_URL)),
     position,
     now: Date.now,
     systemDark: { matches: () => dark.matches, onChange: (fn) => dark.addEventListener('change', fn) },
