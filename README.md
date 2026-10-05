@@ -2,7 +2,7 @@
 
 Guía turístico virtual para el móvil. Mientras paseas, la app te dice en voz alta el nombre de cada lugar curado junto al que pasas y, si quieres, te cuenta su historia completa. Cada historia termina con un "Por cierto…".
 
-Es una PWA sin backend: el mapa es de [TomTom](https://developer.tomtom.com/maps-sdk-js), la voz la sintetiza el propio navegador y los lugares salen de ficheros KML que el Editor prepara en Google Earth.
+Es una PWA sin backend: el mapa es de [TomTom](https://developer.tomtom.com/maps-sdk-js), la voz es Elvira, generada al desplegar (y la del móvil donde falta) y los lugares salen de ficheros KML que el Editor prepara en Google Earth.
 
 ## Estado
 
@@ -19,7 +19,7 @@ En desarrollo hacia la **v0.1.0**. El trabajo se sigue en el milestone [v0.1.0](
 
 Puedes tener varios conjuntos (`retiro.es.kml`, `rioja.es.kml`…): la app los suma. Un fichero sin `.es` o `.en` antes de `.kml` no se carga. Si un mismo punto aparece en dos ficheros, vale el del fichero que va antes por orden alfabético.
 
-Al subir un fichero se publica solo en un par de minutos (pestaña *Actions*), y los móviles que tengan la app abierta lo reciben en menos de 30 minutos. No hace falta tocar nada más.
+Al subir un fichero se publica solo en unos minutos (pestaña *Actions*), con la voz de las frases nuevas ya generada, y los móviles que tengan la app abierta lo reciben en menos de 30 minutos. No hace falta tocar nada más.
 
 Para probar los lugares sin salir de casa, abre la app con `?sim` al final de la dirección (por ejemplo, `…/ByTheWay/?sim`). Aparece el chip *Simulador*: da un paseo por el Retiro a pie, en bici o en coche, y en cualquier otra zona basta con arrastrar la flecha hasta el lugar.
 
@@ -31,6 +31,8 @@ npm install
 npm run dev            # http://localhost:5173/ByTheWay/
 npm test
 ```
+
+Para oír la voz Elvira en local, genera los audios una vez (y otra cuando cambien los KML) con `pip install edge-tts` y `npm run voice`. Sin ellos, todo lo lee la voz del navegador.
 
 GitHub Pages publica solo la app. Lo demás se abre en local con `npm run dev`:
 

@@ -6,6 +6,8 @@ const PRECACHE = __PRECACHE__;
 
 const APP_CACHE = `btw-app-${VERSION}`;
 const DATA_CACHE = 'btw-data';
+/** Los audios de la voz: se guardan al escucharlos y no caducan, porque su nombre es el hash del texto. */
+const AUDIO_CACHE = 'btw-audio';
 const FONT_CACHE = 'btw-fonts';
 const SCOPE = new URL(self.registration.scope);
 
@@ -33,6 +35,7 @@ self.addEventListener('fetch', (event) => {
         const path = url.pathname.slice(SCOPE.pathname.length);
         // Los KML, primero de la red: una versión nueva tiene que llegar en menos de 30 minutos.
         if (path.startsWith('data/')) return event.respondWith(networkFirst(request, DATA_CACHE));
+        if (path.startsWith('audio/')) return event.respondWith(cacheFirst(request, AUDIO_CACHE));
         // La app arranca sin red: cualquier navegación dentro del scope abre la app.
         if (request.mode === 'navigate') return event.respondWith(cacheFirst(new Request(SCOPE), APP_CACHE));
         return event.respondWith(cacheFirst(request, APP_CACHE));

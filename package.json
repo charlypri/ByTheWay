@@ -8,7 +8,8 @@
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "test": "vitest run",
-    "size": "node scripts/check-size.mjs"
+    "size": "node scripts/check-size.mjs",
+    "voice": "node scripts/voice.mjs"
   },
   "type": "module",
   "private": true,
@@ -24,7 +25,6 @@
   },
   "dependencies": {
     "@tomtom-org/maps-sdk": "^0.57.0",
-    "@turf/turf": "^7.4.0",
     "lodash-es": "^4.18.1",
     "maplibre-gl": "^6.11.2",
     "zod": "^4.6.5"

@@ -170,11 +170,13 @@ Contenido de la pantalla:
 
 ## 7. Voz
 
-- **Motor:** Web Speech API detrás de la interfaz `Narrador` (ADR 0005). Se validó en Android e iPhone en el #2; los MP3 pregenerados podrían entrar después sin tocar la guía.
-- **Voz:** la mejor disponible para el idioma, con preferencia por el locale exacto (es-ES, en-GB, en-US) y luego las voces de mejor calidad aparente. Se puede cambiar en ajustes.
+- **Motor**, detrás de la interfaz `Narrador`:
+  - **En castellano:** audios MP3 con la voz neuronal Elvira (es-ES), uno por frase (ADR 0006). Los genera el despliegue con `npm run voice` y la app los descarga al usarlos. Si falta el audio de una frase (frase nueva, sin red o fallo al generarla), esa frase la lee Web Speech.
+  - **En inglés:** siempre Web Speech (ADR 0005).
+- **Voz:** en castellano, Elvira. En ajustes se puede elegir también una voz del móvil. Entre las del móvil gana el locale exacto (es-ES, en-GB, en-US) y luego la calidad aparente; las voces Eloquence de iOS (Eddy, Flo, Grandma…) van al final.
 - **Narración:** el título, seguido de la Descripción partida en frases, con una locución por frase. Así se evita el corte de Chrome a los ~15 s y el progreso es preciso.
-- **Pausar/Seguir:** pausar cancela la frase en curso y seguir la repite desde el principio. `speechSynthesis.pause()` no es fiable en Android.
-- **Desbloqueo:** una locución silenciosa en el toque de Empezar (iOS).
+- **Pausar/Seguir:** con un audio, pausa a media frase y sigue donde estaba. Con Web Speech, pausar cancela la frase en curso y seguir la repite desde el principio, porque `speechSynthesis.pause()` no es fiable en Android.
+- **Desbloqueo:** en el toque de Empezar, una locución silenciosa y un audio de silencio (iOS).
 - **Se detiene** al cerrar la página. Con la pantalla bloqueada no hay garantías (ADR 0002).
 
 ## 8. Datos
@@ -238,18 +240,19 @@ Contenido de la pantalla:
 ## 13. PWA y offline
 
 - **Instalación:** manifest con nombre "ByTheWay", iconos y color de tema. Se puede usar desde el navegador o instalada.
-- **Service worker:** precarga la app (la lista exacta de ficheros la genera el build). Una versión nueva de la app se instala en segundo plano y se usa al volver a abrirla. Los KML van primero a la red y, sin ella, a la última copia, para que una versión nueva llegue en menos de 30 min. Las tipografías se guardan al verlas. Las teselas y estilos de TomTom no se precargan; solo quedan en la caché del navegador las ya vistas.
+- **Service worker:** precarga la app (la lista exacta de ficheros la genera el build). Una versión nueva de la app se instala en segundo plano y se usa al volver a abrirla. Los KML van primero a la red y, sin ella, a la última copia, para que una versión nueva llegue en menos de 30 min. Las tipografías y los audios de la voz se guardan al usarlos; los audios no caducan, porque su nombre es el hash de su texto. Sin red, lo ya escuchado suena con Elvira y el resto con la voz del móvil. Las teselas y estilos de TomTom no se precargan; solo quedan en la caché del navegador las ya vistas.
 - **Wake Lock:** se pide al empezar y se re-adquiere en `visibilitychange`.
 
 ## 14. Limitaciones conocidas
 
 - **Pantalla bloqueada:** con el móvil bloqueado no hay posiciones ni Anuncios nuevos (ADR 0002).
-- **Voz en iOS:** Safari solo expone las voces básicas; las mejoradas no están disponibles para la web.
+- **Voz en iOS:** Safari solo expone las voces básicas; las mejoradas no están disponibles para la web. Por eso el castellano usa audios pregenerados (ADR 0006).
+- **Voz Elvira:** edge-tts usa el servicio de *Leer en voz alta* de Edge sin un acuerdo oficial. Si Microsoft lo corta, las frases nuevas se leen con la voz del móvil hasta cambiar de motor.
 - **Rumbo a baja velocidad:** a pie es ruidoso, por eso se mantiene el norte arriba.
 
 ## 15. Pendiente de decidir
 
-Nada por ahora. La voz (Web Speech frente a MP3) se decidió en el ADR 0005.
+Nada por ahora. La voz se decidió en los ADR 0005 y 0006.
 
 ## 16. Trazabilidad
 
@@ -259,6 +262,6 @@ Nada por ahora. La voz (Web Speech frente a MP3) se decidió en el ADR 0005.
 | 4 · Pantallas | #8, #10, #11 |
 | 5 · Mapa | #8 |
 | 6 · Modo seguimiento | #9 |
-| 7 · Voz | #2, #7 |
+| 7 · Voz | #2, #7, #30 |
 | 8 · Datos | #5 |
 | 12 y 13 · Rendimiento, PWA y offline | #12 |

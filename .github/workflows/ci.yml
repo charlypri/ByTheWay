@@ -25,6 +25,17 @@ jobs:
                   node-version: 24
                   cache: npm
             - run: npm ci
+            # La voz Elvira (ADR 0006): la caché trae los audios ya hechos y solo se generan los de frases nuevas.
+            - uses: actions/setup-python@v6
+              with:
+                  python-version: '3.12'
+            - run: pip install edge-tts==7.2.8
+            - uses: actions/cache@v4
+              with:
+                  path: .voice
+                  key: voice-${{ hashFiles('data/**', 'src/lib/clips.ts', 'src/lib/narrator.ts', 'src/lib/i18n.ts') }}
+                  restore-keys: voice-
+            - run: npm run voice
             - run: npm run check
             - run: npm test
             - run: npm run build

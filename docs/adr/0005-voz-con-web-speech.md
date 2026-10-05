@@ -1,5 +1,7 @@
 # La voz es la del navegador (Web Speech API), sin audios pregenerados
 
+> **Sustituido en parte por el [ADR 0006](0006-voz-elvira-pregenerada.md):** en castellano, la voz es Elvira, pregenerada en el despliegue. La voz del navegador queda para el inglés y para las frases sin audio.
+
 ByTheWay lee los Anuncios y las Narraciones con la síntesis de voz que trae el móvil. La duda era si esa voz basta en los móviles reales o si hay que generar un MP3 por POI e idioma. En el #2 se probó la página `probe/voz`:
 
 - en qué móviles: un Android con Chrome, y un iPhone con Safari y con la página instalada;
